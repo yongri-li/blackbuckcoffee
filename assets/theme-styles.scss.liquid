@@ -1658,7 +1658,7 @@ table {
         display: table;
         content: "";
     }
-    
+
     .slide-sub{
         letter-spacing: .02em;
         text-transform: capitalize;
@@ -1968,7 +1968,7 @@ table {
             background-repeat: no-repeat;
             border: 3px solid #fff;
             @include box-shadow(0, 0, 0, 1px $border_bt_sidebar);
-          	
+
             &.active {
                 @include box-shadow(0, 0, 1px, 2px #e95144);
             }
@@ -6732,11 +6732,11 @@ table {
         label {
             min-width: 34px;
             height: 34px;
-            border: 1px solid $border_color_2;
+            border-bottom: 1px solid $border_color_2;
             margin: 0;
             text-align: center;
             padding: 3px;
-            @include border-radius(17px);
+            @include border-radius(0px);
             line-height: $font_size + 14;
             color: $color_slick_arrow;
             cursor: pointer;
@@ -6761,13 +6761,13 @@ table {
                     content: "";
                     width: 100%;
                     height: 100%;
-                    border: 2px solid $color_slick_arrow;
+                    border-bottom: 2px solid $color_slick_arrow;
                     background-color: rgba(255, 255, 255, 0);
                     z-index: 2;
                     @include opacity(0);
                     visibility: hidden;
                     @include transition(opacity .2s linear);
-                    @include border-radius(17px);
+                    @include border-radius(0px);
                 }
             }
         }
@@ -6775,6 +6775,9 @@ table {
         &.color {
             label {
                 position: relative;
+                min-width: 64px;
+                height: 64px;
+                border-bottom: 0px solid $border_color_2;
 
                 &:after {
                     position: absolute;
@@ -6887,7 +6890,7 @@ table {
 
   .table-wrapper{
   	width:100%;
-    overflow-y:auto; 
+    overflow-y:auto;
   }
 
     .tab-links {
@@ -8923,13 +8926,13 @@ table {
             }
           }
         }
-      
+
         .panel-title a {
           @include flexbox();
           @include align-items(flex-start);
           span {
               padding: 9px 25px 7px 12px;
-            	
+
               &:before {
                   display: inline-block;
                   font-size: $font_size - 2;
@@ -12097,7 +12100,7 @@ table {
             left: 4px;
         }
 
-        
+
     }
 
     &:not(.isChecked) {
@@ -12328,7 +12331,7 @@ table {
     width: 0;
     left: -20px;
     width: 20px;
-    
+
     i {
       font-size: 24px;
       color: #000!important;
@@ -12349,7 +12352,7 @@ table {
   }
 }
 {% endunless %}
-// 
+//
 .blog-detail-custom-block{
     margin-top: 40px;
     // background-image: url(bg_middle-compressor.png);
@@ -12457,7 +12460,7 @@ table {
         }
     }
 }
-// 
+//
 .home-custom-block-bottom{
     // background-image: url(background-bottom-compressor.png);
     // background-repeat: no-repeat;
@@ -12609,7 +12612,7 @@ table {
         &.star2{
           svg{
             fill:#e0e0e0;
-          } 
+          }
           svg:nth-child(1){
             fill:#faa900;
           }
@@ -12664,7 +12667,7 @@ table {
     }
 
   .body-review {
-    color: $body_color; 
+    color: $body_color;
     font-size: $font_size;
     font-weight: 400;
     max-width: 450px;
@@ -12701,7 +12704,7 @@ table {
     }
   }
 }
-/* Homep Custom Instagram */ 
+/* Homep Custom Instagram */
 .home-custom-instagram{
     padding-bottom: 40px;
     #instafeed {
@@ -12798,7 +12801,7 @@ table {
         }
     }
 }
-// 
+//
 .checkbox-group{
     margin-bottom: 15px;
   	text-align: left;
@@ -12813,15 +12816,15 @@ table {
         pointer-events: none;
     }
 }
-/* Collection List */ 
+/* Collection List */
 .collection-list-page{
     .home-custom-block{
         .container{
-           
+
         }
     }
 }
-/* Custom Collection Products */ 
+/* Custom Collection Products */
 .custom-collection-products{
     overflow: hidden;
     .container{
@@ -12931,7 +12934,7 @@ table {
         a{
             position: relative;
             z-index: 2;
-            font-weight: 600;          
+            font-weight: 600;
             padding: 10px 15px 8px;
         }
         &:before{
@@ -13132,8 +13135,8 @@ table {
             }
         }
     }
-} 
-// 
+}
+//
 .template-page{
     .featured-products{
         .products-grid{
