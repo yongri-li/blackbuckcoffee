@@ -27,16 +27,16 @@
     "social_tumblr_link": "",
     "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
     "social_youtube_link": "",
-    "bg_menu_mb": "#fff",
-    "color_menu_mb": "#232323",
-    "border_color_menu_mb": "#ebebeb",
-    "color_menu_mb_lv1": "#232323",
-    "color_menu_mb_lv1_hover": "#0688e2",
-    "bg_color_menu_mb_lv1_hover": "#f8f8f8",
-    "color_menu_mb_lv2": "#232323",
-    "color_menu_mb_lv2_hover": "#232323",
-    "color_menu_mb_lv3": "#3c3c3c",
-    "color_menu_mb_lv3_hover": "#0688e2",
+    "bg_menu_mb": "#000000",
+    "color_menu_mb": "#ffffff",
+    "border_color_menu_mb": "rgba(0,0,0,0)",
+    "color_menu_mb_lv1": "#ffffff",
+    "color_menu_mb_lv1_hover": "#ffffff",
+    "bg_color_menu_mb_lv1_hover": "rgba(0,0,0,0)",
+    "color_menu_mb_lv2": "#ffffff",
+    "color_menu_mb_lv2_hover": "#ffffff",
+    "color_menu_mb_lv3": "#ffffff",
+    "color_menu_mb_lv3_hover": "#ffffff",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "body_font_size": "16",
     "enable_opengraph": true,
@@ -49,7 +49,7 @@
     "display_breadcrumb": true,
     "breadcrumb_color": "#999999",
     "breadcrumb_text_transform": "lowercase",
-    "page_title_font_size": "30",
+    "page_title_font_size": "50",
     "page_title_color": "#000000",
     "page_title_text_align": "left",
     "enable_sidebar_multiple_choice": true,
@@ -76,13 +76,13 @@
     "color_quick_view": "#ffffff",
     "bg_quick_view": "#000000",
     "color_wishlist": "#232323",
-    "bg_wishlist": "#ffe5e5",
+    "bg_wishlist": "#000000",
     "enable_hover_image": false,
     "enable_hover_product_image": false,
     "use_color_swatch": true,
     "option_color_swatch": "Grind",
     "color_swatch_style": "normal",
-    "enable_checkbox": true,
+    "enable_checkbox": false,
     "checkbox_text": "I agree with the terms and conditions",
     "btn_1_bg_color": "#232323",
     "btn_1_border_color": "#232323",
@@ -90,8 +90,8 @@
     "btn_2_bg_color": "#fff",
     "btn_2_border_color": "#232323",
     "btn_2_text_color": "#232323",
-    "btn_3_bg_color": "#e95144",
-    "btn_3_border_color": "#e95144",
+    "btn_3_bg_color": "#000000",
+    "btn_3_border_color": "#000000",
     "btn_3_text_color": "#ffffff",
     "display_popup_newsletter": false,
     "when_to_show": "first_time",
@@ -226,19 +226,19 @@
     "promotion_text_3": "",
     "btt_text": "Top",
     "checkout_header_image": "",
-    "checkout_logo_image": "",
-    "checkout_logo_position": "left",
-    "checkout_logo_size": "medium",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Outlined_Black_Buck_Logo.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
     "checkout_body_background_image": "",
     "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
-    "checkout_sidebar_background_color": "#fafafa",
-    "checkout_heading_font": "Helvetica Neue",
-    "checkout_body_font": "Helvetica Neue",
+    "checkout_sidebar_background_color": "#000000",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
     "checkout_accent_color": "#2d2d2d",
     "checkout_button_color": "#000000",
-    "checkout_error_color": "#ff6d6d",
+    "checkout_error_color": "#000000",
     "mailing_list_form_action": "\/\/myshopify.us9.list-manage.com\/subscribe\/post?u=f03cabb421b3912425cda25cc&amp;id=2b084b0139",
     "checkout_use_header_image": true,
     "checkout_logo": "checkout_logo.png",
@@ -1488,14 +1488,14 @@
               "heading": "BUCKING<br>GREAT<br> COFFEE.",
               "font_size_heading": "80px",
               "color_heading": "#ffffff",
-              "bg_heading_mb": "rgba(255, 255, 255, 0.88)",
+              "bg_heading_mb": "#000000",
               "sub_heading": "",
               "font_size_sub_heading": "30px",
               "color_sub_heading": "#fff",
               "slide-des": "",
               "font_size_des": "12px",
               "color_des": "#232323",
-              "button_slide": "Shop The Collection",
+              "button_slide": "Shop Now",
               "link": "",
               "bg_button": "#ffffff",
               "border_button": "#ffffff",
@@ -1526,9 +1526,9 @@
         ],
         "settings": {
           "layout": "full",
-          "margin_bottom_mb": 20,
+          "margin_bottom_mb": 0,
           "margin_bottom_tab": 20,
-          "margin_bottom": 30,
+          "margin_bottom": 100,
           "autoplay": true,
           "slideshow_speed": "9000",
           "slideshow_transition": "true",
@@ -1615,7 +1615,7 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "display_related_products": true,
+          "display_related_products": false,
           "related_products_title": "Related Products",
           "number_of_related_products": "8"
         }
@@ -1780,6 +1780,23 @@
       },
       "header-parallax": {
         "type": "header-parallax",
+        "blocks": {
+          "1587661089129": {
+            "type": "style_2",
+            "settings": {
+              "megamenu_items_2": "Shop",
+              "banner_first_style_2": "",
+              "link_banner_first_style_2": "",
+              "banner_second_style_2": "",
+              "link_banner_second_style_2": "",
+              "banner_third_style_2": "",
+              "link_banner_third_style_2": ""
+            }
+          }
+        },
+        "block_order": [
+          "1587661089129"
+        ],
         "settings": {
           "display_header_top": true,
           "top_message_text": "Mid-Season Sale Up to 70% OFF.",
@@ -1790,7 +1807,7 @@
           "brand_text": "",
           "logo_max_width": 200,
           "logo_text_color": "#000",
-          "logo": "shopify:\/\/shop_images\/Outlined_Black_Buck_Logo.png",
+          "logo": "shopify:\/\/shop_images\/White_Black_Buck_Logo.png",
           "max_height_logo_mb": "76px",
           "logo_pc": "shopify:\/\/shop_images\/White_WebBlack_Buck_Logo.png",
           "max_height_logo_pc": "100px",
@@ -1810,12 +1827,12 @@
           "color_menu_lv1": "#ffffff",
           "hover_color_mnu_lv1": "#ffffff",
           "font_size_mnu_lv1": "20px",
-          "color_menu_lv2": "#232323",
-          "hover_color_mnu_lv2": "#232323",
-          "font_size_mnu_lv2": "12px",
-          "color_menu_lv3": "#3c3c3c",
-          "hover_color_mnu_lv3": "#0688e2",
-          "font_size_mnu_lv3": "12px",
+          "color_menu_lv2": "#ffffff",
+          "hover_color_mnu_lv2": "#ffffff",
+          "font_size_mnu_lv2": "18px",
+          "color_menu_lv3": "#ffffff",
+          "hover_color_mnu_lv3": "#ffffff",
+          "font_size_mnu_lv3": "16px",
           "enable_sale": true,
           "lb_sale": "Sale",
           "sale_item": "",
@@ -2347,7 +2364,7 @@
           "display_footer_policies": true,
           "policies_border_color": "#595959",
           "icon_1": "",
-          "text_1": "MADE IN THE USA",
+          "text_1": "CERTIFIED ORGANIC COFFEE",
           "link_1": "",
           "icon_2": "",
           "text_2": "Free Shipping on all orders *",
@@ -2366,7 +2383,7 @@
           "newsletter_button_color": "#ffffff",
           "bg_footer_bottom_color": "#ffffff",
           "footer_bottom_color": "#000000",
-          "footer_address_code": "",
+          "footer_address_code": "© 2020 Black Buck Coffee. All Rights Reserved.",
           "show_payment_icons": false,
           "payment_display_visa": false,
           "payment_display_visa_electron": false,
@@ -2420,8 +2437,8 @@
         "type": "collection-header",
         "settings": {
           "display_collection_image": true,
-          "collection_image": "",
-          "display_collection_des": true,
+          "collection_image": "shopify:\/\/shop_images\/000000_6356deee-3f4f-4e51-ab82-b9a27998ad57.png",
+          "display_collection_des": false,
           "color_wrapper": "#fff",
           "height_img": "240px"
         }
@@ -2444,16 +2461,16 @@
           "sort_enable": false,
           "collection_results_per_row": "3",
           "collection_results_per_page": "20",
-          "show_banner_1": true,
+          "show_banner_1": false,
           "img_banner1": "",
           "link_banner_1": "",
-          "show_banner_2": true,
+          "show_banner_2": false,
           "img_banner2": "",
           "link_banner_2": "",
-          "show_banner_3": true,
+          "show_banner_3": false,
           "img_banner3": "",
           "link_banner_3": "",
-          "show_banner_4": true,
+          "show_banner_4": false,
           "img_banner4": "",
           "link_banner_4": ""
         }
@@ -2489,7 +2506,7 @@
           "dpl_customers_view": false,
           "title_view": "customers are viewing this product",
           "number_view": "283, 100, 59, 11, 14, 185, 193, 165, 50, 38, 99, 112, 46, 10, 125, 200, 250, 18",
-          "show_desc": "no-show",
+          "show_desc": "full",
           "display_subtotal": false,
           "display_qty": true,
           "display_product_detail_tag": false,
@@ -2497,11 +2514,11 @@
           "share_text": "Share",
           "display_trust_img": false,
           "show_tab": "horizontal_center",
-          "display_product_detail_description": true,
+          "display_product_detail_description": false,
           "product_description_title": "Description",
           "display_product_reviews": true,
           "product_review_title": "Customer Reviews",
-          "display_shipping_returns": true,
+          "display_shipping_returns": false,
           "shipping_returns_title": "Shipping & Returns",
           "shipping_returns_content": "",
           "display_custom_tab": false,
@@ -2590,10 +2607,128 @@
           "enable_bundle_discount": true,
           "bundle_discount_text": "Get a [discount]% discount buying these products together | Erhalten Sie einen Rabatt von [discount]%, wenn Sie diese Produkte zusammen kaufen"
         }
+      },
+      "1587659037945": {
+        "type": "home-about-us",
+        "settings": {
+          "display_border_top": false,
+          "title": "<br>Powerful, Flavor.",
+          "font_size_title": "40px",
+          "color_title": "#232323",
+          "des": "We use a blend of Robusta and Arabica coffee beans produced from Bali to provide the most powerful, flavorful & balanced cup of coffee. Packaged and shipped directly from the United States of America.",
+          "color_des": "#000000",
+          "margin_bottom": 70
+        }
+      },
+      "1587659609363": {
+        "type": "supermarket-product-tabs",
+        "blocks": {
+          "1587659637909": {
+            "type": "ProductTabs",
+            "settings": {
+              "title": "Coffee",
+              "collection": "coffee"
+            }
+          },
+          "1587659651287": {
+            "type": "ProductTabs",
+            "settings": {
+              "title": "Merchandise",
+              "collection": "merchandise"
+            }
+          },
+          "1587659664369": {
+            "type": "ProductTabs",
+            "settings": {
+              "title": "Mugs",
+              "collection": "mugs"
+            }
+          }
+        },
+        "block_order": [
+          "1587659637909",
+          "1587659651287",
+          "1587659664369"
+        ],
+        "settings": {
+          "featured_products_title": "Shop",
+          "display_banner": true,
+          "font_size_banner_heading": "40px",
+          "font_size_banner_des": "16px",
+          "bg_banner_button": "#fff",
+          "border_banner_button": "#fff",
+          "color_banner_button": "#232323",
+          "image_1": "shopify:\/\/shop_images\/Whole_Bean_Coffee_1024x1024_b5dccfcf-6fde-42f8-ae3e-c6a79a4f6e54.png",
+          "banner_heading_1": "JOIN THE CLUB",
+          "banner_des_1": "Subscribe & save to our coffee products for door step delivery as often as you need it. Keep going.",
+          "banner_button_1": "Join Now!",
+          "link_1": "shopify:\/\/products\/black-buck-coffee",
+          "color_banner_1": "#fff",
+          "image_2": "",
+          "banner_heading_2": "Milancelos",
+          "banner_des_2": "Phasellus lorem pulvinar maecenas cosmopolis",
+          "banner_button_2": "Shop Now",
+          "link_2": "",
+          "color_banner_2": "#fff",
+          "image_3": "",
+          "banner_heading_3": "Milancelos",
+          "banner_des_3": "Phasellus lorem pulvinar maecenas cosmopolis",
+          "banner_button_3": "Shop Now",
+          "link_3": "",
+          "color_banner_3": "#fff",
+          "collection_results_per_row": "2",
+          "margin_bottom_mb": 20,
+          "margin_bottom_tab": 40,
+          "margin_bottom": 70
+        }
+      },
+      "1587661746854": {
+        "type": "home-custom-block-baner",
+        "blocks": {
+          "1587661746854-0": {
+            "type": "largeImg",
+            "settings": {
+              "image": "",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Metropólis",
+              "font_size_banner_heading": "60px",
+              "color_banner_heading": "#232323",
+              "banner_des": "Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an tincidunt risus an consequat delit quisquemos.",
+              "font_size_banner_des": "16px",
+              "color_banner_des": "#232323",
+              "countdown": "",
+              "banner_button": "Shop The Looks",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
+          }
+        },
+        "block_order": [
+          "1587661746854-0"
+        ],
+        "settings": {
+          "layout": "full",
+          "widget_title": "",
+          "widget_des": "",
+          "title_style": "style_1",
+          "img_align": "center",
+          "margin_bottom_mb": 25,
+          "margin_bottom_tab": 30,
+          "margin_bottom": 30
+        }
       }
     },
     "content_for_index": [
-      "1540952363851"
+      "1540952363851",
+      "1587659037945",
+      "1587659609363",
+      "1587661746854"
     ]
   },
   "presets": {
