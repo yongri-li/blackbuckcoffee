@@ -12,9 +12,9 @@
 <div class="suppermarket-product-tabs home-product-tabs{% if section.settings.display_banner %} has-banner{% endif %}" id="product-tabs-{{section.id}}" data-home-product-tabs>
     <div class="container">
         {% if section.settings.featured_products_title != blank %}
-        <div class="widget-title not-before style-3">   
+        <div class="widget-title not-before style-3">
             <h3 class="box-title">
-                <span class="title"> 
+                <span class="title">
                     {% include 'multilang' with section.settings.featured_products_title %}
                 </span>
             </h3>
@@ -33,11 +33,11 @@
 
         <div class="row{% if section.settings.display_banner %} flex-md-row-reverse{% endif %}">
             <div class="col-12{% if section.settings.display_banner %} col-md-7 column-product{% else %} col-md-12{% endif %}">
-                <div class="widget-product suppermarket-widget-product">                   
+                <div class="widget-product suppermarket-widget-product">
                     <div class="product-tabs-content">
                         {% for block in section.blocks %}
                         <div class="tab-content{% if forloop.first %} active{% endif %}{% if section.settings.display_banner %} sections-has-banner{% endif %}" data-product-TabContent id="product-tab-{{ block.id }}">
-                            <div class="products-grid row {{ row }}" data-row="{{ section.settings.collection_results_per_row }}">
+                            <div class="products-grid row {{ row }}" {% if block.id == '1587659637909' %} data-row="1" {% else %} data-row="{{ section.settings.collection_results_per_row }}" {% endif %}>
                                 <div class="loading col-12"></div>
                             </div>
                         </div>
@@ -58,10 +58,10 @@
                                 class="lazyautosizes lazyloaded" data-sizes="auto">
 
                             {% else %}
-                            
+
                             <div class="not_img">
                                 450 x 470px
-                            </div>   
+                            </div>
                             {% endif %}
                         </a>
                     </div>
@@ -133,14 +133,14 @@
                         {% endif %}
                     </div>
                     {% endif %}
-                </div>  
+                </div>
                 {% endif %}
 
                 {% if section.settings.image_3 != blank %}
                 <div class="column-banner-inner">
                     <div class="img-box">
                         <a href="{{ section.settings.link_3 }}">
-                            {%- assign img_url = section.settings.image_3 | img_url: '600x' -%}                           
+                            {%- assign img_url = section.settings.image_3 | img_url: '600x' -%}
                             <img data-src="{{ img_url }}"
                                 src="{{ img_url }}" alt="{{ section.settings.image_3.alt | default: shop.name }}"
                                 class="lazyautosizes lazyloaded" data-sizes="auto">
@@ -174,8 +174,8 @@
                         {% endif %}
                     </div>
                     {% endif %}
-                </div> 
-                {% endif %} 
+                </div>
+                {% endif %}
             </div>
             {% endif %}
         </div>
@@ -183,7 +183,7 @@
 </div>
 
 <style>
-    {% assign margin_bottom =  section.settings.margin_bottom %} 
+    {% assign margin_bottom =  section.settings.margin_bottom %}
 
     {% if section.settings.display_banner %}
     #product-tabs-{{section.id}} .column-banner-inner .banner-button {
@@ -217,7 +217,7 @@
         #product-tabs-{{section.id}} {
             margin-bottom: {{ margin_bottom }}px;
         }
-    }	
+    }
 </style>
 
 {% schema %}
@@ -235,7 +235,7 @@
             "label": "Title",
             "default": "New In",
             "info": "================"
-        },        
+        },
         {
             "type": "header",
             "content": "Banner Image"
@@ -398,7 +398,7 @@
         {
             "type": "header",
             "content": "Widget Products"
-        }, 
+        },
         {
             "type": "select",
             "id": "collection_results_per_row",
@@ -422,7 +422,7 @@
                 }
             ],
             "default": "3"
-        },        
+        },
         {
             "type": "header",
             "content": "Margin Bottom:"
@@ -453,7 +453,7 @@
             "max": 100,
             "step": 1,
             "default": 13
-        } 	  
+        }
 	],
     "blocks" : [
         {
@@ -470,17 +470,15 @@
                 "type" : "collection",
                 "id" : "collection",
                 "label" : "Collection to use"
-            }          
+            }
             ]
         }
     ],
 	"presets": [
         {
             "name": "Product Tabs",
-            "category": "Supermarket"     
+            "category": "Supermarket"
         }
     ]
   }
 {% endschema %}
-
-

@@ -56,7 +56,7 @@
     <div class="header{% if size and settings.display_size_chart %} has-size-chart{% endif %}">
         {% include 'multilang' with swatch %}
         <em>*</em>
-        
+
     </div>
 
     {% assign values = '' %}
@@ -97,7 +97,7 @@
         </div>
         {% endunless %}
 
-        <input class="text" data-value="swatch-{{ option_index }}-{{ value | handle }}" type="hidden" data-value-sticky="{{ variant.id }}" />
+        <input class="text" data-value="swatch-{{ option_index }}-{{ value | handle }}" type="hidden" data-value-sticky="{{ variant.id }}" data-productid="{{product.id}}"/>
     {% endfor %}
 </div>
 {% endunless %}

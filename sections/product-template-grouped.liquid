@@ -1,5 +1,3 @@
-
-
 <div data-section-id="{{ section.id }}" data-section-type="product" id="ProductSection-{{ section.id }}" data-enable-history-state="true" data-collections-related="/collections/{{collection.handle}}?view=related">
     <div class="product product-grouped">
 
@@ -217,7 +215,9 @@
                 {% endif %}
                 {% endif %}
 
-                {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate' %}
+                {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate', data-productid: product.id %}
+
+
 
               	{% if settings.display_size_chart %}
                 <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
@@ -228,10 +228,10 @@
                 {% if product.available %}
                 <div id="product-variants">
                     {% if variantCount > 0  and product.variants[0].title != 'Default Title'  %}
-                    <select id="product-selectors" name="id" style="display: none;">
+                    <select id="product-selectors" name="id" data-productid="{{product.id}}" style="display: none;">
                         {% for variant in product.variants %}
                         {% if variant.available %}
-                        <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                        <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}" data-productid="{{product.id}}">
                             {{ variant.title }}
                         </option>
                         {% else %}
@@ -277,6 +277,10 @@
                         {{ current_variant.price | money }}
                     </span>
                 </div>
+                {% endif %}
+
+                {% if product.available %}
+                {% include 'subscription-product' %}
                 {% endif %}
 
                 {% if section.settings.dpl_grouped_product and section.settings.grouped_product_style == 'style_1' %}

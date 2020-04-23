@@ -834,6 +834,7 @@ table {
         text-align: center;
         padding: 8px 25px;
         position: relative;
+        z-index: 1;
 
         p {
         a {
@@ -13188,8 +13189,28 @@ table {
 
 .img_mock {
   position: absolute;
+  z-index: 0;
   bottom: -14%;
   right: 7%;
   width: 40%;
   max-width: 500px;
+}
+
+.rc_popup {
+  display: none!important;
+}
+
+div.rc_block__type--active {
+  background-color: #000!important;
+  color: #fff!important;
+  border-radius: 0!important;
+
+  label.rc_label {
+    color: #fff!important;
+  }
+
+  select.rc_select {
+    background: #fff!important;
+    color: #000!important;
+  }
 }
