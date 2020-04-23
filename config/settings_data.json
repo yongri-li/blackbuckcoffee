@@ -104,7 +104,7 @@
     "newssletter_success_text": "You have successfully subscribed!",
     "display_popup_social": true,
     "enable_wishlist": false,
-    "image_swap": false,
+    "image_swap": true,
     "product_image_border": false,
     "product_image_border_color": "#e6e6e6",
     "product_image_resize": true,
