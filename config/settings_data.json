@@ -37,30 +37,30 @@
     "color_menu_mb_lv2_hover": "#232323",
     "color_menu_mb_lv3": "#3c3c3c",
     "color_menu_mb_lv3_hover": "#0688e2",
-    "favicon": "",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
     "body_font_size": "16",
     "enable_opengraph": true,
     "image_share": "",
     "enable_backtotop": true,
     "body_bg": "#ffffff",
-    "body_color": "#3c3c3c",
-    "link_color": "#0688e2",
-    "link_color_hover": "#232323",
+    "body_color": "#000000",
+    "link_color": "#000000",
+    "link_color_hover": "#000000",
     "display_breadcrumb": true,
     "breadcrumb_color": "#999999",
-    "breadcrumb_text_transform": "capitalize",
-    "page_title_font_size": "20",
-    "page_title_color": "#232323",
+    "breadcrumb_text_transform": "lowercase",
+    "page_title_font_size": "30",
+    "page_title_color": "#000000",
     "page_title_text_align": "left",
     "enable_sidebar_multiple_choice": true,
-    "product_name_text_transform": "none",
+    "product_name_text_transform": "uppercase",
     "product_name_text_align": "center",
-    "color_title_product": "#232323",
-    "color_title_product_hover": "#232323",
-    "color_vendor": "#232323",
+    "color_title_product": "#000000",
+    "color_title_product_hover": "#000000",
+    "color_vendor": "#000000",
     "type_label_sale": "label_sale",
     "sale_text": "#fff",
-    "bg_sale": "#e95144",
+    "bg_sale": "#000000",
     "custom_label_text": "#fff",
     "custom_label_bg": "#323232",
     "bundle_label_text": "#fff",
@@ -71,7 +71,7 @@
     "sold_out_text": "#fff",
     "bg_sold_out": "#c1c1c1",
     "color_price": "#232323",
-    "color_price_sale": "#e95144",
+    "color_price_sale": "#000000",
     "color_compare_price": "#969696",
     "color_quick_view": "#ffffff",
     "bg_quick_view": "#000000",
@@ -1485,7 +1485,7 @@
               "image_slide": "shopify:\/\/shop_images\/000000-1.png",
               "image_slide_mb": "shopify:\/\/shop_images\/000000.png",
               "alignment": "left",
-              "heading": "BUCKING<br>STRONG<br> COFFEE.",
+              "heading": "BUCKING<br>GREAT<br> COFFEE.",
               "font_size_heading": "80px",
               "color_heading": "#ffffff",
               "bg_heading_mb": "rgba(255, 255, 255, 0.88)",
@@ -1790,8 +1790,8 @@
           "brand_text": "",
           "logo_max_width": 200,
           "logo_text_color": "#000",
-          "logo": "",
-          "max_height_logo_mb": "26px",
+          "logo": "shopify:\/\/shop_images\/Outlined_Black_Buck_Logo.png",
+          "max_height_logo_mb": "76px",
           "logo_pc": "shopify:\/\/shop_images\/White_WebBlack_Buck_Logo.png",
           "max_height_logo_pc": "100px",
           "display_parallax": true,
@@ -1801,8 +1801,8 @@
           "bg_search_color": "#f8f8f8",
           "search_color": "#787878",
           "search_color_btn": "#333",
-          "bg_cart_color": "#1e1e1e",
-          "cart_color": "#fff",
+          "bg_cart_color": "#ffffff",
+          "cart_color": "#000000",
           "display_fixtop_menu": false,
           "alignment": "center",
           "bg_menu": "#000000",
@@ -2313,18 +2313,18 @@
       "footer-3": {
         "type": "footer-3",
         "blocks": {
-          "1587620194882": {
-            "type": "footer_link",
-            "settings": {
-              "footer_title": "",
-              "footer_linklist": "footer"
-            }
-          },
           "1587620200777": {
             "type": "info_store",
             "settings": {
               "footer_logo": "shopify:\/\/shop_images\/WBlack_Buck_Logo.png",
               "footer_info_store": ""
+            }
+          },
+          "1587620194882": {
+            "type": "footer_link",
+            "settings": {
+              "footer_title": "",
+              "footer_linklist": "footer"
             }
           }
         },
