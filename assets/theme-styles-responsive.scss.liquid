@@ -2564,7 +2564,7 @@ $color_slick_arrow: #323232;
         &.abs_left {
             @include transform(translateY(-47%));
         }
- 
+
         &.abs_right {
             @include transform(translateY(-47%));
         }
@@ -2706,7 +2706,7 @@ $color_slick_arrow: #323232;
                 font-weight: 700;
                 text-transform: uppercase;
                 border: none;
-                font-size: $font_size + 8;
+                font-size: $font_size;
                 color: $color_compare_price;
                 padding: 7px 0 5px;
                 border-bottom: 2px solid rgba(255, 255, 255, 0);
@@ -2790,7 +2790,7 @@ $color_slick_arrow: #323232;
             }
 
             .tab-links {
-            font-size: $font_size + 2;
+            font-size: $font_size;
             font-weight: 700;
             border: none;
             background-color: rgba(255, 255, 255, 0);
@@ -2798,7 +2798,7 @@ $color_slick_arrow: #323232;
             padding: 16px 0 14px;
 
             &.active {
-                font-size: $font_size + 2;
+                font-size: $font_size;
                 padding-left: 0;
                 padding-right: 0;
                 margin-bottom: 0;
@@ -2924,7 +2924,7 @@ $color_slick_arrow: #323232;
     .vertical-tabs {
         .wrapper-tab-content {
             .tab-links {
-            font-size: $font_size + 2;
+            font-size: $font_size;
             font-weight: 700;
             padding: 17px 30px 14px 0;
             }
@@ -4529,7 +4529,6 @@ $color_slick_arrow: #323232;
         .menu-mb-title {
             border-bottom: 1px solid {{ settings.border_color_menu_mb }};
             color: {{ settings.color_menu_mb_lv1 }};
-            background-color: {{ settings.bg_color_menu_mb_lv1_hover }};
         }
 
         li {
@@ -6615,7 +6614,7 @@ $color_slick_arrow: #323232;
         .menu-lv-1 {
             display: inline-block;
             margin-left: 20px;
-            margin-right: 20px;
+            margin-right: 40px;
 
             > a {
                 line-height: 1.65em;
@@ -6739,6 +6738,7 @@ $color_slick_arrow: #323232;
             position: static;
 
             >.sub-menu-mobile {
+                border-top: 0px solid #eee;
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -6750,8 +6750,17 @@ $color_slick_arrow: #323232;
                 @include opacity(0);
                 visibility: hidden;
                 pointer-events: none;
-                @include translateY(30px);
-                @include transition(transform .35s linear);
+                @include translateY(-0px);
+                -webkit-transition: .5s all;
+                -webkit-transition-delay: .5s;
+                -moz-transition: 0s all;
+                -moz-transition-delay: .5s;
+                -ms-transition: 0s all;
+                -ms-transition-delay: .5s;
+                -o-transition: 0s all;
+                -o-transition-delay: .5s;
+                transition: 0s all;
+                transition-delay: .5s;
                 @include box-shadow(0, 3px, 3px, -3px rgba(0,0,0,0.1));
 
                 &::-webkit-scrollbar {
@@ -6765,6 +6774,11 @@ $color_slick_arrow: #323232;
                     visibility: visible;
                     pointer-events: auto;
                     @include translateY(-1px);
+                    -webkit-transition-delay: 0s;
+                    -moz-transition-delay: 0s;
+                    -ms-transition-delay: 0s;
+                    -o-transition-delay: 0s;
+                    transition-delay: 0s;
                 }
             }
 
@@ -10014,7 +10028,7 @@ $color_slick_arrow: #323232;
     .horizontal-tabs {
         &.horizontal-tabs-center {
             .tab-links {
-                font-size: $font_size + 4;
+                font-size: $font_size;
             }
         }
     }
@@ -10022,7 +10036,7 @@ $color_slick_arrow: #323232;
     .vertical-tabs {
         .wrapper-tab-content {
             .tab-links {
-                font-size: $font_size + 4;
+                font-size: $font_size;
             }
         }
     }
@@ -10031,7 +10045,7 @@ $color_slick_arrow: #323232;
     .related-products {
         .widget-title {
             .box-title {
-                font-size: $font_size + 4;
+                font-size: $font_size;
             }
         }
     }
@@ -10377,11 +10391,6 @@ $color_slick_arrow: #323232;
 }
 
 @media (min-width: 1600px) {
-    .wrapper_header_parallax {
-        .header-items {
-            width: 250px;
-        }
-    }
 
     .wrapper_header_vertical {
         .header-panel-bt {

@@ -7,7 +7,7 @@
         {% assign variantCount = product.variants | size %}
 
         <div class="row product_top{% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %} horizontal-tabs{% else %} vertical-tabs has-sticky-product-img{% endif %}">
-            <div class="col-md-6 product-photos" data-more-view-product>
+            <div class="col-md-7 product-photos" data-more-view-product>
                 <div {% if section.settings.show_tab == 'vertical' %} data-sticky-product-img{% endif %} class="product-img-box{% if section.settings.style_moreview == 'horizontal' %} horizontal-moreview{% elsif section.settings.style_moreview == 'left_vertical' %} left-vertical-moreview vertical-moreview{% else %} right-vertical-moreview vertical-moreview{% endif %}{% if settings.product_image_border%} grid-item-border{% endif %}">
                     <div style="position: relative;" class="wrapper-images">
                         <div class="product-photo-container slider-for">
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 product-shop">
+            <div class="col-md-5 product-shop">
                 <h1 class="product-title">
                     {% include 'multilang' with product.title %}
                 </h1>
@@ -217,66 +217,8 @@
                 {% endif %}
                 {% endif %}
 
-                {% if section.settings.show_desc == 'short' %}
-
-                {% if product.metafields.c_f['Short Description'] %}
-                {% assign des = product.metafields.c_f['Short Description'] %}
-                {% assign word_numbeer = 100000000000000 %}
-              
-              	{% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                </div>
-                {% endif %}
-              
-                {% else %}
-                {% assign word_numbeer = 50 %}
-              
-              	{% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                </div>
-                {% endif %}
-              
-                {% endif %}
-
-                {% elsif section.settings.show_desc == 'full' %}
-                {% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first }}
-                </div>
-                {% endif %}
-                {% endif %}
-
                 {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate' %}
-              
+
               	{% if settings.display_size_chart %}
                 <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
                   {% include 'multilang' with settings.size_guide_text %}
@@ -374,6 +316,64 @@
                     </a>
                     {% endfor %}
                 </div>
+                {% endif %}
+
+                {% if section.settings.show_desc == 'short' %}
+
+                {% if product.metafields.c_f['Short Description'] %}
+                {% assign des = product.metafields.c_f['Short Description'] %}
+                {% assign word_numbeer = 100000000000000 %}
+
+              	{% if settings.enable_multilang and des contains '[lang2]' %}
+                <div class="short-description">
+                    <div class="lang1">
+                        {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                    </div>
+                    <div class="lang2">
+                        {{ des | split: '[lang2]' | last | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="short-description">
+                    {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                </div>
+                {% endif %}
+
+                {% else %}
+                {% assign word_numbeer = 50 %}
+
+              	{% if settings.enable_multilang and des contains '[lang2]' %}
+                <div class="short-description">
+                    <div class="lang1">
+                        {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                    </div>
+                    <div class="lang2">
+                        {{ des | split: '[lang2]' | last | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="short-description">
+                    {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                </div>
+                {% endif %}
+
+                {% endif %}
+
+                {% elsif section.settings.show_desc == 'full' %}
+                {% if settings.enable_multilang and des contains '[lang2]' %}
+                <div class="short-description">
+                    <div class="lang1">
+                        {{ des | split: '[lang2]' | first }}
+                    </div>
+                    <div class="lang2">
+                        {{ des | split: '[lang2]' | last }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="short-description">
+                    {{ des | split: '[lang2]' | first }}
+                </div>
+                {% endif %}
                 {% endif %}
 
                 {% if section.settings.display_product_detail_share %}

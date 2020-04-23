@@ -177,8 +177,9 @@
                             {{ section.settings.footer_address_code | split: '[lang2]' | first }}
                         </div>
                         {% endif %}
+                        {% include 'footer_creds' %}
                     </address>
-                    {% include 'footer_creds' %}
+
                     {% endif %}
 
                     {% if section.settings.show_payment_icons %}

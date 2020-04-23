@@ -58,8 +58,8 @@
         {% if settings.display_button %}
         <div class="action">
           {% include 'add-to-cart-form', id: 'grid-product-form-' %}
-          
-          
+
+
         </div>
         {% endif %}
 
@@ -101,11 +101,11 @@
         {% if on_sale %}
         <div class="price-sale">
           <span class="old-price">{{ product.variants[0].compare_at_price | money }}</span>
-          <span class="special-price">{% if product.price_varies %}{% include 'varies_from' %}{% endif %}{{ product.variants[0].price | money }}</span>
+          <span class="special-price">{{ product.variants[0].price | money }} {% if product.price_varies %}{% include 'varies_from' %}{% endif %}</span>
         </div>
         {% else %}
         <div class="price-regular">
-          <span>{% if product.price_varies %}{% include 'varies_from' %}{% endif %}{{ product.variants[0].price | money }}</span>
+          <span>{{ product.variants[0].price | money }} {% if product.price_varies %}{% include 'varies_from' %}{% endif %}</span>
         </div>
         {% endif %}
       </div>
