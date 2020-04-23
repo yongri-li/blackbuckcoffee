@@ -160,13 +160,6 @@
             </span>
             {% endif %}
         </a>
-        <a {%if linklists[link.handle] != empty %}class="menu__moblie"{% endif %} href="{{ l.url }}" class="current">
-            {% assign imgColl = l.object.image | img_url :"210x", format: 'jpg' %}
-
-            {% if l.object %}
-            <img src="{{ imgColl }}" alt="{{ l.title }}">
-            {% endif %}
-        </a>
         {% if linklists[l.handle] != empty %}
         <div class="sub-menu-mobile menu-mb-translate">
             <div class="menu-mb-title">
