@@ -1623,8 +1623,8 @@
       "page-header": {
         "type": "page-header",
         "settings": {
-          "background": "",
-          "text_color": "",
+          "background": "shopify:\/\/shop_images\/000000_3269fa3a-3a25-4395-891c-800f25c7ed3b.png",
+          "text_color": "#ffffff",
           "menu": "",
           "menu_bar_background": "",
           "menu_bar_border": "",
@@ -1793,7 +1793,7 @@
         ],
         "settings": {
           "display_header_top": true,
-          "top_message_text": "Free shipping on all orders over $50!",
+          "top_message_text": "Our coffee ships free, always. Free shipping on merchandise orders over $50!",
           "font_weight_bold": true,
           "bg_header_top": "#000000",
           "text_header_top_color": "#ffffff",
@@ -2520,13 +2520,13 @@
           "product_description_title": "Description",
           "display_product_reviews": true,
           "product_review_title": "Customer Reviews",
-          "display_shipping_returns": false,
+          "display_shipping_returns": true,
           "shipping_returns_title": "Shipping & Returns",
-          "shipping_returns_content": "",
-          "display_custom_tab": false,
-          "custom_tab_title": "Custom Product Tab",
-          "custom_tab_type": "specified",
-          "custom_tab_content": "",
+          "shipping_returns_content": "Our coffee ships free, always. For merchandise orders, shipping charges are calculated at checkout.\n<br><br>\nTo provide you with the freshest coffee possible, we package and ship per order from our Cook County, IL distribution facility. Our merchandise is shipped separately from strategically place fulfillment partner facilities across the United States. Both our coffee and merchandise orders are shipped within 3 days of the order.\n<br><br>\nReturned coffee is not accepted as it is a perishable item, unless there was an issue such as a damaged delivery. Any express shipping where applicable is not refunded. Express shipping is Next Day Air, 2nd Day Air, 3 Day Select and other overnight or express shipping services that may have been requested by you. Ground shipping is not refunded unless our shipping department was at fault and your order arrived damaged. Time is of the essence. If you receive your order and notice the order is damaged you must contact us within 48 hours for an exchange. No exchanges or returns will be accepted after 48 hours.\n<br><br>\nReturned merchandise is accepted within 2 weeks of delivery. Any claims for misprinted\/damaged\/defective items must be submitted within 2 weeks after the product has been received. For packages lost in transit, all claims must be submitted no later than 2 weeks after the estimated delivery date. \n<br><br>\nMerchandise packages sent out from our US fulfillment centers are returned to our Charlotte facility. Its address: 11201 Ed Brown Rd, Charlotte, North Carolina, 28273. Meanwhile, packages sent out from our Europe location are automatically returned to our Europe fulfillment center. Its address: Lidostas parks, Marupes novads, Latvia LV-1500.",
+          "display_custom_tab": true,
+          "custom_tab_title": "Coffee Care",
+          "custom_tab_type": "all",
+          "custom_tab_content": "All coffee should be stored long term between 50 and 70 degrees Fahrenheit, at about 30 to 50 percent humidity. If you have green coffee beans they should be stored to the open air (example, burlap bag) and are good to roast for 2 to 4 years, depending on humidity. Keep them dry and away from water and sunlight. Roasted coffee beans should be kept in an air tight container, as well as ground coffee. You can store roasted coffees without much flavor loss for about a year unopened, or 2 years in the freezer. Coffee is still good past these dates if kept properly, but flavor fades away quickly over time. Once you open roasted beans or ground coffee you should plan to use it up within a week for the best flavor. That is why it is always best to buy small amounts instead of 5 or 10 pound packages.",
           "dpl_lookbook_description": false,
           "style_lookbook_description": "all_product",
           "quote_title": "",
@@ -2934,6 +2934,32 @@
           "bg_overlay_opacity": 40,
           "video_height": "41.7%",
           "auto_playvideo": true
+        }
+      },
+      "contact-us-2-template": {
+        "type": "contact-us-2-template",
+        "settings": {
+          "contact_title": "Drop Us A Line",
+          "contact_text_desc": "",
+          "form_title": "Send us an email:",
+          "form_subtitle": "ASK US ANYTHING! WE'LL GET BACK TO YOU WITHIN 24-48 HOURS.",
+          "contact_your_name": "",
+          "contact_phone_number": "",
+          "contact_your_email": "",
+          "display_location": true,
+          "background_color": "#fafafa",
+          "top_title": "Chat with us:",
+          "top_content": "IF YOU HAVE AN ISSUE OR QUESTION THAT REQUIRES IMMEDIATE ASSISTANCE, YOU CAN CLICK BELOW TO CHAT LIVE WITH A CUSTOMER SERVICE REPRESENTATIVE. IF WE AREN'T AVAILABLE, DROP US AN EMAIL TO THE LEFT AND WE'LL RESPOND WITHIN 24-48 HOURS.",
+          "email_button": "Message us",
+          "email": "",
+          "email_button_bgc": "rgba(250,250,250,0)",
+          "email_button_txtc": "#232323",
+          "email_button_bdc": "#232323",
+          "email_button_bgc_h": "#232323",
+          "email_button_txtc_h": "#fff",
+          "email_button_bdc_h": "#232323",
+          "bot_title": "Tweet Us!",
+          "bot_content": ""
         }
       }
     },
