@@ -2,23 +2,23 @@
 <div class="home-custom-block" id="custom-block-{{section.id}}">
     <div class="{% if section.settings.layout == 'default' %}container{% else %}container-fluid{% endif %}">
         {% if section.settings.widget_title != blank %}
-        <div class="widget-title{% if section.settings.title_style == 'style_2' %} not-before{% endif %}">   
+        <div class="widget-title{% if section.settings.title_style == 'style_2' %} not-before{% endif %}">
             <h3 class="box-title">
-                <span class="title"> 
+                <span class="title">
                     {% include 'multilang' with section.settings.widget_title %}
                 </span>
             </h3>
             {% if section.settings.widget_des != blank %}
             <p>
                 {% include 'multilang' with section.settings.widget_des %}
-            </p>        
+            </p>
             {% endif %}
         </div>
         {% endif %}
 
         <div class="row">
             {% for block in section.blocks %}
-            
+
             {% if block.type == 'smallImg' %}
             <div class="col-12">
                 <div class="custom-block-banner banner-small-img">
@@ -33,21 +33,21 @@
                                 {% else %}
                                 <div class="not_img">
                                 585 x 485px
-                                </div>   
+                                </div>
                                 {% endif %}
                             </a>
                         </div>
-                        
+
                         {% if block.settings.banner_heading != blank or block.settings.banner_des != blank or block.settings.banner_button != blank %}
-                        <div class="col-12 col-md-6 column">               
-                            <div class="banner-content" 
+                        <div class="col-12 col-md-6 column">
+                            <div class="banner-content"
                                 style="{% if block.settings.bg_banner_content != blank %}
                                         background-color: {{ block.settings.bg_banner_content }};
                                         {% endif %}">
                                 {% if block.settings.banner_heading != blank %}
                                 <h2 class="banner-heading"
                                     style="{% if block.settings.font_size_banner_heading != blank %}
-                                            font-size: {{ block.settings.font_size_banner_heading }} !important;
+                                            font-size: {{ block.settings.font_size_banner_heading }};
                                             {% endif %}
                                             {% if block.settings.color_banner_heading != blank %}
                                             color:{{ block.settings.color_banner_heading }};
@@ -86,10 +86,10 @@
                             </div>
                         </div>
                         {% endif %}
-                    </div>          
-                </div>      
+                    </div>
+                </div>
             </div>
-            
+
             {% elsif block.type == 'largeImg' %}
             <div class="col-12 no-padd">
                 <div class="custom-block-banner banner-large-img{% if block.settings.display_parallax %} banner-parallax{% endif %}">
@@ -98,7 +98,7 @@
                             {%- assign img_url = block.settings.image | img_url: 'master' -%}
 
                             {% if block.settings.display_parallax %}
-                            <div class="parallax-image" style="background-image: url({{img_url}});"></div> 
+                            <div class="parallax-image" style="background-image: url({{img_url}});"></div>
                             {% endif %}
 
                             {% if block.settings.image != blank %}
@@ -108,8 +108,8 @@
                             {% else %}
                             <div class="not_img">
                             1880 x 720px
-                            </div>   
-                            {% endif %}                        
+                            </div>
+                            {% endif %}
                         </a>
 
                         {% if block.settings.countdown != blank %}
@@ -124,7 +124,7 @@
                         </style>
                         {% endif %}
                     </div>
-                
+
                     {% if block.settings.banner_heading != blank or block.settings.banner_des != blank or block.settings.countdown!= blank or block.settings.banner_button != blank %}
                     <div class="banner-content inner {% if block.settings.alignment == 'left' %}abs_left{% elsif block.settings.alignment == 'right' %}abs_right{% else %}abs_center{% endif %}">
                         {% if block.settings.banner_heading != blank %}
@@ -182,7 +182,7 @@
                         </a>
                         {% endif %}
                     </div>
-                    {% endif %}  
+                    {% endif %}
                 </div>
 
                 {% if block.settings.display_parallax and block.settings.dpl_down_arrow %}
@@ -204,18 +204,18 @@
                 .banner-parallax .parallax-image {
                     height: {{ block.settings.height_img_parallax }};
                 }
-            }            
+            }
             </style>
             {% endif %}
 
-            {% endif %}        
+            {% endif %}
             {% endfor %}
         </div>
     </div>
 </div>
 
 <style>
-  {% assign margin_bottom =  section.settings.margin_bottom %}  
+  {% assign margin_bottom =  section.settings.margin_bottom %}
 
     @media (max-width: 767px) {
         #custom-block-{{ section.id }} {
@@ -228,12 +228,12 @@
             margin-bottom: {{ section.settings.margin_bottom_tab }}px;
         }
     }
-  
+
     @media (min-width: 1200px) {
         #custom-block-{{ section.id }} {
         margin-bottom: {{ margin_bottom }}px;
         }
-    }	
+    }
 
     #custom-block-{{ section.id }} .img-box {
         text-align: {{ section.settings.img_align }};
@@ -285,12 +285,12 @@
             "options": [
                 {
                     "value": "style_1",
-                    "label": "Style 1" 
+                    "label": "Style 1"
                 },
-                { 
+                {
                     "value": "style_2",
-                    "label": "Style 2" 
-                }          
+                    "label": "Style 2"
+                }
             ],
             "default": "style_1"
         },
@@ -307,13 +307,13 @@
                 {
                     "value": "left",
                     "label": "Left"
-                },              
+                },
                 {
                     "value": "right",
                     "label": "Right"
                 }
             ]
-        }, 
+        },
         {
             "type": "header",
             "content": "Margin Bottom:"
@@ -335,7 +335,7 @@
             "max": 100,
             "step": 1,
             "default": 30
-        },             
+        },
         {
             "type": "range",
             "id": "margin_bottom",
@@ -344,7 +344,7 @@
             "max": 100,
             "step": 1,
             "default": 30
-        }	    
+        }
     ],
     "blocks": [
         {
@@ -360,13 +360,13 @@
                 {
                     "value": "left",
                     "label": "Left"
-                },              
+                },
                 {
                     "value": "right",
                     "label": "Right"
                 }
                 ]
-            }, 
+            },
             {
                 "type": "image_picker",
                 "id": "image",
@@ -446,13 +446,13 @@
                 "id" : "color_banner_button",
                 "label" : "Button Color",
                 "default" : "#232323"
-            }		  
+            }
         ]
     },
         {
             "type": "largeImg",
             "name": "Large Image",
-            "settings": [           
+            "settings": [
                 {
                     "type": "image_picker",
                     "id": "image",
@@ -473,7 +473,7 @@
                     "id" : "dpl_down_arrow",
                     "label" : "Display icon Scroll Down",
                     "default" : false
-                },                
+                },
                 {
                     "type" : "text",
                     "id" : "height_img_parallax",
@@ -590,7 +590,7 @@
             "blocks": [
                 {
                     "type": "largeImg"
-                }         
+                }
             ]
         }
     ]

@@ -2516,6 +2516,7 @@ table {
 }
 
 .banner-small-img {
+    margin-top: 50px;
     .banner-content {
         .banner-button {
             min-width: 190px;
@@ -13214,14 +13215,18 @@ div.rc_block__type--active {
     color: #000!important;
   }
 }
+.banner-small-img img,
+.slideshow img,
 .suppermarket-product-tabs.has-banner .column-banner-inner img,
 .banner-large-img img {
   -webkit-filter: grayscale(98%);
   filter: grayscale(98%);
 }
-
+.banner-small-img:hover img,
+.slideshow:hover img,
 .suppermarket-product-tabs.has-banner .column-banner-inner:hover img,
 .banner-large-img:hover img {
+  transition-duration: 2s;
   -webkit-filter: grayscale(20%);
   filter: grayscale(20%);
 }

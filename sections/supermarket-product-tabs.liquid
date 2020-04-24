@@ -37,7 +37,7 @@
                     <div class="product-tabs-content">
                         {% for block in section.blocks %}
                         <div class="tab-content{% if forloop.first %} active{% endif %}{% if section.settings.display_banner %} sections-has-banner{% endif %}" data-product-TabContent id="product-tab-{{ block.id }}">
-                            <div class="products-grid row {{ row }}" {% if block.id == '1587659637909' %} data-row="1" {% else %} data-row="{{ section.settings.collection_results_per_row }}" {% endif %}>
+                            <div class="products-grid row {{ row }}" {% if block.id contains '1587659637909' or block.id contains '1587659664369' %} data-row="1" {% else %} data-row="{{ section.settings.collection_results_per_row }}" {% endif %}>
                                 <div class="loading col-12"></div>
                             </div>
                         </div>

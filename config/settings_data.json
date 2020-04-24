@@ -18,14 +18,14 @@
     "bg_sticky": "#fff",
     "color_sticky": "#3c3c3c",
     "color_variants": "#646464",
-    "social_facebook_link": "http:\/\/facebook.com\/shopify",
-    "social_twitter_link": "http:\/\/twitter.com\/shopify",
+    "social_facebook_link": "http:\/\/facebook.com\/blackbuckcoffee",
+    "social_twitter_link": "http:\/\/twitter.com\/buckoffcoffee",
     "social_vimeo_link": "",
-    "social_instagram_link": "http:\/\/instagram.com\/shopify",
-    "social_google_plus_link": "http:\/\/plus.google.com\/+shopify",
-    "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+    "social_instagram_link": "http:\/\/instagram.com\/blackbuckcoffee",
+    "social_google_plus_link": "",
+    "social_pinterest_link": "",
     "social_tumblr_link": "",
-    "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
+    "social_snapchat_link": "",
     "social_youtube_link": "",
     "bg_menu_mb": "#000000",
     "color_menu_mb": "#ffffff",
@@ -84,12 +84,12 @@
     "color_swatch_style": "normal",
     "enable_checkbox": false,
     "checkbox_text": "I agree with the terms and conditions",
-    "btn_1_bg_color": "#232323",
-    "btn_1_border_color": "#232323",
+    "btn_1_bg_color": "#000000",
+    "btn_1_border_color": "#000000",
     "btn_1_text_color": "#ffffff",
     "btn_2_bg_color": "#fff",
-    "btn_2_border_color": "#232323",
-    "btn_2_text_color": "#232323",
+    "btn_2_border_color": "#000000",
+    "btn_2_text_color": "#000000",
     "btn_3_bg_color": "#000000",
     "btn_3_border_color": "#000000",
     "btn_3_text_color": "#ffffff",
@@ -166,11 +166,11 @@
     "cart_popup_related_title": "YOU MAY ALSO LIKE",
     "secure_text": "Secure Shopping Guarantee.",
     "img_trust": "",
-    "show_shipping_calculator": true,
+    "show_shipping_calculator": false,
     "shipping_calculator_heading": "Get shipping estimates | Holen Versand Schätzungen",
     "shipping_calculator_default_country": "United States",
     "redirect_button": "link_to",
-    "link_to_redirect": "\/collection\/all",
+    "link_to_redirect": "\/",
     "register_text_desc": "Sign up for a free account at Minion Made Boutique.",
     "login_text_desc": "Register with us for a faster checkout, <br> to track the status of your order and more.",
     "search_1": "Your search for | Ihre Suche nach",
@@ -605,7 +605,7 @@
       "cart-template": {
         "type": "cart-template",
         "settings": {
-          "cart_notes": true
+          "cart_notes": false
         }
       },
       "faq-page": {
@@ -1162,10 +1162,10 @@
         "type": "cart-best-sellers",
         "settings": {
           "show_cart_best_sellers_product": true,
-          "title": "Best Sellers",
-          "show_slider_featured_collection": "",
+          "title": "Don't Go Buck Naked!",
+          "show_slider_featured_collection": "merchandise",
           "slider_featured_limit_all": 10,
-          "collection_results_per_row1": "5"
+          "collection_results_per_row1": "4"
         }
       },
       "sidebar-blog": {
@@ -1482,11 +1482,11 @@
             "type": "image",
             "settings": {
               "dpl_slide_img": true,
-              "image_slide": "shopify:\/\/shop_images\/000000-1.png",
+              "image_slide": "shopify:\/\/shop_images\/000000-2.png",
               "image_slide_mb": "shopify:\/\/shop_images\/000000.png",
               "alignment": "left",
               "heading": "BUCKING<br>GREAT<br> COFFEE.",
-              "font_size_heading": "80px",
+              "font_size_heading": "100px",
               "color_heading": "#ffffff",
               "bg_heading_mb": "#000000",
               "sub_heading": "",
@@ -1528,7 +1528,7 @@
           "layout": "full",
           "margin_bottom_mb": 0,
           "margin_bottom_tab": 20,
-          "margin_bottom": 100,
+          "margin_bottom": 50,
           "autoplay": true,
           "slideshow_speed": "9000",
           "slideshow_transition": "true",
@@ -1781,25 +1781,19 @@
       "header-parallax": {
         "type": "header-parallax",
         "blocks": {
-          "1587661089129": {
-            "type": "style_2",
+          "1587678312616": {
+            "type": "style_3",
             "settings": {
-              "megamenu_items_2": "Shop",
-              "banner_first_style_2": "",
-              "link_banner_first_style_2": "",
-              "banner_second_style_2": "",
-              "link_banner_second_style_2": "",
-              "banner_third_style_2": "",
-              "link_banner_third_style_2": ""
+              "megamenu_items_3": "Shop"
             }
           }
         },
         "block_order": [
-          "1587661089129"
+          "1587678312616"
         ],
         "settings": {
           "display_header_top": true,
-          "top_message_text": "Mid-Season Sale Up to 70% OFF.",
+          "top_message_text": "Free shipping on all orders over $50!",
           "font_weight_bold": true,
           "bg_header_top": "#000000",
           "text_header_top_color": "#ffffff",
@@ -2341,13 +2335,21 @@
             "type": "footer_link",
             "settings": {
               "footer_title": "",
+              "footer_linklist": "main-menu"
+            }
+          },
+          "1587681650219": {
+            "type": "footer_link",
+            "settings": {
+              "footer_title": "",
               "footer_linklist": "footer"
             }
           }
         },
         "block_order": [
           "1587620200777",
-          "1587620194882"
+          "1587620194882",
+          "1587681650219"
         ],
         "settings": {
           "bg_footer_img": "none",
@@ -2367,10 +2369,10 @@
           "text_1": "CERTIFIED ORGANIC COFFEE",
           "link_1": "",
           "icon_2": "",
-          "text_2": "Free Shipping on all orders *",
+          "text_2": "Free Shipping on orders over $50",
           "link_2": "",
           "icon_3": "",
-          "text_3": "Free Shipping on all orders *",
+          "text_3": "Packaged & Shipped from USA",
           "link_3": "",
           "footer_social_enable": true,
           "social_icon_color": "#000000",
@@ -2658,7 +2660,7 @@
           "bg_banner_button": "#fff",
           "border_banner_button": "#fff",
           "color_banner_button": "#232323",
-          "image_1": "shopify:\/\/shop_images\/Whole_Bean_Coffee_1024x1024_b5dccfcf-6fde-42f8-ae3e-c6a79a4f6e54.png",
+          "image_1": "shopify:\/\/shop_images\/max-d-photography-zwQTkDfzWS0-unsplash.jpg",
           "banner_heading_1": "JOIN THE CLUB",
           "banner_des_1": "Subscribe & save to our coffee products for door step delivery as often as you need it. Keep going.",
           "banner_button_1": "Join Now!",
@@ -2688,24 +2690,24 @@
           "1587661746854-0": {
             "type": "largeImg",
             "settings": {
-              "image": "",
+              "image": "shopify:\/\/shop_images\/radoslav-bali-jN9JnZ-SyVc-unsplash.jpg",
               "display_parallax": false,
               "dpl_down_arrow": false,
               "height_img_parallax": "970px",
               "alignment": "center",
-              "banner_heading": "Metropólis",
+              "banner_heading": "Be An Animal",
               "font_size_banner_heading": "60px",
-              "color_banner_heading": "#232323",
-              "banner_des": "Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an tincidunt risus an consequat delit quisquemos.",
-              "font_size_banner_des": "16px",
-              "color_banner_des": "#232323",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "Black Buck Coffee is harvested in the volcanic hills of Kintamani Bali, Indonesia by independent coffee farmers. The high elevation and loamy soil helps create a dark profiled coffee bean.",
+              "font_size_banner_des": "18px",
+              "color_banner_des": "#ffffff",
               "countdown": "",
-              "banner_button": "Shop The Looks",
-              "link": "",
-              "bg_banner_button": "#232323",
-              "border_banner_button": "#232323",
-              "color_banner_button": "#fff",
-              "min_width_banner_button": "237px"
+              "banner_button": "Learn More",
+              "link": "shopify:\/\/pages\/about",
+              "bg_banner_button": "#ffffff",
+              "border_banner_button": "#000000",
+              "color_banner_button": "#000000",
+              "min_width_banner_button": "50px"
             }
           }
         },
@@ -2713,10 +2715,190 @@
           "1587661746854-0"
         ],
         "settings": {
-          "layout": "full",
+          "layout": "default",
           "widget_title": "",
           "widget_des": "",
           "title_style": "style_1",
+          "img_align": "center",
+          "margin_bottom_mb": 25,
+          "margin_bottom_tab": 30,
+          "margin_bottom": 30
+        }
+      },
+      "password-section": {
+        "type": "password-section",
+        "settings": {
+          "brand_type": "image",
+          "brand_text": "",
+          "brand_text_color": "#000",
+          "logo_pc": "shopify:\/\/shop_images\/Outlined_Black_Buck_Logo.png",
+          "max_height_logo_pc": "144px",
+          "logo_mb": "shopify:\/\/shop_images\/Outlined_Black_Buck_Logo.png",
+          "max_height_logo_mb": "75px",
+          "access_lable": "Early Access Login",
+          "access_lable_color": "#fff",
+          "banner": "",
+          "overlay_color": "#422011",
+          "overlay_opacity": "0.15",
+          "heading": "Our new store will be  opening soon",
+          "heading_size": "30",
+          "subtitle": "Phasellus lorem malesuada de pulvinar commodo maecenas.",
+          "subtitle_size": "13",
+          "backbround_color": "#fff",
+          "text_color": "#000",
+          "display_newsletter": true,
+          "success_message": "Thanks for contacting us. We'll get back to you as soon as possible",
+          "display_product_detail_share": true,
+          "footer_address_code": ""
+        }
+      },
+      "home-slideshow": {
+        "type": "home-slideshow",
+        "blocks": {
+          "1587683457412": {
+            "type": "image",
+            "settings": {
+              "dpl_slide_img": true,
+              "image_slide": "shopify:\/\/shop_images\/landscape-photography-2166643_9ce2e7a4-9d69-49bd-9813-8dd89a5cf637.jpg",
+              "image_slide_mb": "shopify:\/\/shop_images\/landscape-photography-2166643_5b6c35fe-7f12-486e-8669-8bcefe15c8c2.jpg",
+              "alignment": "center",
+              "heading": "Intense,<br> flavor.",
+              "font_size_heading": "100px",
+              "color_heading": "#ffffff",
+              "bg_heading_mb": "rgba(0,0,0,0)",
+              "sub_heading": "",
+              "font_size_sub_heading": "30px",
+              "color_sub_heading": "#fff",
+              "slide-des": "Our coffee beans are grown on Mount Agung, an active volcano in Bali. Mount Agung is the highest point on Bali, and dominates the surrounding area, influencing the climate, especially rainfall patterns.",
+              "font_size_des": "18px",
+              "color_des": "#ffffff",
+              "button_slide": "",
+              "link": "",
+              "bg_button": "#232323",
+              "border_button": "#232323",
+              "color_button": "#fff",
+              "lb_product_1": "",
+              "top_position_1": "10",
+              "left_position_1": "10",
+              "dots_color_1": "#fff",
+              "dots_bg_color_1": "#323232",
+              "dots_shadow_color_1": "#fff",
+              "lb_product_2": "",
+              "top_position_2": "10",
+              "left_position_2": "10",
+              "dots_color_2": "#fff",
+              "dots_bg_color_2": "#323232",
+              "dots_shadow_color_2": "#fff",
+              "lb_product_3": "",
+              "top_position_3": "10",
+              "left_position_3": "10",
+              "dots_color_3": "#fff",
+              "dots_bg_color_3": "#323232",
+              "dots_shadow_color_3": "#fff"
+            }
+          }
+        },
+        "block_order": [
+          "1587683457412"
+        ],
+        "settings": {
+          "layout": "padd_60",
+          "margin_bottom_mb": 30,
+          "margin_bottom_tab": 40,
+          "margin_bottom": 70,
+          "autoplay": true,
+          "slideshow_speed": "5000",
+          "slideshow_transition": "true",
+          "dots": "true",
+          "dots_color": "#707979",
+          "dots_active_color": "#505656",
+          "dots_opacity": false,
+          "arrow_color": "#666d6d",
+          "arrow_border_color": "#666d6d",
+          "arrow_bg_color": "#fff",
+          "position_slick_arrow": "10%",
+          "min_width_banner_button": "",
+          "bg_video": "#866965",
+          "bg_overlay_opacity": 40,
+          "video_height": "41.7%",
+          "auto_playvideo": true
+        }
+      },
+      "home-custom-block-baner": {
+        "type": "home-custom-block-baner",
+        "blocks": {
+          "1587683838896": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/processing-fresh-coffee-beans.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "670px",
+              "alignment": "center",
+              "banner_heading": "Hand picked, wet-hulled and dried on raised beds.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "",
+              "font_size_banner_des": "12px",
+              "color_banner_des": "#232323",
+              "countdown": "",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": ""
+            }
+          },
+          "1587688096107": {
+            "type": "smallImg",
+            "settings": {
+              "banner_is": "left",
+              "image": "shopify:\/\/shop_images\/rodrigo-flores-T5qjs-63kqQ-unsplash.jpg",
+              "bg_banner_content": "#ffffff",
+              "banner_heading": "Nuanced, flavorful cup, everytime.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#232323",
+              "banner_des": "Dried with the fruit attached to the seed further enhances the complexity and wild fruitiness of this exquisite coffee. Delivering a dry, winey crispness across the palate followed by a long pleasing finish mingling chocolate, vanilla, and exotic spices with just a hint of nuttiness.",
+              "font_size_banner_des": "16px",
+              "color_banner_des": "#232323",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#fff",
+              "border_banner_button": "#5a5a5a",
+              "color_banner_button": "#232323"
+            }
+          },
+          "1587688558394": {
+            "type": "smallImg",
+            "settings": {
+              "banner_is": "right",
+              "image": "shopify:\/\/shop_images\/Black_Buck.jpg",
+              "bg_banner_content": "#ffffff",
+              "banner_heading": "Bad Ass, Buck.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#232323",
+              "banner_des": "Speed, focus, influence. The blackbuck is indigenous to eastern regions, providing a rare glimpse of beauty. The stark contrast and composure of this wild beast parallels the taste profile of our coffee.<br><br>\nTwisted, rigid and sharp. The antlers provide all the inspiration need for our team to continue to provide the best bucking coffee we can.",
+              "font_size_banner_des": "16px",
+              "color_banner_des": "#232323",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#fff",
+              "border_banner_button": "#5a5a5a",
+              "color_banner_button": "#232323"
+            }
+          }
+        },
+        "block_order": [
+          "1587683838896",
+          "1587688096107",
+          "1587688558394"
+        ],
+        "settings": {
+          "layout": "default",
+          "widget_title": "",
+          "widget_des": "",
+          "title_style": "style_2",
           "img_align": "center",
           "margin_bottom_mb": 25,
           "margin_bottom_tab": 30,
