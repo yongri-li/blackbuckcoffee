@@ -24,8 +24,8 @@
       </h1>
     </header>
 
-    <div class="grid">
-      <div class="grid-item">
+    <div class="grid row">
+      <div class="grid-item col-xs-12 col-sm-8">
         <h4 class="box-title" {% if settings.enable_multilang %}data-translate="customer.orders.title"{%endif%}>
           {{ 'customer.orders.title' | t }}
         </h4>
@@ -73,7 +73,7 @@
         {% endif %}
       </div>
 
-      <div class="grid-item">
+      <div class="grid-item col-xs-12 col-sm-4">
         <h4 class="box-title" {% if settings.enable_multilang %}data-translate="customer.account.details"{%endif%}>
           {{ 'customer.account.details' | t }}
         </h4>
@@ -83,6 +83,8 @@
         <!-- Begin ReCharge code -->
         <p><a href="/tools/recurring/login/">Manage Subscriptions</a></p>
         <!-- End ReCharge code -->
+
+        <br><br><hr>
 
         {% if customer.default_address != nil %}
         <div class="addr">

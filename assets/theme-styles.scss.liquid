@@ -626,7 +626,6 @@ select {
         color: $color_ipt;
         @include border-radius(0);
         width: 100%;
-        max-width: 380px;
         display: block;
         outline: none;
     }
@@ -3200,11 +3199,12 @@ table {
         color: $page_title_color;
         text-transform: uppercase;
         letter-spacing: .05em;
-        font-size: 13px;
+        font-size: 30px;
         font-weight: 600;
         border-bottom: 1px solid $border_color_1;
         padding-bottom: 17px;
-        margin-bottom: 0;
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
 
@@ -13235,4 +13235,12 @@ div.rc_block__type--active {
   transition-duration: 2s;
   -webkit-filter: grayscale(20%);
   filter: grayscale(20%);
+}
+
+.rc_logo {
+  display: none!important;
+}
+
+.rc_layout__container {
+  margin-top: 50px!important; 
 }

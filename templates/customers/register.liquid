@@ -6,84 +6,149 @@
   Your theme's settings determine to use the 'default' or 'theme' customer templates.
   More info:
     - http://www.tetchi.ca/shopify-theme-from-scratch-part-11/
+
+  Template note:
+    - All IDs on this template are required to make the forms submit properly
+    - There are two instances of inline JS below. Best practices advise separating this
+      into an external JS file.
 {% endcomment %}
 
 {% layout settings.customer_layout %}
-<div class="custom-acc-page">
+<div class="login-page custom-acc-page">
   <div class="container">
-
     {% include 'breadcrumb' %}
 
-    <div class="create-an-account">
+    <div class="wrapper-login-customer">
       <header class="page-header">
-        <h1 {% if settings.enable_multilang %} data-translate="customer.register.title"{% endif %}>
-          {{ 'customer.register.title' | t }}
+        <h1 {% if settings.enable_multilang %}data-translate="customer.login.account"{%endif%}>
+          {{ 'customer.login.account' | t }}
         </h1>
       </header>
 
-      {% if settings.enable_multilang %}
-      <p class="des lang1">
-        {{ settings.register_text_desc | split: '|' | first }}
-      </p>
-      <p class="des lang2">
-        {{ settings.register_text_desc | split: '|' | last }}
-      </p>
-      {% else %}
-      <p class="des">
-        {{ settings.register_text_desc | split: '|' | first }}
-      </p>
-      {% endif %}
+      <div class="wrapper-content">
+        <div class="col-left returning-customer">
+          <div class="wrapper-title">
+            <div class="box-title"{% if settings.enable_multilang %} data-translate="customer.login.returning_customer_customer"{%endif%}>
+              {{ 'customer.login.returning_customer' | t }}
+            </div>
+          </div>
 
-      {% comment %}
-      This form must use 'create_customer'
-      {% endcomment %}
+          {% comment %}
+          If a user has successfully requested a new password, the form.posted_successfully? variable
+          is set to true within the 'recover_customer_password' form only. Within that form you'll see
+          us assign a variable 'reset_success' to true, which is used in JS to show our success message.
+          {% endcomment %}
 
-      {% form 'create_customer' %}
+          {% comment %}
+          This form must use 'customer_login'
+          {% endcomment %}
 
-      {% include 'form-errors-custom' %}
+          <center>
 
-      <div class="form-group">
-        <label for="first_name">
-          <span {% if settings.enable_multilang %}data-translate="customer.register.first_name"{%endif%}>
-            {{ 'customer.register.first_name' | t }}
+          <p class="des">
+            Already have an account?
+          </p>
+
+          <a href="/account/login" class="btn btn-2 btn-padd42" {% if settings.enable_multilang %}data-translate="customer.register.title"{% endif %}>
+            Login
+          </a>
+
+          </center>
+
+          {% comment %}
+          This page uses JavaScript to show/hide the recover password form
+          {% endcomment %}
+
+        </div>
+
+        <div class="custom-or-abs">
+          <span class="or_text">
+            {{ 'cart.label.or' | t }}
           </span>
-        </label>
-        <input type="text" value="" name="customer[first_name]" id="first_name" {% if form.errors contains "first_name" %}class="error"{% endif %} >
-      </div>
+        </div>
 
-      <div class="form-group">
-        <label for="last_name">
-          <span {% if settings.enable_multilang %}data-translate="customer.register.last_name"{%endif%}>
-            {{ 'customer.register.last_name' | t }}
-          </span>
-        </label>      
-        <input type="text" value="" name="customer[last_name]" id="last_name" {% if form.errors contains "last_name" %}class="error"{% endif %} >
-      </div>
+        <div class="col-right new-customer text-center">
+          <div class="wrapper-title">
+            <div class="box-title"{% if settings.enable_multilang %} data-translate="customer.login.new_customer"{%endif%}>
+              {{ 'customer.login.new_customer' | t }}
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label for="email">
-          <span {% if settings.enable_multilang %}data-translate="customer.register.email"{%endif%}>
-            {{ 'customer.register.email' | t }}
-          </span>
-          <em>*</em>
-        </label>      
-        <input type="email" value="" name="customer[email]" id="email" {% if form.errors contains "email" %}class="error"{% endif %}  >
-      </div>
+          {% form 'create_customer' %}
 
-      <div class="form-group">
-        <label for="password">
-          <span {% if settings.enable_multilang %}data-translate="customer.register.password"{%endif%}>
-            {{ 'customer.register.password' | t }}
-          </span>
-          <em>*</em>
-        </label>      
-        <input type="password" value="" name="customer[password]" id="create_password" {% if form.errors contains "password" %}class="error"{% endif %}>
-      </div>
+          {% include 'form-errors-custom' %}
 
-      <div class="action-btn">
-        <input type="submit" {% if settings.enable_multilang %}data-translate="customer.register.submit"{%endif%} value="{{ 'customer.register.submit' | t }}" class="btn btn-padd42">
+          <div class="form-group">
+            <label for="first_name">
+              <span {% if settings.enable_multilang %}data-translate="customer.register.first_name"{%endif%}>
+                {{ 'customer.register.first_name' | t }}
+              </span>
+            </label>
+            <input type="text" value="" name="customer[first_name]" id="first_name" {% if form.errors contains "first_name" %}class="error"{% endif %} style="width:100%">
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">
+              <span {% if settings.enable_multilang %}data-translate="customer.register.last_name"{%endif%}>
+                {{ 'customer.register.last_name' | t }}
+              </span>
+            </label>
+            <input type="text" value="" name="customer[last_name]" id="last_name" {% if form.errors contains "last_name" %}class="error"{% endif %} style="width:100%">
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              <span {% if settings.enable_multilang %}data-translate="customer.register.email"{%endif%}>
+                {{ 'customer.register.email' | t }}
+              </span>
+              <em>*</em>
+            </label>
+            <input type="email" value="" name="customer[email]" id="email" {% if form.errors contains "email" %}class="error"{% endif %}  style="width:100%">
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              <span {% if settings.enable_multilang %}data-translate="customer.register.password"{%endif%}>
+                {{ 'customer.register.password' | t }}
+              </span>
+              <em>*</em>
+            </label>
+            <input type="password" value="" name="customer[password]" id="create_password" {% if form.errors contains "password" %}class="error"{% endif %} style="width:100%">
+          </div>
+
+          <div class="action-btn">
+            <input type="submit" {% if settings.enable_multilang %}data-translate="customer.register.submit"{%endif%} value="{{ 'customer.register.submit' | t }}" class="btn btn-padd42">
+          </div>
+          {% endform %}
+        </div>
       </div>
-      {% endform %}
     </div>
   </div>
 </div>
+
+<script>
+  /*
+    Show/hide the recover password form when requested.
+    I'd suggest using some CSS3 transitions to make this change look cool,
+    but this gets the job done for now.
+  */
+  function showRecoverPasswordForm() {
+    $('#recover_password').show();
+    $('#customer_login').hide();
+  }
+
+  function hideRecoverPasswordForm() {
+    $('#recover_password').hide();
+    $('#customer_login').show();
+  }
+
+  // Allow deep linking to the recover password form
+  if (window.location.hash == '#recover') {
+    showRecoverPasswordForm()
+  }
+
+  // reset_success is only true when the reset form is
+  {% if reset_success %}
+    $('#resetSuccess').show();
+  {% endif %}
+</script>
