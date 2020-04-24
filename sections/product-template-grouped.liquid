@@ -44,8 +44,11 @@
 
             <div class="col-md-5 product-shop">
                 <h1 class="product-title">
-                    {% include 'multilang' with product.title %}
+                    {{ product.title | split: '-' | first }}
                 </h1>
+                <h2 class="product-title">
+                  {{ product.title | split: '-' | last }}
+                </h2>
 
                 {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
                 <div class="group_item">
@@ -250,6 +253,24 @@
                     <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
                     {% endif %}
                 </div>
+                {% endif %}
+
+                {% if product.title == 'Black Buck Coffee - Ground' or product.title == 'Black Buck Coffee - Whole Bean' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-ground" {% endif %}>
+                    <img src="{{ 'ground.png' | file_url }}">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | file_url }}">
+                  </a>
+                </li>
+                </ul>
                 {% endif %}
 
                 {% if current_variant.available and section.settings.display_qty %}
