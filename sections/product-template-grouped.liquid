@@ -11,7 +11,7 @@
                         <div class="product-photo-container slider-for">
                             {% for image in product.images %}
                             <div class="thumb filter-{{ image.alt | handle }}">
-                                <a data-zoom class="fancybox" rel="gallery1" href="{{ image | img_url: 'original' }}" data-fancybox="images">
+                                <a class="fancybox" rel="gallery1" href="{{ image | img_url: 'original' }}" data-fancybox="images">
                                     <img id="product-featured-image-{{image.id}}" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}"
                                         class="lazyload"
                                         data-src="{{ image | img_url: 'original' }}"
