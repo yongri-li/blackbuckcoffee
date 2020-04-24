@@ -827,7 +827,7 @@ table {
 /* ----- Header ------- */
 .header-top {
     .top-message {
-        font-size: $font_size;
+        font-size: $font_size - 2;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: .05em;
@@ -6779,6 +6779,8 @@ table {
                 position: relative;
                 min-width: 84px;
                 height: 84px;
+                -webkit-filter: grayscale(98%);
+                filter: grayscale(98%);
                 border-bottom: 0px solid $border_color_2;
 
                 &:after {
@@ -6795,6 +6797,7 @@ table {
                     visibility: hidden;
                     @include transition(opacity .2s linear);
                     @include border-radius(50%);
+
                 }
 
                 &.swatch_variant_img {
@@ -6808,6 +6811,8 @@ table {
         input:checked {
             &+label {
                 font-weight: 600;
+                -webkit-filter: grayscale(0%)!important;
+                filter: grayscale(0%)!important;
 
                 &:after {
                     @include opacity(1);
@@ -13222,6 +13227,7 @@ div.rc_block__type--active {
   -webkit-filter: grayscale(98%);
   filter: grayscale(98%);
 }
+
 .banner-small-img:hover img,
 .slideshow:hover img,
 .suppermarket-product-tabs.has-banner .column-banner-inner:hover img,
