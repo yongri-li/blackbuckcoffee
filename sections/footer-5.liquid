@@ -164,9 +164,17 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row{% if section.settings.footer_address_code != blank and section.settings.show_payment_icons %} justify-content-lg-between{% endif %}">
+
                 {% if section.settings.footer_address_code != blank %}
-                <div class="col-12{% if section.settings.show_payment_icons %} col-lg-6{% endif %}">
+                <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
+                  <center>
+                  {% for link in linklists.footer.links %}
+                  <a href="{{ link.url }}" style="display: inline-block; padding: 0 5px 0;">{{ link.title }}</a>
+                  {% endfor %}
+                  </center>
+                  <br><br>
                     <address>
+                        <center>
                         {% if settings.enable_multilang %}
                         <div class="lang1">
                             {{ section.settings.footer_address_code | split: '[lang2]' | first }}
@@ -179,13 +187,15 @@
                             {{ section.settings.footer_address_code | split: '[lang2]' | first }}
                         </div>
                         {% endif %}
+                        {% include 'footer_creds' %}
+                        </center>
                     </address>
-                    {% include 'footer_creds' %}
+
                 </div>
                 {% endif %}
 
                 {% if section.settings.show_payment_icons %}
-                <div class="col-12{% if section.settings.footer_address_code != blank %} col-lg-6{% endif %}">
+                <div class="col-12{% if section.settings.footer_address_code != blank %} col-lg-12{% endif %}">
                     {% assign payment_string = 'visa,visa_electron,master,maestro,american_express,solo,amazon_payments,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,paypal,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,stripe,sage,wallet' %}
                     {% assign methods = payment_string | split: ',' %}
 
