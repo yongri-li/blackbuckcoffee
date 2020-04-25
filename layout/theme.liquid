@@ -10,6 +10,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+  <meta name="google-site-verification" content="WI9X9PbxYIlo3vlZgLIi5pjduSelyRG6qyCDJavoYqk" />
+
   <!-- Title and description ================================================== -->
   <title>
   {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
@@ -150,7 +152,7 @@
     {% include 'recently-viewed-products'%}
 
     {% include 'subscription-theme-footer' %}
-    
+
     <div class="wrapper-overlay"></div>
 </body>
 </html>
