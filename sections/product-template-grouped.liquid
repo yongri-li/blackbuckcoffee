@@ -43,12 +43,18 @@
             </div>
 
             <div class="col-md-5 product-shop">
+                {% if product.title contains '-' %}
                 <h1 class="product-title">
                     {{ product.title | split: '-' | first }}
                 </h1>
                 <h2 class="product-title">
                   {{ product.title | split: '-' | last }}
                 </h2>
+                {% else %}
+                <h1 class="product-title">
+                    {{ product.title }}
+                </h1>
+                {% endif %}
 
                 {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
                 <div class="group_item">
