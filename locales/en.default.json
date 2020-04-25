@@ -361,7 +361,7 @@
       "new_label": "New",
       "sold_out": "Sold Out",
       "on_sale_from_html": "<strong>On Sale<\/strong> from {{ price }}",
-      "unavailable": "Unavailable",
+      "unavailable": "Sold Out",
       "compare_at": "Compare at",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
