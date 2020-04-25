@@ -15,7 +15,7 @@
 %}
   {%- assign social_icons = true -%}
 {% endif %}
-
+<center>
 {% if social_icons %}
 <ul class="social-icons">
   {% if settings.social_facebook_link != blank %}
@@ -36,7 +36,7 @@
     </a>
   </li>
   {% endif %}
-  
+
   {% if settings.social_google_plus_link != blank %}
   <li class="google_plus">
     <a href="{{ settings.social_google_plus_link }}" title="Google+" target="_blank">
@@ -44,7 +44,7 @@
     </a>
   </li>
   {% endif %}
-  
+
   {% if settings.social_instagram_link != blank %}
   <li class="instagram">
     <a href="{{ settings.social_instagram_link }}" title="Instagram" target="_blank">
@@ -52,7 +52,7 @@
     </a>
   </li>
   {% endif %}
-  
+
   {% if settings.social_pinterest_link != blank %}
   <li class="pinterest">
     <a href="{{ settings.social_pinterest_link }}" title="Pinterest" target="_blank">
@@ -60,7 +60,7 @@
     </a>
   </li>
   {% endif %}
-     
+
   {% if settings.social_tumblr_link != blank %}
   <li class="tumblr">
     <a href="{{ settings.social_tumblr_link }}" title="Tumblr" target="_blank">
@@ -91,3 +91,4 @@
   {% endif %}
 </ul>
 {% endif %}
+</center>
