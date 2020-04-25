@@ -203,20 +203,8 @@
 
                 {% if section.settings.show_payment_icons %}
                 <div class="col-12{% if section.settings.footer_address_code != blank %} col-lg-12{% endif %}">
-                    {% assign payment_string = 'visa,visa_electron,master,maestro,american_express,solo,amazon_payments,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,paypal,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,stripe,sage,wallet' %}
-                    {% assign methods = payment_string | split: ',' %}
 
-                    <ul class="payment-methods">
-                        {% for method in methods %}
-                        {%- assign display_current_method = method | prepend: 'payment_display_' -%}
-                        {% if section.settings[display_current_method] %}
-                        {%- assign current_method_icon = method | prepend: 'icon_' -%}
-                        <li>
-                            <img src="{{ section.settings[current_method_icon] | img_url: 'x32' }}" alt="{{ method }}">
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
+                    {% include 'payment_methods' %}
                 </div>
                 {% endif %}
             </div>
