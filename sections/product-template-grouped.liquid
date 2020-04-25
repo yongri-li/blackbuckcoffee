@@ -43,6 +43,9 @@
             </div>
 
             <div class="col-md-5 product-shop">
+                {% if product.tags contains 'Coming Soon' %}
+                <h4>COMING SOON</h4>
+                {% endif %}
                 {% if product.title contains '-' %}
                 <h1 class="product-title">
                     {{ product.title | split: '-' | first }}
