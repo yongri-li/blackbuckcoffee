@@ -1,18 +1,39 @@
-{% assign payment_methods_string = 'visa, american-express, mastercard, discover, paypal, google-checkout,  maestro, cirrus,  2checkout' %}
-{% assign methods = payment_methods_string | split: ', ' %}
+<style>
+.icon {
+width: 3.125em;
+}
+.visuallyhidden {
+border: 0;
+clip: rect(0 0 0 0);
+height: 1px;
+margin: -1px;
+overflow: hidden;
+padding: 0;
+position: absolute;
+width: 1px;
+white-space: nowrap;
+}
+.payment-method-icon {
+	display:inline-block;
+	color: transparent;
+	-webkit-filter: grayscale(98%);
+  filter: grayscale(98%);
+}
+.payment-method-icon:hover {
+	filter: drop-shadow(0 0 10px rgba(0,0,0,0.15));
+}
+</style>
+<center>
+{%- unless shop.enabled_payment_types == empty -%}
+<span class="visuallyhidden">Supported payment methods</span>
 
-<div id="payment-methods">
-	
-  {% for method in methods %}
-    {% assign display_current_method = method | prepend: 'payment_methods_display_' | append: '?' %}
-
-    {% if settings[display_current_method] %}
-      {% assign current_method_icon = method | prepend: 'icon-cc-' | append: '.png' %}
-      <span class="payment-method">
-        <a href="/cart" title="{{ method | replace: '-', ' ' | downcase | capitalize }}">
-          {{ current_method_icon | asset_url | img_tag: method }}
-        </a>
-      </span>
-    {% endif %}
-  {% endfor %}
-</div>
+<ul>
+	{% assign enabled_payment_types = 'visa,master,discover,american_express,google_pay,apple_pay,shopify_pay' | remove: ' ' | split: ',' %}
+	{% for type in enabled_payment_types %}
+  <li class="payment-method-icon">
+    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+  </li>
+{%- endfor -%}
+</ul>
+{%- endunless -%}
+</center>
