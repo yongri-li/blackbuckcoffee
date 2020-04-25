@@ -158,7 +158,7 @@
 
     {% elsif block_style == "style_3" %}
     {% for l in linklists[link.handle].links %}
-    <div class="menu-lv-2 col-12 col-xs-12 col-sm-6 inner{% if linklists[link.handle] != empty %} dropdown{% endif %}">
+    <div class="menu-lv-2 col-12 col-xs-12 col-sm-4 inner{% if linklists[link.handle] != empty %} dropdown{% endif %}">
         <!-- Menu level 2 -->
         <a {%if linklists[link.handle] != empty %}class="menu__moblie"{% endif %} href="{{ l.url }}" class="current">
             {% include 'multilang' with l.title %}
