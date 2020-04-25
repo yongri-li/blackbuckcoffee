@@ -168,6 +168,13 @@
                 {% if section.settings.footer_address_code != blank %}
                 <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
                   <center>
+                  {% for link in linklists.top-footer.links %}
+                  <a href="{{ link.url }}" class="btn">{{ link.title }}</a>
+                  {% endfor %}
+                  </center>
+                  <br><br>
+
+                  <center>
                   {% for link in linklists.footer.links %}
                   <a href="{{ link.url }}" style="display: inline-block; padding: 0 5px 0;">{{ link.title }}</a>
                   {% endfor %}
