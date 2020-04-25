@@ -8,6 +8,9 @@
    - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
 
 {% endcomment %}
+<br>
+<p>Find out when this is back in stock!</p>
+<br>
 {%- capture newsletter_form_action -%}/contact{%- endcapture -%}
 {%- capture newsletter_form -%}
 
@@ -38,9 +41,9 @@
   </script>
 {% endif %}
   {% endif %}
-    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="contact[tags]" value="{{ product.title }}">
     <input class="input-group-field" type="email" name="contact[email]" {% if settings.enable_multilang %}data-translate="general.newsletter_form.newsletter_text" translate-item="placeholder"{%endif%} aria-label="Email Address" placeholder="{{ 'general.newsletter_form.newsletter_text' | t }}" required="required">
-    <input class="btn" type="submit" value="{{ 'general.newsletter_form.submit' | t }}">
+    <input class="btn" type="submit" value="{{ 'general.newsletter_form.submit' | t }}" style="width: 100%; background: #000; color: #fff;">
 
 {%- endform -%}
 {% endcapture %}
