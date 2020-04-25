@@ -443,6 +443,7 @@
         {% endif %}
 
         {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' or section.settings.display_related_products or settings.enable_ask_an_expert %}
+        {% unless product.title contains 'Gift Card' %}
         <div class="product_bottom">
             {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %}
             {% include 'tab-horizontal' %}
@@ -460,6 +461,7 @@
             {% include 'related-products' %}
             {% endif %}{% endcomment %}
         </div>
+        {% endunless %}
         {% endif %}
     </div>
 </div>
