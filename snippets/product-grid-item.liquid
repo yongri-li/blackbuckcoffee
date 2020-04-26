@@ -93,9 +93,21 @@
       </div>
       {% endif %}
 
+      {% if product.type contains 'Coffee' %}
+      {% if product.title contains '-' %}
+      <a class="product-title" href="{{ product.url | within: collection }}">
+        {{ product.title | split: '-' | last }} Coffee
+      </a>
+      {% else %}
       <a class="product-title" href="{{ product.url | within: collection }}">
         {% include 'multilang' with product.title %}
       </a>
+      {% endif %}
+      {% else %}
+      <a class="product-title" href="{{ product.url | within: collection }}">
+        {% include 'multilang' with product.title %}
+      </a>
+      {% endif %}
 
       <div class="price-box">
         {% if on_sale %}

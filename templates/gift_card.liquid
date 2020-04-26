@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
 
-  <title>Here's your {{ formatted_initial_value_stripped }} gift card for {{ shop.name }}!</title>
+  <title>Black Buck Coffee - {{ formatted_initial_value_stripped }} Gift Card!</title>
   <meta name="description" content="Here's your gift card!">
 
   {{ 'gift-card.css' | shopify_asset_url | stylesheet_tag }}
@@ -55,7 +55,7 @@
   <div class="wrap">
 
     <header role="banner" id="header">
-      <a href="{{ shop.url }}" class="logo"><img src="{{ 'gift-card-logo.png' | asset_url }}" alt="Gift card illustration"></a>
+      <a href="{{ shop.url }}" class="logo gift-card-logo"><img src="{{ 'gift-card-logo.png' | asset_url }}" alt="Gift card illustration"></a>
       <a href="{{ shop.url }}" class="shop-url">{{ shop.url | remove: 'http://' }}</a>
     </header>
 
