@@ -1,4 +1,4 @@
-{% if settings.product_layout == "default" %} 
+{% if settings.product_layout == "default" %}
 
 {% include 'product-default' %}
 
@@ -26,9 +26,13 @@
     {% section 'someone-purchased' %}
     {% section 'GDPR-modal' %}
 
-    {% if settings.display_sticky %} 
+    {% if settings.display_sticky %}
         {% include 'sticky-add-to-cart' %}
     {% endif %}
 </div>
 {% endif %}
 
+{% if product.type == 'Coffee' %}
+<br><br>
+{% section 'product-customer-block-banner' %}
+{% endif %}

@@ -5,6 +5,13 @@ More info on linklists:
 {% endcomment %}
 
 <ul class="site-nav">
+
+    <div class="logo-mb">
+      <img itemprop="logo" data-src="{{ section.settings.logo_pc | img_url: 'master' }}"
+      src="{{ section.settings.logo_pc | img_url: 'master' }}"
+      alt="{{ section.settings.logo_pc.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloaded" data-sizes="auto">
+    </div>
+
     {% if section.settings.horizontal_linklist != blank %}
     {% assign menu = linklists[section.settings.horizontal_linklist].links %}
     {% else %}
