@@ -49,9 +49,9 @@
     "display_breadcrumb": true,
     "breadcrumb_color": "#999999",
     "breadcrumb_text_transform": "lowercase",
-    "page_title_font_size": "50",
+    "page_title_font_size": "35",
     "page_title_color": "#000000",
-    "page_title_text_align": "left",
+    "page_title_text_align": "center",
     "enable_sidebar_multiple_choice": true,
     "product_name_text_transform": "uppercase",
     "product_name_text_align": "center",
@@ -179,15 +179,15 @@
     "search_4": "revealed the following: | hat folgende Ergebnisse hervorgebracht:",
     "enable_search_trending": true,
     "trending_search_title": "trending",
-    "trending_search_item_1": "dempus",
-    "trending_search_item_2": "sample",
-    "trending_search_item_3": "magnis",
-    "trending_search_item_4": "loremous saliduar",
-    "trending_search_item_5": "naminos",
-    "trending_search_item_6": "dinterdum",
+    "trending_search_item_1": "Ground Coffee",
+    "trending_search_item_2": "Whole Bean",
+    "trending_search_item_3": "K-Cups",
+    "trending_search_item_4": "Merchandise",
+    "trending_search_item_5": "",
+    "trending_search_item_6": "",
     "enable_search_popular_products": true,
     "popular_products_search_title": "Popular Products",
-    "popular_products_collection": "",
+    "popular_products_collection": "coffee",
     "popular_products_limit": 3,
     "enable_shopify_payments_currencies": false,
     "enable_multiple_currencies": false,
@@ -3148,6 +3148,47 @@
           "icon_stripe": "",
           "icon_sage": "",
           "icon_wallet": ""
+        }
+      },
+      "product-customer-block-banner": {
+        "type": "product-customer-block-banner",
+        "blocks": {
+          "1587933287448": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/raw-coffee-bean-texture_de9a0c6b-2e3d-4ac8-94dc-0ba79d5b310c.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Natural &<br> Organic.",
+              "font_size_banner_heading": "60px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "There are zero calories in Black Buck Coffee. Our beans are entirely natural and certified organic.",
+              "font_size_banner_des": "22px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
+          }
+        },
+        "block_order": [
+          "1587933287448"
+        ],
+        "settings": {
+          "layout": "default",
+          "widget_title": "",
+          "widget_des": "",
+          "title_style": "style_1",
+          "img_align": "center",
+          "margin_bottom_mb": 0,
+          "margin_bottom_tab": 0,
+          "margin_bottom": 0
         }
       }
     },
