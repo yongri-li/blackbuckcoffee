@@ -142,13 +142,13 @@
                     <div class="typography">
                         {% if section.settings.img_1 != blank %}
                         <a href="javascript:void(0)">
-                            <img src="{{ section.settings.img_1 | img_url: 'x37' }}">
+                            <img src="{{ section.settings.img_1 | img_url: '100x' }}" style="max-width:37px">
                         </a>
                         {% endif %}
 
                         {% if section.settings.img_2 != blank %}
                         <a href="javascript:void(0)">
-                            <img src="{{ section.settings.img_2 | img_url: 'x37' }}">
+                            <img src="{{ section.settings.img_2 | img_url: '100x' }}" style="max-width:37px">
                         </a>
                         {% endif %}
                     </div>
