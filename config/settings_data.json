@@ -2526,7 +2526,7 @@
           "display_custom_tab": true,
           "custom_tab_title": "Coffee Care",
           "custom_tab_type": "all",
-          "custom_tab_content": "All coffee should be stored long term between 50 and 70 degrees Fahrenheit, at about 30 to 50 percent humidity. If you have green coffee beans they should be stored to the open air (example, burlap bag) and are good to roast for 2 to 4 years, depending on humidity. Keep them dry and away from water and sunlight. Roasted coffee beans should be kept in an air tight container, as well as ground coffee. You can store roasted coffees without much flavor loss for about a year unopened, or 2 years in the freezer. Coffee is still good past these dates if kept properly, but flavor fades away quickly over time. Once you open roasted beans or ground coffee you should plan to use it up within a week for the best flavor.",
+          "custom_tab_content": "Whole bean coffee is roasted the same day it ships. When coffee beans are ground, the rate at which carbon dioxide is released increases quickly. For this reason, ground coffee orders ship the following day.\n<br><br>\n\n\nAll coffee should be stored long term between 50 and 70 degrees Fahrenheit, at about 30 to 50 percent humidity. If you have green coffee beans they should be stored to the open air (example, burlap bag) and are good to roast for 2 to 4 years, depending on humidity. Keep them dry and away from water and sunlight. Roasted coffee beans should be kept in an air tight container, as well as ground coffee. You can store roasted coffees without much flavor loss for about a year unopened, or 2 years in the freezer. Coffee is still good past these dates if kept properly, but flavor fades away quickly over time. Once you open roasted beans or ground coffee you should plan to use it up within a week for the best flavor.",
           "dpl_lookbook_description": false,
           "style_lookbook_description": "all_product",
           "quote_title": "",
@@ -3156,7 +3156,7 @@
           "1587933287448": {
             "type": "largeImg",
             "settings": {
-              "image": "shopify:\/\/shop_images\/raw-coffee-bean-texture_de9a0c6b-2e3d-4ac8-94dc-0ba79d5b310c.jpg",
+              "image": "shopify:\/\/shop_images\/coffee-plant.jpg",
               "display_parallax": false,
               "dpl_down_arrow": false,
               "height_img_parallax": "970px",
@@ -3175,9 +3175,33 @@
               "color_banner_button": "#fff",
               "min_width_banner_button": "237px"
             }
+          },
+          "1588009073589": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/roasting.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Roasted<br>To Order.",
+              "font_size_banner_heading": "60px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "Whole bean coffee is roasted the same day it ships. When coffee beans are ground, the rate at which carbon dioxide is released increases quickly. For this reason, ground coffee orders ship the following day.",
+              "font_size_banner_des": "22px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
           }
         },
         "block_order": [
+          "1588009073589",
           "1587933287448"
         ],
         "settings": {
