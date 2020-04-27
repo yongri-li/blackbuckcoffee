@@ -1,6 +1,6 @@
 {% if section.blocks.size > 0 %}
 <div class="home-custom-block" id="custom-block-{{section.id}}">
-    <div class="{% if section.settings.layout == 'default' %}container{% else %}container-fluid{% endif %}">
+    <div class="{% if section.settings.layout == 'default' %}container-padd60{% else %}container-fluid{% endif %}">
         {% if section.settings.widget_title != blank %}
         <div class="widget-title{% if section.settings.title_style == 'style_2' %} not-before{% endif %}">
             <h3 class="box-title">
