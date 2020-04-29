@@ -1464,7 +1464,7 @@
       "GDPR-modal": {
         "type": "GDPR-modal",
         "settings": {
-          "display_gdpr": true,
+          "display_gdpr": false,
           "show_gdp": "left",
           "bg_color": "#141414",
           "text_color": "#ffffff",
@@ -3163,8 +3163,8 @@
           "bg_footer_attachment": "scroll",
           "bg-footer-img": "shopify:\/\/shop_images\/WBlack_Buck_Logo.png",
           "footer_title_color": "#141414",
-          "footer_link_color": "#3c3c3c",
-          "footer_link_hover_color": "#3c3c3c",
+          "footer_link_color": "#000000",
+          "footer_link_hover_color": "#000000",
           "bg_footer_line_color": "#ebebeb",
           "footer_newsletter_enable": true,
           "footer_newsletter_title": "Sign Up for Updates!",
