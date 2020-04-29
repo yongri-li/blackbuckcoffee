@@ -168,6 +168,7 @@
                 {% if section.settings.footer_address_code != blank %}
                 <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
                   <center>
+                  <a href="?chat" class="btn"><i class="fa fa-comments fa-lg" aria-hidden="true"></i> Live Chat</a><br>
                   {% for link in linklists.top-footer.links %}
                   <a href="{{ link.url }}" class="btn" style="white-space: break-spaces;">{{ link.title }}</a><br>
                   {% endfor %}
