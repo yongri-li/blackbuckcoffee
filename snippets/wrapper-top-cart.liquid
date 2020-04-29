@@ -113,3 +113,15 @@
 
   </div>
 </div>
+
+<script>
+  document.querySelector('#dropdown-cart .btn.btn-checkout').addEventListener('click', function(evt) {
+    var disable_recharge = evt.target.getAttribute('data-disable-recharge');
+    if (ReCharge.cart_options && !ReCharge.cart_options.disable && (!disable_recharge || disable_recharge !== 'true')) {
+      evt.preventDefault();
+      cartSubmit(ReCharge.cart_options, ReCharge.customer);
+    } else {
+      window.console.log('ReCharge was disabled intentionally.');
+    }
+  });
+</script>
