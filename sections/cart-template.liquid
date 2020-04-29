@@ -164,10 +164,6 @@
         <input class="btn btn-checkout" type="submit"  name="checkout" {% if settings.enable_multilang %}data-translate="cart.general.button_checkout"{% endif %} value="{{ 'cart.general.button_checkout' | t }}">
       {% endif %}
 
-
-      {% if additional_checkout_buttons %}
-      <div>{{ content_for_additional_checkout_buttons }}</div>
-      {% endif %}
     </div>
 
     {% unless cart.item_count == 0 %}
