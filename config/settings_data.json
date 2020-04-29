@@ -3172,7 +3172,7 @@
           "bg_newsletter_color": "#fff",
           "newsletter_color": "#9d9d9d",
           "newsletter_border_color": "#d2d2d2",
-          "bg_newsletter_button_color": "#232323",
+          "bg_newsletter_button_color": "#000000",
           "newsletter_button_color": "#fff",
           "footer_social_enable": true,
           "footer_typography_label": true,
@@ -3278,11 +3278,35 @@
               "color_banner_button": "#fff",
               "min_width_banner_button": "237px"
             }
+          },
+          "1588182973005": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forest.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Offset Emissions.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "We calculate CO2 emissions associate with the delivery of your order. Calculations are based on package weight, distance and means transportation. \n<br><br>We work to offset these emissions by funding the equivalently calculated amount to Jarí Para REDD+ Avoided Unplanned Deforestation project in the Amazon Rainforest, a Verified Carbon Standard project certified by Pachama.<br><br>\n<a href=\"https:\/\/pachama.com\/\" target=\"blank\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/pachama_36cbdc09-9837-40d4-9f9a-34284c19891f.png?v=1588174736\" width=\"200px\"><\/a>",
+              "font_size_banner_des": "18px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
           }
         },
         "block_order": [
           "1588009073589",
-          "1587933287448"
+          "1587933287448",
+          "1588182973005"
         ],
         "settings": {
           "layout": "default",
@@ -3293,6 +3317,71 @@
           "margin_bottom_mb": 0,
           "margin_bottom_tab": 0,
           "margin_bottom": 0
+        }
+      },
+      "product-customer-block-banner-bottom": {
+        "type": "product-customer-block-banner-bottom",
+        "blocks": {
+          "1588183274249": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forest.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Offset Emissions.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "We calculate CO2 emissions associate with the delivery of your order. Calculations are based on package weight, distance and means transportation. \n<br><br>We work to offset these emissions by funding the equivalently calculated amount to Jarí Para REDD+ Avoided Unplanned Deforestation project in the Amazon Rainforest, a Verified Carbon Standard project certified by Pachama.<br><br>\n<a href=\"https:\/\/pachama.com\/\" target=\"blank\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/pachama_36cbdc09-9837-40d4-9f9a-34284c19891f.png?v=1588174736\" width=\"200px\"><\/a>",
+              "font_size_banner_des": "18px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "",
+              "link": "",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
+          },
+          "1588183343013": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/black-buck-coffee-photo.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Join The Club.",
+              "font_size_banner_heading": "50px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "Subscribe & save to our coffee products for door step delivery as often as you need it. Keep going.",
+              "font_size_banner_des": "18px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "Join Now!",
+              "link": "shopify:\/\/products\/black-buck-coffee-ground",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#fff",
+              "min_width_banner_button": "237px"
+            }
+          }
+        },
+        "block_order": [
+          "1588183274249",
+          "1588183343013"
+        ],
+        "settings": {
+          "layout": "default",
+          "widget_title": "",
+          "widget_des": "",
+          "title_style": "style_1",
+          "img_align": "center",
+          "margin_bottom_mb": 25,
+          "margin_bottom_tab": 30,
+          "margin_bottom": 30
         }
       }
     },
