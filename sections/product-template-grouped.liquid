@@ -40,7 +40,7 @@
                         {% endfor %}
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <div class="col-md-5 product-shop">
                 {% if product.tags contains 'Coming Soon' %}
@@ -333,6 +333,13 @@
                     {% include 'wishlist-product' %}
                 </div>
                 {% endform %}
+
+                {% if current_variant.available %}
+                {% if product.type contains 'Coffee' %}
+                <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}.</p>
+                {% endif %}
+                <hr>
+                {% endif %}
 
                 {% if current_variant.available %}
                 {% else %}
