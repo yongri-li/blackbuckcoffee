@@ -70,6 +70,8 @@
             </div>
             {% endif %}
 
+
+
             <div class="price-box">
               <span>
                 {{ item.price | money }}
@@ -137,6 +139,19 @@
         {{ cart.total_price | money }}
       </span>
     </div>
+    
+    {% if cart.total_price > 4999 %}
+    <div class="total">
+    <span class="label">
+      <span {% if settings.enable_multilang %}data-translate="cart.label.total"{% endif %}>
+        Shipping:
+      </span>
+    </span>
+    <span class="price">
+       FREE!
+    </span>
+    </div>
+    {% endif %}
 
     {% if section.settings.cart_notes %}
     <label class="add-comments" for="cartSpecialInstructions">
