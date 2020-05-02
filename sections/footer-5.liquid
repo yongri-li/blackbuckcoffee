@@ -156,6 +156,15 @@
                 </div>
             </div>
             {% endif %}
+
+            <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
+            <center>
+            {% for link in linklists.customer-service.links %}
+            <a href="{{ link.url }}" style="display: inline-block; padding: 0 7px 0;">{{ link.title }}</a>
+            {% endfor %}
+            </center>
+            </div>
+
         </div>
     </div>
     {% endif %}
@@ -164,6 +173,8 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row{% if section.settings.footer_address_code != blank and section.settings.show_payment_icons %} justify-content-lg-between{% endif %}">
+
+
 
                 {% if section.settings.footer_address_code != blank %}
                 <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
@@ -178,7 +189,7 @@
 
                   <center>
                   {% for link in linklists.footer.links %}
-                  <a href="{{ link.url }}" style="display: inline-block; padding: 0 5px 0;">{{ link.title }}</a>
+                  <a href="{{ link.url }}" style="display: inline-block; padding: 0 7px 0;">{{ link.title }}</a>
                   {% endfor %}
                   </center>
                   <br><br>

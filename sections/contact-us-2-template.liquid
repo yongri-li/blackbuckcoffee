@@ -74,7 +74,7 @@ var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s
                 {% endif %}
               {% endif %}
               {% if section.settings.email_button != blank %}
-              <a href="mailto:{{section.settings.email}}" class="btn">
+              <a href="{{section.settings.email}}" class="btn">
                 {% include 'multilang' with section.settings.email_button %}
               </a>
               {% endif %}
@@ -102,9 +102,7 @@ var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s
     </div>
   </div>
 </div>
-<div style="color:#fff">
-{{ 'wufoo.css ' | asset_url }}
-</div>
+
 <style>
   .page-heading {
     text-align: center;
