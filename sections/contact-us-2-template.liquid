@@ -39,62 +39,25 @@
             </p>
           </div>
 
-          {% form 'contact' %}
-
-          {% comment %}
-          Successful message
-          {% endcomment %}
-
-          {% if form.posted_successfully? %}
-          <p class="note form-success" {% if settings.enable_multilang %}data-translate="contact.form.post_success"{% endif %}>
-            {{ 'contact.form.post_success' | t }}
-          </p>
-          {% endif %}
-
-          {{ form.errors | default_errors }}
-
-          <div id="contactFormWrapper">
-            <div class="form-group">
-              <label for="contactFormName">
-                <span {% if settings.enable_multilang %}data-translate="contact.form.name"{%endif%}>
-                  {{ 'contact.form.name' | t }}
-                </span>
-              </label>
-              <input type="text" id="contactFormName" name="contact[name]" autocapitalize="words" placeholder="{{ section.settings.contact_your_name }}">
-            </div>
-
-            <div class="form-group">
-              <label for="contactFormPhone">
-                <span {% if settings.enable_multilang %}data-translate="contact.form.phone"{%endif%}>
-                  {{ 'contact.form.phone' | t }}
-                </span>
-              </label>
-              <input type="tel" name="contact[phone]" id="contactFormPhone" pattern="[0-9]*" placeholder="{{ section.settings.contact_phone_number }}">
-            </div>
-
-            <div class="form-group">
-              <label for="contactFormEmail">
-                <span {% if settings.enable_multilang %}data-translate="contact.form.email"{%endif%}>
-                  {{ 'contact.form.email' | t }}
-                </span>
-                <em>*</em>
-              </label>
-              <input type="email" name="contact[email]" id="contactFormEmail" autocorrect="off" autocapitalize="off" placeholder="{{ section.settings.contact_your_email }}">
-            </div>
-
-            <div class="form-group">
-              <label for="contactFormMessage">
-                <span {% if settings.enable_multilang %}data-translate="contact.form.message"{%endif%}>
-                  {{ 'contact.form.message' | t }}
-                </span>
-                <em>*</em>
-              </label>
-              <textarea rows="8" name="contact[body]" id="contactFormMessage" {% if settings.enable_multilang %}data-translate="contact.form.placeholder_message" translate-item="placeholder"{%endif%} placeholder="{{ 'contact.form.placeholder_message' | t }}"></textarea>
-            </div>
-
-            <input type="submit" class="btn" {% if settings.enable_multilang %}data-translate="contact.form.submit_contact"{%endif%} value="{{ 'contact.form.submit_contact' | t }}">
-          </div>
-          {% endform %}
+          <div id="wufoo-z1ul27sz0nri69l">
+Fill out my <a href="https://minionmade.wufoo.com/forms/z1ul27sz0nri69l">online form</a>.
+</div>
+<script type="text/javascript">var z1ul27sz0nri69l;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'minionmade',
+'formHash':'z1ul27sz0nri69l',
+'autoResize':true,
+'height':'619',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':true};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'secure.wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { z1ul27sz0nri69l = new WufooForm();z1ul27sz0nri69l.initialize(options);z1ul27sz0nri69l.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
         </div>
 
         {% if section.settings.display_location %}
@@ -139,7 +102,9 @@
     </div>
   </div>
 </div>
-
+<div style="color:#fff">
+{{ 'wufoo.css ' | asset_url }}
+</div>
 <style>
   .page-heading {
     text-align: center;

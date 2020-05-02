@@ -1,0 +1,43 @@
+/* Logo */
+#logo a {visibility: hidden; background-image:url('http://minionmade.com/images/logo-dark.png'); min-height:0; height:0px; float: center;}
+
+/* Backgrounds */
+html{background-image:none; background-color: transparent}
+#logo{background-image:none;background-color: transparent}
+#container{background:#FFFFFF; max-width: 98%;}
+.wufoo input.text, .wufoo textarea.textarea{background:#FFFFFF url(/images/fieldbg.gif) repeat-x top}
+.wufoo .focused{background:#fefefe}
+.wufoo .instruct{background-color:#F5F5F5}
+
+/* Borders */
+#container{border:0 solid #cccccc}
+.wufoo .info{ border-bottom:0px solid #eee }
+.wufoo .instruct{border:1px solid #eee}
+
+/* Typography */
+.wufoo .info h2{ visibility: hidden; height: 0; font-weight: 400;font-size:60%;font-family:inherit;color:#000000}
+.wufoo .info div{font-size:65%;font-family:inherit;color:#444444}
+.wufoo .section h3{font-weight: 700;font-size:110%;font-family:inherit;background:#FFFFFF;color:#000000}
+.wufoo .section div{font-size:85%;font-family:inherit;color:#444444}
+.wufoo label.desc, .wufoo legend.desc{font-size:95%;font-family:inherit;color:#444444}
+.wufoo li div, .wufoo li div label, .wufoo li span label{font-family:inherit;color:#444444}
+.wufoo input.text, .wufoo textarea.textarea { padding: 7px; font-size:100%;font-family:inherit;color:#333333}
+.wufoo label.choice{color:#444444}
+.wufoo .instruct{font-size:100%;font-family:inherit;color:#444444
+}
+
+input.text, input.search, textarea.textarea {
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+border-bottom:1px solid #000; border-top:0px solid #ddd; border-right:0px solid #ddd; border-left:0px solid #ddd;
+}
+
+.submit{ -webkit-appearance: none; margin: 20px 0 20px; text-align: center; float: center;  font-family: inherit; font-weight: 700; color: #ffffff; line-height:40px; display:inline-block; border:0px solid #242424; padding: 25px; border-radius: 0px; font-size:13px; background:#000;}
+.button:hover{ background:#ef3c3c; color:#fff; text-decoration:none; border:0px solid #ef3c3c;}
+
+select {
+   -webkit-appearance: none; margin: 20px 0 20px; text-align: center; float: center;  font-family: inherit; font-weight: 400; color: #ffffff; line-height:33px; display:inline-block; border-bottom:1px solid #000; border-top:0px solid #ddd; border-right:0px solid #ddd; border-left:0px solid #ddd; padding: 25px; border-radius: 0px; font-size:60%; background:#fff;
+}
+
+}
