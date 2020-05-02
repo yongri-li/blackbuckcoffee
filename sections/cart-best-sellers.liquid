@@ -19,13 +19,25 @@
 {% if section.settings.show_cart_best_sellers_product %}
 <section class="related-products best-sell-product" data-featured-products>
   {% if section.settings.title != blank %}
+
+  {% if template contains 'cart' %}
   <div class="widget-title not-before">
     <h3 class="box-title">
-      <span class="title"> 
+      <span class="title">
         {% include 'multilang' with section.settings.title %}
       </span>
     </h3>
   </div>
+  {% else %}
+  <div class="widget-title not-before">
+    <h3 class="box-title">
+      <span class="title">
+        Merchandise | <a href="/collections/merchandise"> View All <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+      </span>
+    </h3>
+  </div>
+  {% endif %}
+
   {% endif %}
 
   <div class="widget-product">
@@ -63,7 +75,7 @@
     </div>
   </div>
 </section>
-{% endif %} 
+{% endif %}
 
 
 {% schema %}
@@ -81,7 +93,7 @@
         "id": "title",
         "label": "Title",
         "default": "Best Sellers"
-      },  	  
+      },
       {
         "type": "collection",
         "id": "show_slider_featured_collection",
@@ -123,7 +135,7 @@
           }
         ],
         "default": "5"
-      }  	  
+      }
 	]
   }
 {% endschema %}
