@@ -3038,8 +3038,8 @@
           "email_button_bgc_h": "#232323",
           "email_button_txtc_h": "#fff",
           "email_button_bdc_h": "#232323",
-          "bot_title": "Tweet Us!",
-          "bot_content": ""
+          "bot_title": "Our Programs",
+          "bot_content": "<a href=\"\/pages\/business-ordering\">Business Ordering<\/a>\n<br><a href=\"\/pages\/wholesale\">Wholesale<\/a>"
         }
       },
       "footer-4": {
@@ -3382,6 +3382,58 @@
           "margin_bottom_mb": 25,
           "margin_bottom_tab": 30,
           "margin_bottom": 30
+        }
+      },
+      "contact-us-3-template": {
+        "type": "contact-us-3-template",
+        "settings": {
+          "contact_title": "Order For Your Business",
+          "contact_text_desc": "You know, if your employees are drinking the right coffee, they can accomplish anything.",
+          "form_title": "Interested?",
+          "form_subtitle": "",
+          "contact_your_name": "",
+          "contact_phone_number": "",
+          "contact_your_email": "",
+          "display_location": true,
+          "background_color": "#fafafa",
+          "top_title": "Black Buck for Business:",
+          "top_content": "From break rooms to board rooms, we offer discounts for businesses looking to carry Black Buck Coffee.<br><br>Please  complete the interest form to the left and a representative will be in touch!",
+          "email_button": "Looking for Wholesale?",
+          "email": "\/pages\/wholesale",
+          "email_button_bgc": "rgba(250,250,250,0)",
+          "email_button_txtc": "#232323",
+          "email_button_bdc": "#232323",
+          "email_button_bgc_h": "#232323",
+          "email_button_txtc_h": "#fff",
+          "email_button_bdc_h": "#232323",
+          "bot_title": "Chat with us:",
+          "bot_content": ""
+        }
+      },
+      "contact-us-4-template": {
+        "type": "contact-us-4-template",
+        "settings": {
+          "contact_title": "Wholesale Inquiries",
+          "contact_text_desc": "Interested in selling Black Buck Coffee in your stores?",
+          "form_title": "Send us an email:",
+          "form_subtitle": "",
+          "contact_your_name": "",
+          "contact_phone_number": "",
+          "contact_your_email": "",
+          "display_location": true,
+          "background_color": "#fafafa",
+          "top_title": "Wholesale Program:",
+          "top_content": "Black Buck Coffee is a young and exciting new coffee company, connecting with everyone from dynamic young professionals to the everyday townie needing an extra boost.<br><br>Get in touch with us to learn a bit more about our wholesale tiers and packages.",
+          "email_button": "Looking For Business Ordering?",
+          "email": "\/pages\/business-ordering",
+          "email_button_bgc": "rgba(250,250,250,0)",
+          "email_button_txtc": "#232323",
+          "email_button_bdc": "#232323",
+          "email_button_bgc_h": "#232323",
+          "email_button_txtc_h": "#fff",
+          "email_button_bdc_h": "#232323",
+          "bot_title": "Chat with us:",
+          "bot_content": ""
         }
       }
     },
