@@ -1,0 +1,13 @@
+<!-- Start pageview.com pixel -->
+<script>
+  !function(e,t,n,s,a,c,p,o,r){e.pageview||((p=e.pageview=function()
+  {p.process?p.process.apply(p,arguments):p.queue.push(arguments)}).queue=[],
+  p.t=1*new Date,(o=t.createElement("script")).async=1,o.src="https://d1sgcddsx3hw5u.cloudfront.net/pixel.js?t="+864e5*Math.ceil(new Date/864e5),
+  (r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(o,r))}(window,document);
+
+  pageview("init", 1224);
+  {% if customer %}
+    pageview("event", "identify", { name: {{ customer.name }}, id: {{ customer.id }}, email: {{ customer.email }} });
+  {% endif %}
+</script>
+<!-- End pageview.com pixel -->
