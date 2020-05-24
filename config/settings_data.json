@@ -2512,7 +2512,7 @@
           "display_subtotal": false,
           "display_qty": true,
           "display_product_detail_tag": false,
-          "display_product_detail_share": false,
+          "display_product_detail_share": true,
           "share_text": "Share",
           "display_trust_img": false,
           "show_tab": "horizontal_center",
