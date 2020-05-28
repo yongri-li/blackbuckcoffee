@@ -120,7 +120,7 @@
                         {% if template == 'index' %}
                         {% if block.id contains '1540952363851' %}
                         <div class="img_mock">
-                          <img src="{{ 'HP-Mock.png' | asset_url }}" style="width:100%">
+                          <img src="{{ 'hp_img.png' | asset_url }}" style="width:100%">
                         </div>
                         {% endif %}
                         {% endif %}
@@ -216,6 +216,47 @@
                 </style>
                 {% endif %}
 
+                {% if template == 'index' %}
+                {% if block.id contains '1540952363851' %}
+                <a href="{{ block.settings.link }}" class="slide-button btn{% if block.settings.slide-des == blank %} no-des{% endif %}"
+                    style="{% if block.settings.bg_button != blank %}
+                            background-color:{{ block.settings.bg_button }};
+                            {% endif %}
+                            {% if block.settings.border_button != blank %}
+                            border-color:{{ block.settings.border_button }};
+                            {% endif %}
+                            {% if block.settings.color_button != blank %}
+                            color:{{ block.settings.color_button }};
+                            {% endif %}
+                            {% if block.settings.sub_heading != blank %}
+                            min-width: 167px;
+                            padding: 15px 25px 13px;
+                            border-radius: 30px;
+                            font-weight: 600;
+                            {% endif %}">
+                    Buy Ground Coffee
+                </a>
+                <a href="{{ block.settings.link }}" class="slide-button btn{% if block.settings.slide-des == blank %} no-des{% endif %}"
+                    style="{% if block.settings.bg_button != blank %}
+                            background-color:{{ block.settings.bg_button }};
+                            {% endif %}
+                            {% if block.settings.border_button != blank %}
+                            border-color:{{ block.settings.border_button }};
+                            {% endif %}
+                            {% if block.settings.color_button != blank %}
+                            color:{{ block.settings.color_button }};
+                            {% endif %}
+                            {% if block.settings.sub_heading != blank %}
+                            min-width: 167px;
+                            padding: 15px 25px 13px;
+                            border-radius: 30px;
+                            font-weight: 600;
+                            {% endif %}">
+                    Buy Whole Bean
+                </a>
+                {% endif %}
+                {% else %}
+
                 {% if block.settings.button_slide != blank %}
                 <a href="{{ block.settings.link }}" class="slide-button btn{% if block.settings.slide-des == blank %} no-des{% endif %}"
                     style="{% if block.settings.bg_button != blank %}
@@ -236,6 +277,8 @@
                     {% include 'multilang' with block.settings.button_slide  %}
                 </a>
                 {% endif %}
+                {% endif %}
+
                 </div>
                 {% endif %}
                 {% endunless %}
