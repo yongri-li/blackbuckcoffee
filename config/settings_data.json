@@ -2995,9 +2995,9 @@
         ],
         "settings": {
           "layout": "padd_60",
-          "margin_bottom_mb": 20,
-          "margin_bottom_tab": 20,
-          "margin_bottom": 30,
+          "margin_bottom_mb": 30,
+          "margin_bottom_tab": 40,
+          "margin_bottom": 60,
           "autoplay": true,
           "slideshow_speed": "5000",
           "slideshow_transition": "true",
@@ -3435,13 +3435,36 @@
           "bot_title": "Chat with us:",
           "bot_content": ""
         }
+      },
+      "1590332618858": {
+        "type": "instafeed",
+        "settings": {
+          "heading_font": "helvetica_n4",
+          "heading_size": 20,
+          "feed_width": 100,
+          "html_area": "<!-- -->"
+        }
+      },
+      "1590332899124": {
+        "type": "home-about-us",
+        "settings": {
+          "display_border_top": false,
+          "title": "<a href=\"https:\/\/instagram.com\/blackbuckcoffee\"><i class=\"fa fa-instagram fa-lg\" aria-hidden=\"true\"><\/i>\n Follow Us on Instagram <i class=\"fa fa-long-arrow-right\" aria-hidden=\"true\"><\/i><\/a>",
+          "font_size_title": "24px",
+          "color_title": "#232323",
+          "des": "",
+          "color_des": "#787878",
+          "margin_bottom": 0
+        }
       }
     },
     "content_for_index": [
       "1540952363851",
       "1587659037945",
       "1587659609363",
-      "1587695095970"
+      "1587695095970",
+      "1590332899124",
+      "1590332618858"
     ]
   },
   "presets": {
