@@ -41,7 +41,7 @@
     "body_font_size": "16",
     "enable_opengraph": true,
     "image_share": "",
-    "enable_backtotop": true,
+    "enable_backtotop": false,
     "body_bg": "#ffffff",
     "body_color": "#000000",
     "link_color": "#000000",
