@@ -915,6 +915,49 @@ $color_slick_arrow: #323232;
 /* 100% Mobile */
 @media (max-width: 767px) {
 
+  .ig_story {
+    height:60px;
+
+    h3 {
+      position: relative;
+      text-transform: uppercase;
+      display: inline-block;
+      top: -45%;
+      font-size: 14px;
+    }
+
+    .ig_text {
+      font-size: 14px!important;
+    }
+
+    .circle {
+      position:relative;
+      width:60px;
+      height:60px;
+      display: inline-block;
+    }
+    svg {
+      fill:none;
+      height: 60px;
+      width: 60px;
+      stroke:#8a3ab9;
+      stroke-linecap: round;
+      stroke-width:3;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
+      animation: stroke-draw 6s ease-out infinite alternate;
+      // animation: stroke-draw 6s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate;
+    }
+    img{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      width:40px;
+      border-radius:50%;
+    }
+  }
+
   .img_mock {
   position: absolute;
   z-index: 0;

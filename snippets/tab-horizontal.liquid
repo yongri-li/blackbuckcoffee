@@ -100,6 +100,8 @@
         </div>
 
         <div class="tab-content {% if tab2_active%}active{% endif %}" data-TabContent id="collapse-tab2">
+            {% include 'instastory' %}
+
             <div id="shopify-product-reviews" data-id="{{product.id}}">
                 {{ product.metafields.spr.reviews }}
             </div>

@@ -13343,3 +13343,61 @@ ul.coffee-types {
 }
 
 .share_text h3 { text-transform: uppercase; }
+
+.ig_story {
+  max-width: 100%;
+  float: none;
+  margin: 0 auto;
+  align-items:center;
+  justify-content:center;
+  height:100px;
+  h3 {
+    position: relative;
+    text-transform: uppercase;
+    display: inline-block;
+    top: -40%;
+  }
+}
+
+.ig_text {
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.circle{
+  position:relative;
+  width:100px;
+  height:100px;
+  display: inline-block;
+  svg{
+    fill:none;
+    height: 100px;
+    width: 100px;
+    stroke:#8a3ab9;
+    stroke-linecap: round;
+    stroke-width:3;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: stroke-draw 6s ease-out infinite alternate;
+    // animation: stroke-draw 6s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate;
+  }
+  img{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    width:70px;
+    border-radius:50%;
+  }
+}
+@keyframes stroke-draw {
+  from{
+    stroke:#d80089;
+    stroke-dasharray: 1;
+  }
+  to{
+    stroke:#eeb405;
+    transform:rotate(180deg);
+    stroke-dasharray: 3;
+  }
+}
