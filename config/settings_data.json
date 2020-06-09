@@ -2664,7 +2664,7 @@
           "banner_heading_1": "JOIN THE CLUB",
           "banner_des_1": "Subscribe & save to our coffee products for door step delivery as often as you need it. Keep going.",
           "banner_button_1": "Join Now!",
-          "link_1": "shopify:\/\/products\/black-buck-coffee-ground",
+          "link_1": "shopify:\/\/pages\/subscribe",
           "color_banner_1": "#fff",
           "image_2": "",
           "banner_heading_2": "Milancelos",
@@ -3453,7 +3453,7 @@
             "settings": {
               "dpl_slide_img": true,
               "image_slide": "shopify:\/\/shop_images\/Untitled-2_e5e2e2bb-262f-4dbb-8a59-ca5cf000ab7c.jpg",
-              "image_slide_mb": "shopify:\/\/shop_images\/Untitled-2_49947925-1ba6-42b9-aed1-eed854c12b83.jpg",
+              "image_slide_mb": "",
               "alignment": "center",
               "heading": "Coffee <br>Subscription",
               "font_size_heading": "80px",
