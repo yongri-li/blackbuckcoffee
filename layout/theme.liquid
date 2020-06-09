@@ -5,22 +5,13 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-                    {% include 'evm-seo' %}
+  {% include 'evm-seo' %}
 
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <meta name="google-site-verification" content="WI9X9PbxYIlo3vlZgLIi5pjduSelyRG6qyCDJavoYqk" />
-
-  <!-- Title and description ================================================== -->
-  {% comment %}<title>
-  {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-  </title>{% endcomment %}
-
-  {% if page_description %}
-  {% comment %} <meta name="description" content="{{ page_description | escape | split: '[/countdown]' | last | strip_html }}"> {% endcomment %}
-  {% endif %}
 
   <!-- Product meta ================================================== -->
   {% include 'fb-open-graph-tags' %}
@@ -76,10 +67,10 @@
 
 <body id="{{ page_title | handle }}" class="{{ header_class }} {{ layout_class }} {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
   <!-- Begin ReCharge code -->
-{% include 'subscription-cart-footer' %}
-<!-- End ReCharge code -->
+  {% include 'subscription-cart-footer' %}
+  <!-- End ReCharge code -->
 
-  {% if template contains 'index' %}
+    {% if template contains 'index' %}
     <h1 style="display: none">{{ page_title | split: '|' | first }}</h1>
     {% endif %}
     {% include 'wrapper-header' %}
@@ -91,7 +82,6 @@
     {% if settings.header_layout == 'vertical' %}
     {% section 'navigation-vertical-menu' %}
     {% endif %}
-	  {% include 'scheme' %}
     <div class="wrapper-container wrapper-body">
         <main class="main-content" role="main">
             {{ content_for_layout }}
@@ -127,7 +117,7 @@
     </div>
 
     {% if settings.header_layout == 'vertical' %}
-    </div> 
+    </div>
     {% endif %}
 
     {% include 'footer_styles' %}

@@ -11,11 +11,11 @@
                 <a href="#" title="close" class="close" data-close-header-top>
                 {% include 'icon-close' %}
                 </a>
-            </div>    
+            </div>
         </div>
     </div>
     {% endif %}
-  
+
     <a href="#" class="icon-nav close-menu-mb" title="Menu Mobile Icon" data-menu-mb-toogle>
         <span class="icon-line"></span>
     </a>
@@ -23,9 +23,9 @@
   <div class="header-bottom" data-sticky-mb>
     <div class="container">
       <div class="wrapper-header-bt">
-        
+
         {% include 'header-mobile' %}
-        
+
         <div class="header-pc">
           <div class="header-panel-top">
             {% if section.settings.display_customer_service and section.settings.customer_service_text != blank %}
@@ -33,7 +33,7 @@
               {% include 'multilang' with section.settings.customer_service_text %}
             </div>
             {% endif %}
-            
+
             {% if settings.enable_multilang or settings.enable_multiple_currencies %}
             <div class="lang-currency-groups">
               {% include 'new-language-picker' %}
@@ -41,21 +41,21 @@
               {% include 'new-currency-picker' %}
             </div>
             {% endif %}
-            
-            <div class="nav-search">                    
+
+            <div class="nav-search">
               {% include 'search-bar' %}
             </div>
           </div>
-          
+
           <div class="header-panel-bt">
             <div class="left-groups header-items">
-              <div class="header-logo" itemscope itemtype="http://schema.org/Organization">
-                <meta itemprop="url" content="{{ shop.url }}">
+              <div class="header-logo">
+                <meta content="{{ shop.url }}">
                 {% if section.settings.brand_type == 'image' and section.settings.logo_pc != bank %}
                 <a class="logo-img" href="/" title="Logo">
-                  <img itemprop="logo" data-src="{{ section.settings.logo_pc | img_url: 'master' }}"
+                  <img data-src="{{ section.settings.logo_pc | img_url: 'master' }}"
                        src="{{ section.settings.logo_pc | img_url: 'master' }}"
-                       alt="{{ section.settings.logo_pc.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloaded" data-sizes="auto">
+                       alt="{{ section.settings.logo_pc.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
                 </a>
                 {% elsif section.settings.brand_text != '' %}
                 <a class="logo-title" href="/" style="width: {{ section.settings.logo_max_width }}px">
@@ -68,25 +68,25 @@
                 {% endif %}
               </div>
             </div>
-            
+
             <div class="right-groups header-items">
               {% if section.settings.display_free_shipping and section.settings.free_shipping_text != blank %}
               <div class="free-shipping-text">
                 {% include 'multilang' with section.settings.free_shipping_text %}
               </div>
               {% endif %}
-              
+
               <div class="wrapper-top-cart">
                 {% include 'wrapper-top-cart' %}
               </div>
-              
+
               <div class="header-links">
                 {% if settings.enable_wishlist %}
                 <a class="wishlist" href="/pages/wish-list" title="{{ 'wishlist.general.my_wishlist' | t }}">
                   <i class="fa fa-heart" aria-hidden="true"></i>
                   <span class="wishlist-text text-hover"{% if settings.enable_multilang %} data-translate="wishlist.general.my_wishlist"{% endif %}>
                   	{{ 'wishlist.general.my_wishlist' | t }}
-                  </span>                  
+                  </span>
                 </a>
                 {% endif %}
                 {% if shop.customer_accounts_enabled %}
@@ -99,9 +99,9 @@
                   <a class="acc-links text-hover acc-title" href="/account"{% if settings.enable_multilang %} data-translate="customer.account.title"{% endif %}>
                     {{ 'customer.account.title' | t }}
                   </a>
-                  
-                  {% else %}  
-                  
+
+                  {% else %}
+
                   <a data-dropdown-user class="acc-links text-hover acc-sign-in" id="customer_login_link" href="/account/login" {% if settings.enable_multilang %}data-translate="customer.login.sign_in"{% endif %}>
                     {{ 'customer.login.sign_in' | t }}
                   </a>
@@ -111,14 +111,14 @@
                   <a class="acc-links text-hover acc-regis" id="customer_register_link" href="/account/register"{% if settings.enable_multilang %} data-translate="layout.customer.create_account"{% endif %}>
                     {{ 'layout.customer.create_account' | t }}
                   </a>
-                  {% endif %}                                   
+                  {% endif %}
                 </div>
                 {% endif %}
               </div>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -147,7 +147,7 @@
     });
 
     window.dropdowncart_type = "{{ section.settings.dropdowncart_type }}";
-    
+
     {% if settings.enable_multilang %}
     translator.doTranslate('.site-header');
     {% endif %}
@@ -236,7 +236,7 @@
         "type": "text",
         "id": "max_height_logo_mb",
         "label": "Max Height of Logo Mobile",
-        "default": "26px" 
+        "default": "26px"
       },
 	  {
        "type": "image_picker",
@@ -248,8 +248,8 @@
         "type": "text",
         "id": "max_height_logo_pc",
         "label": "Max Height of Logo PC",
-        "default": "44px" 
-      },	  
+        "default": "44px"
+      },
 	  {
         "type": "header",
         "content": "Search"
@@ -259,7 +259,7 @@
         "id": "bg_search_color",
         "label": "Background Color",
         "default": "#fafafa"
-      },      
+      },
 	  {
         "type": "color",
         "id": "search_color",

@@ -1,6 +1,6 @@
 <!-- ============================= SEO Expert Pro ============================= -->
     <title>{% if template == "index" and shop.metafields.evmSEOMeta.title_homepage!="" %}{{shop.metafields.evmSEOMeta.title_homepage}}{% elsif collection.handle == "all" and shop.metafields.evmSEOMeta.title_collectionsAll!="" %} {{shop.metafields.evmSEOMeta.title_collectionsAll}}{% elsif template == "search"  and shop.metafields.evmSEOMeta.title_search!=""  %}{{shop.metafields.evmSEOMeta.title_search}}{% elsif template == "404" and shop.metafields.evmSEOMeta.title_404!="" %}{{shop.metafields.evmSEOMeta.title_404}}{% else %}{{ page_title }}{% endif %}</title>
-   
+
     {% if template == "index"  and shop.metafields.evmSEOMeta.description_homepage!="" %}
         <meta name="description" content="{{shop.metafields.evmSEOMeta.description_homepage}}" />
     {% elsif collection.handle == "all"  and shop.metafields.evmSEOMeta.description_collectionsAll!="" %}
@@ -36,7 +36,7 @@
             }
     }
     </script>
-    
+
     {% if template contains "collection" %}
     <script type="application/ld+json">
         [
@@ -64,8 +64,8 @@
         ]
     </script>
     {% endif %}
-   
-    {% if template contains "product" %}
+
+{% if template contains "product" %}
 {%- assign isHasReviews = false -%}
 {%- assign reviewAppTitle = blank -%}
 {%- assign ratingValue = blank -%}
@@ -182,7 +182,7 @@
             "description": {{ reviewAppTitle }},
             "ratingValue": "{{ ratingValue }}",
             "reviewCount": "{{ reviewCount }}"
-        },      
+        },
         "review": {
     "@type": "Review",
     "reviewRating": {
@@ -220,7 +220,7 @@
                     "@type" : "Organization",
                     "name" : "{{ shop.name | strip_newlines | strip_html | escape_once | replace: '\', '\\\\' }}"
                 }
-            }{% unless forloop.last %}, 
+            }{% unless forloop.last %},
             {% endunless %}{% endfor %}
         ]
     }
