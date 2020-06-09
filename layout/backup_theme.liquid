@@ -5,7 +5,6 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-                    {% include 'evm-seo' %}
 
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
@@ -14,12 +13,12 @@
   <meta name="google-site-verification" content="WI9X9PbxYIlo3vlZgLIi5pjduSelyRG6qyCDJavoYqk" />
 
   <!-- Title and description ================================================== -->
-  {% comment %}<title>
+  <title>
   {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-  </title>{% endcomment %}
+  </title>
 
   {% if page_description %}
-  {% comment %} <meta name="description" content="{{ page_description | escape | split: '[/countdown]' | last | strip_html }}"> {% endcomment %}
+  <meta name="description" content="{{ page_description | escape | split: '[/countdown]' | last | strip_html }}">
   {% endif %}
 
   <!-- Product meta ================================================== -->
