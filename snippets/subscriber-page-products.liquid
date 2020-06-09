@@ -1,0 +1,8 @@
+<img src="{{ 'subscribe-products.png' | asset_url }}" style="width"100%>
+{% comment %}
+{% for product in collections.coffee.products | limit: 2 %}
+<div class="grid-item col-12">
+  {% include 'subscribe-item' %}
+</div>
+{% endfor %}
+{% endcomment %}

@@ -16,7 +16,7 @@
           {%- assign img_1 = product.images[1].src | product_img_url: '800x' -%}
           {%- assign img_11 = product.images[1].src | product_img_url: '300x' -%}
           {%- assign img_12 = product.images[1].src | product_img_url: '400x' -%}
-
+ 
           {% if product.images.size > 1 and settings.image_swap %}
           <img alt="{{ product.images[0].alt | escape }}"
                class="images-one lazyload"

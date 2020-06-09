@@ -1,0 +1,43 @@
+<div class="page-tpl subscribe_page">
+    {% section 'subscribe-slideshow' %}
+    <div class="container">
+    <a name="start"></a>
+    <header class="page-header">
+      <h2>
+        {% include 'multilang' with page.title %}
+      </h2>
+    </header>
+
+    {% comment %}
+    Regular page content goes here.
+    {% endcomment %}
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      {% include 'subscriber-page-products' %}
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h2>$17.99/shipment</h2>
+      <a href="/products/black-buck-coffee-ground?ref=subscribe" class="btn" style="background:#000;color:#fff;width:100%">Subscribe to Ground Coffee</a><br><br>
+      <a href="/products/black-buck-coffee-whole-bean?ref=subscribe" class="btn" style="background:#000;color:#fff;width:100%">Subscribe to Whole Bean Coffee</a>
+      <hr>
+    {% if settings.enable_multilang and page.content contains '[lang2]' %}
+    <div class="rte lang1">
+      {{ page.content | split: '[lang2]' | first }}
+    </div>
+    <div class="rte lang2">
+      {{ page.content | split: '[lang2]' | last }}
+    </div>
+    {% else %}
+    <div class="rte">
+      {{ page.content | split: '[lang2]' | first }}
+    </div>
+    {% endif %}
+    </div>
+  </div>
+</div>
+<br><br>
+<br><br>
+{% section 'product-customer-block-banner' %}
+<br><br>

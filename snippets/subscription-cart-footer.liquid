@@ -89,7 +89,7 @@
 				var product = items[id],
 					product_url = product['url'],
 					product_handle = product['original_handle'],
-					product_links = document.querySelectorAll('a[href*="' + product_url + '"]');
+					product_links = document.querySelectorAll('a[href*="' + product_url + '"]'); 
 				var links_to_update = Array.prototype.slice.apply(product_links);
 				links_to_update.forEach(function(link) {
 					link.setAttribute('href', '/products/' + product_handle);

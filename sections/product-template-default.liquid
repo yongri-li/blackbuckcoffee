@@ -172,8 +172,8 @@
                     {% endif %}
                 </div>
                 {% endif %}
-              
-                
+
+
 
                 {% if product.description contains '[countdown]' %}
                 {% assign count_down_first = product.description | split:'[/countdown]' | first %}
@@ -240,7 +240,7 @@
                 {% endif %}
                 {% else %}
                 {% assign word_numbeer = 50 %}
-              
+
               	{% if settings.enable_multilang and des contains '[lang2]' %}
                 <div class="short-description">
                     <div class="lang1">
@@ -255,7 +255,7 @@
                     {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
                 </div>
                 {% endif %}
-              
+
                 {% endif %}
 
                 {% elsif section.settings.show_desc == 'full' %}
@@ -276,7 +276,7 @@
                 {% endif %}
 
                 {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate' %}
-				{% if settings.display_size_chart %}
+				        {% if settings.display_size_chart %}
                 <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
                   {% include 'multilang' with settings.size_guide_text %}
                 </a>
@@ -307,9 +307,9 @@
                     {% endif %}
                 </div>
                 {% endif %}
-              
-                
-              
+
+
+
                 {% if current_variant.available %}
                 <div class="quantity">
                     <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
@@ -335,7 +335,7 @@
                 {% endif %}
 
                 {% if settings.enable_checkbox %}
-                    
+
                     <div class="groups-btn">
                         {% if current_variant.available %}
                         <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
@@ -348,7 +348,7 @@
                           <input class="conditions" type="checkbox" name="conditions">
                           <label>{% include 'multilang' with settings.checkbox_text %}</label>
                         </div>
-                        <div class="btn-checkout show"> 
+                        <div class="btn-checkout show">
                         {% if section.settings.enable_payment_button and current_variant.available %}
                             {{ form | payment_button }}
                         {% endif %}
@@ -369,7 +369,7 @@
                         {% endif %}
                     </div>
                 {% endif %}
-                
+
                 {% endform %}
 
                 {% if section.settings.dpl_customers_view %}
@@ -488,7 +488,7 @@
       Currency.convertAll(window.shop_currency, $('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
       {% endif %}
       {% endif %}
-        
+
     };
     {% endif %}
 
@@ -574,7 +574,7 @@
             productSku.find('span').empty();
         }
         {% endif %}
-	
+
         /*begin variant image*/
   		$(document).ready(function(){
           if (variant && variant.featured_image) {
