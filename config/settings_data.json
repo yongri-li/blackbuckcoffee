@@ -2719,7 +2719,7 @@
             "settings": {
               "dpl_slide_img": true,
               "image_slide": "shopify:\/\/shop_images\/mount-agung.jpg",
-              "image_slide_mb": "shopify:\/\/shop_images\/mount-agung_ec693681-deff-4b4f-8c77-ba25053a1e41.jpg",
+              "image_slide_mb": "",
               "alignment": "center",
               "heading": "Intense,<br> flavor.",
               "font_size_heading": "100px",
@@ -2761,7 +2761,7 @@
           "1587683457412"
         ],
         "settings": {
-          "layout": "padd_60",
+          "layout": "full",
           "margin_bottom_mb": 30,
           "margin_bottom_tab": 40,
           "margin_bottom": 50,
@@ -3443,6 +3443,78 @@
           "heading_size": 20,
           "feed_width": 100,
           "html_area": "<!-- -->"
+        }
+      },
+      "subscribe-slideshow": {
+        "type": "subscribe-slideshow",
+        "blocks": {
+          "1591663739336": {
+            "type": "image",
+            "settings": {
+              "dpl_slide_img": true,
+              "image_slide": "shopify:\/\/shop_images\/Untitled-2_e5e2e2bb-262f-4dbb-8a59-ca5cf000ab7c.jpg",
+              "image_slide_mb": "shopify:\/\/shop_images\/Untitled-2_49947925-1ba6-42b9-aed1-eed854c12b83.jpg",
+              "alignment": "center",
+              "heading": "Coffee <br>Subscription",
+              "font_size_heading": "80px",
+              "color_heading": "#ffffff",
+              "bg_heading_mb": "rgba(0,0,0,0)",
+              "sub_heading": "",
+              "font_size_sub_heading": "30px",
+              "color_sub_heading": "#fff",
+              "slide-des": "Never run out of Black Buck Coffee. Subscribe and instantly save 10% on your favorite coffee! Enjoy freshly roasted beans weekly, bi-weekly, or monthly, delivered right to your doorstep.",
+              "font_size_des": "18px",
+              "color_des": "#ffffff",
+              "button_slide": "Start Now!",
+              "link": "#start",
+              "bg_button": "#232323",
+              "border_button": "#232323",
+              "color_button": "#fff",
+              "lb_product_1": "",
+              "top_position_1": "10",
+              "left_position_1": "10",
+              "dots_color_1": "#fff",
+              "dots_bg_color_1": "#323232",
+              "dots_shadow_color_1": "#fff",
+              "lb_product_2": "",
+              "top_position_2": "10",
+              "left_position_2": "10",
+              "dots_color_2": "#fff",
+              "dots_bg_color_2": "#323232",
+              "dots_shadow_color_2": "#fff",
+              "lb_product_3": "",
+              "top_position_3": "10",
+              "left_position_3": "10",
+              "dots_color_3": "#fff",
+              "dots_bg_color_3": "#323232",
+              "dots_shadow_color_3": "#fff"
+            }
+          }
+        },
+        "block_order": [
+          "1591663739336"
+        ],
+        "settings": {
+          "layout": "full",
+          "margin_bottom_mb": 20,
+          "margin_bottom_tab": 20,
+          "margin_bottom": 30,
+          "autoplay": true,
+          "slideshow_speed": "5000",
+          "slideshow_transition": "true",
+          "dots": "true",
+          "dots_color": "#707979",
+          "dots_active_color": "#505656",
+          "dots_opacity": false,
+          "arrow_color": "#666d6d",
+          "arrow_border_color": "#666d6d",
+          "arrow_bg_color": "#fff",
+          "position_slick_arrow": "10%",
+          "min_width_banner_button": "",
+          "bg_video": "#866965",
+          "bg_overlay_opacity": 40,
+          "video_height": "41.7%",
+          "auto_playvideo": true
         }
       }
     },
