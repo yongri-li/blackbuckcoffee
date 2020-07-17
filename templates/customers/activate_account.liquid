@@ -14,35 +14,44 @@
 {% endcomment %}
 
 {% layout settings.customer_layout %}
+<div style="max-width:600px; margin: 0 auto; padding: 20px; float: none">
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
 
-<div class="grid">
-  <div class="grid-item large--one-third push--large--one-third">
-    
     <header class="page-header">
       <h1 {% if settings.enable_multilang %}data-translate="customer.activate_account.title"{%endif%}>{{ 'customer.activate_account.title' | t }}</h1>
     </header>
-    <p {% if settings.enable_multilang %}data-translate="customer.activate_account.subtext"{%endif%}>{{ 'customer.activate_account.subtext' | t }}</p>
+    <p {% if settings.enable_multilang %}data-translate="customer.activate_account.subtext"{%endif%} style="text-align: center">{{ 'customer.activate_account.subtext' | t }}</p>
 
     {% comment %}
       This form must use 'activate_customer_password'
     {% endcomment %}
-    
+    <br><br>
+
     {% form 'activate_customer_password' %}
+
+    <center>
 
       {{ form.errors | default_errors }}
 
-      <label for="customer_password" {% if settings.enable_multilang %}data-translate="customer.activate_account.password"{%endif%}>{{ 'customer.activate_account.password' | t }}</label>
-      <input type="password" value="" name="customer[password]" id="customer_password">
+      <label for="customer_password" {% if settings.enable_multilang %}data-translate="customer.activate_account.password"{%endif%} style="text-align: center">{{ 'customer.activate_account.password' | t }}</label>
+      <input type="password" value="" name="customer[password]" id="customer_password" style="text-align: center; width:100%">
 
-      <label for="customer_password_confirmation" {% if settings.enable_multilang %}data-translate="customer.activate_account.password_confirm"{%endif%}>{{ 'customer.activate_account.password_confirm' | t }}</label>
-      <input type="password" value="" name="customer[password_confirmation]" id="customer_password_confirmation">
+      <br>
+
+      <label for="customer_password_confirmation" {% if settings.enable_multilang %}data-translate="customer.activate_account.password_confirm"{%endif%} style="text-align: center">{{ 'customer.activate_account.password_confirm' | t }}</label>
+      <input type="password" value="" name="customer[password_confirmation]" id="customer_password_confirmation" style="text-align: center;width:100%">
 
       <div class="text-center">
+        <br><br>
         <p>
           <input type="submit" class="btn" {% if settings.enable_multilang %}data-translate="customer.activate_account.submit"{%endif%} value="{{ 'customer.activate_account.submit' | t }}">
         </p>
-        <input type="submit" class="btn--secondary" name="decline" {% if settings.enable_multilang %}data-translate="customer.activate_account.cancel"{%endif%} value="{{ 'customer.activate_account.cancel' | t }}">
       </div>
+
+    </center>
+
     {% endform %}
   </div>
+</div>
 </div>
