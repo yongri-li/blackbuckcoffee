@@ -1,4 +1,6 @@
 {% if template contains 'index' %}
+{% if customer %}
+{% else %}
 {% if settings.display_popup_newsletter %}
 <div class="wrapper-newsletter halo-modal" data-newsletter data-delay="{{settings.popup_newsletter_delay | times:1000}}" data-expire="{{ settings.popup_newsletter_expire }}">
     <div class="modal-overlay">
@@ -54,5 +56,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endif %}
 {% endif %}
