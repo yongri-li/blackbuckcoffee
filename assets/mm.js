@@ -1669,7 +1669,7 @@
                     };
                 })
             };
-        },
+        }, 
 
         openEmailModalWindow: function (newsletterWrapper) {
             newsletterWrapper.fadeIn(1000);
