@@ -347,6 +347,18 @@
                 <br><br>
                 {% endif %}
 
+                {% if product.type contains 'Coffee' %}
+                <div class="row free-sticker-row">
+                <div class="col-xs-4">
+                <img src="{{ 'free-sticker.png' | asset_url }}">
+                </div>
+                <div class="col-xs-8">
+                <h3>Free Sticker</h3>
+                <h5>with First Subscription Order</h5>
+                </div>
+                </div>
+                {% endif %}
+
                 {% if section.settings.dpl_customers_view %}
                 <div id="customers_view" data-customer-view="{{ section.settings.number_view }}">
                     <i class="fa fa-eye" aria-hidden="true"></i>
