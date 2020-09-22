@@ -10,7 +10,7 @@
 </a>
 {% endif %}
 
-<div id="dropdown-cart"> 
+<div id="dropdown-cart">
   <div class="cart-title">
     <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-cart close">
       {% include 'icon-close' %}
@@ -18,12 +18,12 @@
         {{ 'cart.general.close_cart' | t }}
       </span>
     </a>
-    
+
     <h5 {% if settings.enable_multilang %}data-translate="cart.general.shopping_cart"{% endif %}>
       {{ 'cart.general.shopping_cart' | t }}:
     </h5>
   </div>
-  
+
   <div class="no-items">
     <p class="cart_empty" {% if settings.enable_multilang %}data-translate="cart.general.empty"{% endif %} >
       {{ 'cart.general.empty' | t }}
@@ -36,7 +36,7 @@
   </div>
 
   <div class="has-items">
-    <ol class="mini-products-list">  
+    <ol class="mini-products-list">
       {% for item in cart.items %}
       <li class="item" id="cart-item-{{item.id}}">
         <a href="{{item.url}}" class="product-image">
@@ -51,7 +51,7 @@
           <a class="product-name" href="{{item.url}}">
             {% include 'multilang' with item.product.title %}
           </a>
-          
+
           <div class="option">
             {% if item.product.variants.size != 0 %}
             {% unless item.variant.title contains 'Default' %}
@@ -73,7 +73,7 @@
       {% endfor %}
     </ol>
 
-    <div class="summary">                
+    <div class="summary">
       <div class="total">
         <span class="label">
           <span {% if settings.enable_multilang %}data-translate="cart.label.total"{% endif %}>
@@ -82,7 +82,7 @@
         </span>
         <span class="price">
           {{cart.total_price | money}}
-        </span> 
+        </span>
       </div>
     </div>
 
@@ -97,7 +97,7 @@
       </button>
       <a class="btn btn-view-cart" href="/cart" {% if settings.enable_multilang %}data-translate="cart.general.view_cart"{% endif %}>
         {{ 'cart.general.view_cart' | t }}
-      </a>      
+      </a>
     </div>
     {% else %}
     <div class="actions">
@@ -106,12 +106,15 @@
       </button>
       <a class="btn btn-view-cart" href="/cart" {% if settings.enable_multilang %}data-translate="cart.general.view_cart"{% endif %}>
         {{ 'cart.general.view_cart' | t }}
-      </a>      
+      </a>
     </div>
     {% endif %}
 
 
   </div>
+
+  <i data-govx-id="s"></i>
+
 </div>
 
 <script>
