@@ -2618,6 +2618,7 @@
       },
       "1587659609363": {
         "type": "supermarket-product-tabs",
+        "disabled": true,
         "blocks": {
           "1587659637909": {
             "type": "ProductTabs",
@@ -2654,7 +2655,6 @@
           "bg_banner_button": "#ffffff",
           "border_banner_button": "#ffffff",
           "color_banner_button": "#232323",
-          "image_1": "shopify:\/\/shop_images\/max-d-photography-zwQTkDfzWS0-unsplash.jpg",
           "banner_heading_1": "JOIN THE CLUB",
           "banner_des_1": "Subscribe & save to our coffee products for door step delivery as often as you need it. Keep going.",
           "banner_button_1": "Join Now!",
@@ -2936,6 +2936,7 @@
       },
       "1587695095970": {
         "type": "home-slideshow",
+        "disabled": true,
         "blocks": {
           "1587695095970-0": {
             "type": "image",
@@ -3402,6 +3403,7 @@
       "1590332618858": {
         "type": "instafeed",
         "settings": {
+          "heading_font": "helvetica_n4",
           "heading_size": 20,
           "feed_width": 100,
           "html_area": "<!-- -->"
@@ -3478,6 +3480,83 @@
           "video_height": "41.7%",
           "auto_playvideo": true
         }
+      },
+      "1601656162df6e0c4e": {
+        "type": "home-custom-block-baner",
+        "blocks": {
+          "1601656162df6e0c4e-0": {
+            "type": "largeImg",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/black-buck-coffee-photo.jpg",
+              "display_parallax": false,
+              "dpl_down_arrow": false,
+              "height_img_parallax": "970px",
+              "alignment": "center",
+              "banner_heading": "Coffee<br> Subscription",
+              "font_size_banner_heading": "80px",
+              "color_banner_heading": "#ffffff",
+              "banner_des": "Never run out of Black Buck Coffee. Subscribe and instantly save 10% on your favorite coffee! Enjoy freshly roasted beans weekly, bi-weekly, or monthly, delivered right to your doorstep.",
+              "font_size_banner_des": "18px",
+              "color_banner_des": "#ffffff",
+              "countdown": "",
+              "banner_button": "Get Started",
+              "link": "\/pages\/subscribe",
+              "bg_banner_button": "#232323",
+              "border_banner_button": "#232323",
+              "color_banner_button": "#ffffff",
+              "min_width_banner_button": "0px"
+            }
+          }
+        },
+        "block_order": [
+          "1601656162df6e0c4e-0"
+        ],
+        "settings": {
+          "layout": "default",
+          "widget_title": "",
+          "widget_des": "",
+          "title_style": "style_1",
+          "img_align": "center",
+          "margin_bottom_mb": 25,
+          "margin_bottom_tab": 30,
+          "margin_bottom": 30
+        }
+      },
+      "16016564941b50ad01": {
+        "type": "home-new-arrivals",
+        "settings": {
+          "layout": "default",
+          "new_arrivals_title": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/buck-horns.png?v=1601656615\" style=\"max-width:100px\">",
+          "new_arrivals_des": "",
+          "title_style": "style_2",
+          "view_all": "",
+          "product_list_collection": "coffee",
+          "product_list_limit_all": 15,
+          "display_infinite_scrolling_homepage": false,
+          "product_list_limit": "10",
+          "collection_results_per_row1": "3",
+          "margin_bottom_mb": 40,
+          "margin_bottom_tab": 40,
+          "margin_bottom": 50
+        }
+      },
+      "160165663258987dff": {
+        "type": "home-new-arrivals",
+        "settings": {
+          "layout": "default",
+          "new_arrivals_title": "Merchandise",
+          "new_arrivals_des": "",
+          "title_style": "style_1",
+          "view_all": "",
+          "product_list_collection": "merchandise",
+          "product_list_limit_all": 4,
+          "display_infinite_scrolling_homepage": false,
+          "product_list_limit": "4",
+          "collection_results_per_row1": "4",
+          "margin_bottom_mb": 40,
+          "margin_bottom_tab": 40,
+          "margin_bottom": 50
+        }
       }
     },
     "content_for_index": [
@@ -3485,6 +3564,9 @@
       "1587659037945",
       "1587659609363",
       "1587695095970",
+      "16016564941b50ad01",
+      "160165663258987dff",
+      "1601656162df6e0c4e",
       "1590332618858"
     ]
   },
