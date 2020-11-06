@@ -3,15 +3,15 @@
     <div class="product-top">
       <div class="product-image{% if product.images.size > 1 and settings.image_swap %} image-swap{% endif %}">
         <a href="{{ product.url | within: collection }}" class="product-grid-image" data-collections-related="/collections/{{collection.handle}}?view=related">
-          {%- assign img_pr = product.featured_image.src | product_img_url: '800x' -%}
+          {%- assign img_pr = product.featured_image.src | product_img_url: '500x' -%}
           {%- assign img_pr_1 = product.featured_image.src | product_img_url: '300x' -%}
           {%- assign img_pr_2 = product.featured_image.src | product_img_url: '400x' -%}
 
-          {%- assign img_0 = product.images[0].src | product_img_url: '800x' -%}
+          {%- assign img_0 = product.images[0].src | product_img_url: '500x' -%}
           {%- assign img_01 = product.images[0].src | product_img_url: '300x' -%}
           {%- assign img_02 = product.images[0].src | product_img_url: '400x' -%}
 
-          {%- assign img_1 = product.images[1].src | product_img_url: '800x' -%}
+          {%- assign img_1 = product.images[1].src | product_img_url: '500x' -%}
           {%- assign img_11 = product.images[1].src | product_img_url: '300x' -%}
           {%- assign img_12 = product.images[1].src | product_img_url: '400x' -%}
 

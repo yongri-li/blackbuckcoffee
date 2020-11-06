@@ -55,15 +55,15 @@
   {% include 'linked-options' %}
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZC9W6N2QH"></script>
-  <script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZC9W6N2QH" defer></script>
+  <script defer>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-0ZC9W6N2QH');
   </script>
-  
+
 </head>
 
     {% if settings.layout_body == 'full' %}
