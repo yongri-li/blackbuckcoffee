@@ -1416,6 +1416,7 @@
           "1548643650260": {
             "type": "image",
             "settings": {
+              "product": "",
               "from_ago": "from Blackburn, UK",
               "time_ago": "20 minutes ago,"
             }
@@ -1423,6 +1424,7 @@
           "1548643708120": {
             "type": "image",
             "settings": {
+              "product": "",
               "from_ago": "from Washington, US",
               "time_ago": "30 minutes ago,"
             }
@@ -1430,6 +1432,7 @@
           "1548643726643": {
             "type": "image",
             "settings": {
+              "product": "",
               "from_ago": "in Blumenau, Brazil",
               "time_ago": "10 minutes ago,"
             }
@@ -1437,6 +1440,7 @@
           "1548643747526": {
             "type": "image",
             "settings": {
+              "product": "",
               "from_ago": "from Bauru, Brazil",
               "time_ago": "35 minutes ago,"
             }
@@ -1502,11 +1506,13 @@
               "dots_color_1": "#ffffff",
               "dots_bg_color_1": "#323232",
               "dots_shadow_color_1": "#ffffff",
+              "lb_product_2": "",
               "top_position_2": "10",
               "left_position_2": "10",
               "dots_color_2": "#ffffff",
               "dots_bg_color_2": "#323232",
               "dots_shadow_color_2": "#ffffff",
+              "lb_product_3": "",
               "top_position_3": "10",
               "left_position_3": "10",
               "dots_color_3": "#ffffff",
@@ -2960,16 +2966,19 @@
               "bg_button": "#232323",
               "border_button": "#232323",
               "color_button": "#ffffff",
+              "lb_product_1": "",
               "top_position_1": "10",
               "left_position_1": "10",
               "dots_color_1": "#ffffff",
               "dots_bg_color_1": "#323232",
               "dots_shadow_color_1": "#ffffff",
+              "lb_product_2": "",
               "top_position_2": "10",
               "left_position_2": "10",
               "dots_color_2": "#ffffff",
               "dots_bg_color_2": "#323232",
               "dots_shadow_color_2": "#ffffff",
+              "lb_product_3": "",
               "top_position_3": "10",
               "left_position_3": "10",
               "dots_color_3": "#ffffff",
@@ -3526,7 +3535,7 @@
         "type": "home-new-arrivals",
         "settings": {
           "layout": "default",
-          "new_arrivals_title": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/buck-horns.png?v=1601656615\" style=\"max-width:100px\">",
+          "new_arrivals_title": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/buck-horns_300x.png?v=1601656615\" style=\"max-width:100px\">",
           "new_arrivals_des": "",
           "title_style": "style_2",
           "view_all": "",
