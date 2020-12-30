@@ -336,6 +336,14 @@
 
                 {% if current_variant.available %}
                 {% if product.type contains 'Coffee' %}
+                  <a href="/cart/{{ product.variants.first.id }}:1?discount=sample" class="btn" style="background: #fff; color: #000; border-color: #000; width: 100%">25% Off Sample Order! Buy Now - $14.99!</a>
+                  <br><small>Sample order is valid for 1 order per customer</small>
+                  <br><br><br>
+                {% endif %}
+                {% endif %}
+
+                {% if current_variant.available %}
+                {% if product.type contains 'Coffee' %}
                 <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}.</p>
                 {% endif %}
                 <hr>
