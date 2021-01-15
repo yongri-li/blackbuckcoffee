@@ -1,4 +1,4 @@
-<div id="dropdown-customer" class="ct_login">  
+<div id="dropdown-customer" class="ct_login">
   <div class="customer-title">
     <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-customer close">
       {% include 'icon-close' %}
@@ -16,17 +16,23 @@
     </h5>
     {% endif %}
   </div>
-  
+
   <div class="customer-content">
     {% if customer %}
     <div class="customer-inner is-customer">
       <a class="acc" href="/account" {% if settings.enable_multilang %}data-translate="customer.account.title"{% endif %}>
-        {{ 'customer.account.title' | t }}
+        My Orders
       </a>
-      
+
+      <a class="acc" href="/tools/recurring/login/">Manage Subscriptions</a>
+
+      <a class="acc" href="#smile-home">My Rewards</a>
+
+      <a class="acc" href="/pages/affiliate">Affiliate Dashboard</a>
+
       <a class="btn btn-logout" id="customer_logout_link" href="/account/logout" {% if settings.enable_multilang %}data-translate="layout.customer.log_out"{% endif %}>
         {{ 'layout.customer.log_out' | t }}
-      </a>      
+      </a>
     </div>
 
     {% else %}
