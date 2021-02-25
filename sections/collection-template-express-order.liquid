@@ -6,14 +6,14 @@
 
 {% paginate collection.products by product_per_page %}
 
-<div data-section-id="{{ section.id }}" data-section-type="collection-template" style="overflow-x: auto;">   
-  
+<div data-section-id="{{ section.id }}" data-section-type="collection-template" style="overflow-x: auto;">
+
     <div class="coll-express-order">
-        {% if collection.products_count > 0 %}  
+        {% if collection.products_count > 0 %}
         <div class="express-order-header t-header">
             <h4 class="column col-img col-title text-center">
                 {% include 'multilang' with section.settings.pro_image %}
-            </h4>        
+            </h4>
 
             <h4 class="column col-prod col-title">
                 {% include 'multilang' with section.settings.pro_name %}
@@ -31,10 +31,10 @@
                 {% include 'multilang' with section.settings.pro_variant_options %}
             </h4>
         </div>
-        
+
         <div class="express-order-content t-body product-collection">
             {% for product in collection.products %}
-            <div class="grid-item">   
+            <div class="grid-item">
                 {% include 'product-express-order-item' %}
             </div>
             {% endfor %}
@@ -45,6 +45,11 @@
                 {{ 'collections.general.no_matches' | t }}
             </p>
         {% endif %}
+        <div class="express-order-header t-header" style="padding: 5px; border-top: 1px solid #eee;">
+        <h4 class="column col-prod col-title">
+        <small>* Minimum of 12 units per products required</small>
+        </h4>
+        </div>
     </div>
 
     {% if paginate.pages > 1 %}
@@ -53,7 +58,7 @@
     </div>
     {% endif %}
 </div>
-{% endpaginate %}   
+{% endpaginate %}
 
 <style>
     .coll-express-order .show-options-btn {
@@ -61,7 +66,7 @@
         color: {{ section.settings.btn_1_text_color }};
         border-color: {{ section.settings.btn_1_border_color }};
     }
-    
+
     .coll-express-order .show-options-btn:hover,
     .coll-express-order .hide-options-btn,
     .coll-express-order .hide-options-btn:hover {
@@ -69,13 +74,13 @@
         color: {{ section.settings.btn_3_text_color }};
         border-color: {{ section.settings.btn_3_border_color }};
     }
-    
+
     .coll-express-order .add-to-cart-btn {
         background: {{ section.settings.btn_2_bg_color }};
         color: {{ section.settings.btn_2_text_color }};
         border-color: {{ section.settings.btn_2_border_color }};
     }
-    
+
     .coll-express-order .add-to-cart-btn:hover,
     .coll-express-order .add-to-cart-btn.add_more {
         background: {{ section.settings.btn_4_bg_color }};
@@ -131,7 +136,7 @@
 		"id" : "pro_image",
 		"label" : "Image",
 		"default" : "&nbsp;"
-      }, 
+      },
 	  {
 		"type" : "text",
 		"id" : "pro_name",
@@ -259,7 +264,7 @@
         "label": "Text Color",
         "default": "#fff",
         "info": "Default Value: #fff"
-      }	  
+      }
     ]
   }
 {% endschema %}

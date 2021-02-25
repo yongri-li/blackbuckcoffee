@@ -1,0 +1,36 @@
+{% if customer.tags contains 'Wholesale' %}
+{% include 'product-grouped' %}
+
+{% if template contains 'product' %}
+<div class="footbar-fixed footbar-fixed-product">
+    {% section 'someone-purchased' %}
+    {% section 'GDPR-modal' %}
+
+    {% if settings.display_sticky %}
+        {% include 'sticky-add-to-cart' %}
+    {% endif %}
+</div>
+{% endif %}
+
+{% if product.type == 'Coffee' %}
+<br><br>
+{% section 'product-customer-block-banner' %}
+<br><br>
+{% else %}
+<br><br>
+{% section 'product-customer-block-banner-bottom' %}
+<br><br>
+{% endif %}
+{% else %}
+<br><br><br>
+<center>
+  <h3> Sorry you do not have access to this page. </h3>
+  <a href="/pages/wholesale" class="btn">register for a wholesale account</a>
+</center>
+{% endif %}
+
+<style>
+.qty-group input[name="quantity"] {
+  width: 80px!important;
+}
+</style>

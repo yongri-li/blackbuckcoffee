@@ -1,0 +1,15 @@
+{% if customer.tags contains 'Wholesale' %}
+{% include 'collection-express-order' %}
+{% else %}
+<br><br><br>
+<center>
+  <h3> Sorry you do not have access to this page. </h3>
+  <a href="/pages/wholesale" class="btn">register for a wholesale account</a>
+</center>
+{% endif %}
+
+<style>
+.qty-group input[name="quantity"] {
+  width: 80px!important;
+}
+</style>

@@ -12,10 +12,14 @@ More info on linklists:
       alt="{{ section.settings.logo_pc.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloaded" data-sizes="auto">
     </div>
 
+    {% if customer.tags contains 'Wholesale' %}
+    {% assign menu = linklists.wholesale-menu.links %}
+    {% else %}
     {% if section.settings.horizontal_linklist != blank %}
     {% assign menu = linklists[section.settings.horizontal_linklist].links %}
     {% else %}
     {% assign menu = linklists.main-menu.links %}
+    {% endif %}
     {% endif %}
 
     {% for link in menu %}

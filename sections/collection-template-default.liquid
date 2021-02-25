@@ -5,7 +5,7 @@
 {% endif %}
 
 {% paginate collection.products by product_per_page %}
- 
+
 {% case section.settings.collection_results_per_row %}
 {% when '1' %}
     {%- assign grid_item_width = 'col-12' -%}
@@ -30,15 +30,17 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
   {% include 'collection-header' %}
-  
+
   {% include 'toolbar' %}
-  
+
   <div class="product-collection {{ rows }} row">
-    {% if collection.products_count > 0 %}  
+    {% if collection.products_count > 0 %}
     {% for product in collection.products %}
-    <div class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+    {% unless product.tags contains 'Wholesale' %}
+    <div class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
     </div>
+    {% endunless %}
     {% endfor %}
     {% else %}
     <p class="col-12 text-center" {% if settings.enable_multilang %}data-translate="collections.general.no_matches"{% endif %}>
@@ -54,7 +56,7 @@
   </div>
   {% endif %}
 </div>
-{% endpaginate %}   
+{% endpaginate %}
 
 
 {% schema %}

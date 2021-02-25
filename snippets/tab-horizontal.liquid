@@ -102,9 +102,19 @@
         <div class="tab-content {% if tab2_active%}active{% endif %}" data-TabContent id="collapse-tab2">
             {% include 'instastory' %}
 
+            {% if product.url contains 'black-buck-coffee-whole-bean-wholesale' %}
+            <div id="shopify-product-reviews" data-id="4606872518692">
+                {{ product.metafields.spr.reviews }}
+            </div>
+            {% elsif product.url contains 'black-buck-coffee-ground-wholesale' %}
+            <div id="shopify-product-reviews" data-id="4606872485924">
+                {{ product.metafields.spr.reviews }}
+            </div>
+            {% else %}
             <div id="shopify-product-reviews" data-id="{{product.id}}">
                 {{ product.metafields.spr.reviews }}
             </div>
+            {% endif %}
         </div>
         {% endif %}
 

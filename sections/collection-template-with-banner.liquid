@@ -5,7 +5,7 @@
 {% endif %}
 
 {% paginate collection.products by product_per_page %}
- 
+
 {% case section.settings.collection_results_per_row %}
 {% when '1' %}
     {%- assign grid_item_width = 'col-12' -%}
@@ -28,20 +28,22 @@
 	{%- assign rows = 'products-grid' -%}
 {% endcase %}
 
-<div data-section-id="{{ section.id }}" data-section-type="collection-template">   
-  
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+
   {% include 'toolbar' %}
-    
+
   <div class="product-collection {{ rows }} row">
-    {% if collection.products_count > 0 %}  
+    {% if collection.products_count > 0 %}
     {% for product in collection.products %}
-    
+
+    {% unless product.tags contains 'Wholesale' %}
+
     {% if forloop.index <= 6 %}
-    <div class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+    <div class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
-    </div> 
+    </div>
     {% endif %}
-    
+
     {% if forloop.index == 6 and section.settings.show_banner_1 %}
     <div data-gridItem class="grid-item banner-img {{ grid_item_width }}">
       <a class="animate-scale" href="{{section.settings.link_banner_1}}">
@@ -52,18 +54,18 @@
         {% else %}
         <div class="not_img">
           210 x 360px
-        </div>        
+        </div>
         {% endif %}
       </a>
     </div>
     {% endif %}
-    
+
     {% if forloop.index > 6 and forloop.index <= 11 %}
-	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+	  <div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
-    </div>     
+    </div>
     {% endif %}
-    
+
     {% if forloop.index == 11 and section.settings.show_banner_2 %}
     <div data-gridItem class="grid-item banner-img {{ grid_item_width }}">
       <a class="animate-scale" href="{{section.settings.link_banner_2 }}">
@@ -74,18 +76,18 @@
         {% else %}
         <div class="not_img">
           210 x 360px
-        </div>        
+        </div>
         {% endif %}
       </a>
     </div>
     {% endif %}
-    
+
     {% if forloop.index > 11 and forloop.index <= 17 %}
-	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+	  <div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
-    </div>     
+    </div>
     {% endif %}
-    
+
     {% if forloop.index == 17 and section.settings.show_banner_3 %}
     <div data-gridItem class="grid-item banner-img {{ grid_item_width }}">
       <a class="animate-scale" href="{{section.settings.link_banner_3 }}">
@@ -96,18 +98,18 @@
         {% else %}
         <div class="not_img">
           210 x 360px
-        </div>        
+        </div>
         {% endif %}
       </a>
     </div>
     {% endif %}
-    
+
     {% if forloop.index > 17 and  forloop.index <= 22 %}
-	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
-    </div>     
+    </div>
     {% endif %}
-    
+
     {% if forloop.index == 22 and section.settings.show_banner_4 %}
     <div data-gridItem class="grid-item banner-img {{ grid_item_width }}">
       <a class="animate-scale" href="{{section.settings.link_banner_4 }}">
@@ -118,18 +120,20 @@
         {% else %}
         <div class="not_img">
           210 x 360px
-        </div>        
+        </div>
         {% endif %}
       </a>
     </div>
     {% endif %}
-    
+
     {% if forloop.index > 22 %}
-	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">   
+	<div data-gridItem class="grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}">
       {% include 'product-grid-item' %}
-    </div>     
+    </div>
     {% endif %}
-    
+
+    {% endunless %}
+
     {% endfor %}
     {% else %}
     <p class="col-12 text-center" {% if settings.enable_multilang %}data-translate="collections.general.no_matches"{% endif %}>
@@ -145,14 +149,14 @@
   </div>
   {% endif %}
 </div>
-{% endpaginate %}   
+{% endpaginate %}
 
 
 {% schema %}
   {
     "name": "Collection with Banner",
 	"class": "col-12 col-xl-9 col-main",
-    "settings": [  
+    "settings": [
 	  {
         "type": "checkbox",
         "id": "limited_view",
@@ -231,7 +235,7 @@
           }
         ]
       },
-	
+
 	  {
         "type": "header",
         "content": "Product Banner In Collection"
@@ -241,7 +245,7 @@
         "id" : "show_banner_1",
         "label" : "Enable Banner #1",
         "default" : true
-      },	  
+      },
       {
         "type" : "image_picker",
         "id" : "img_banner1",
@@ -257,7 +261,7 @@
         "id" : "show_banner_2",
         "label" : "Enable Banner #2",
         "default" : true
-      },	  
+      },
       {
         "type" : "image_picker",
         "id" : "img_banner2",
@@ -273,7 +277,7 @@
         "id" : "show_banner_3",
         "label" : "Enable Banner #3",
         "default" : true
-      },	  
+      },
       {
         "type" : "image_picker",
         "id" : "img_banner3",
@@ -289,7 +293,7 @@
         "id" : "show_banner_4",
         "label" : "Enable Banner #4",
         "default" : true
-      },	  
+      },
       {
         "type" : "image_picker",
         "id" : "img_banner4",

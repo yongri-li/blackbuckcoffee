@@ -22,8 +22,9 @@
                             </div>
                             {% endfor %}
                         </div>
-
+                        {% unless  product.tags contains 'Wholesale' %}
                         {% include 'product-label' %}
+                        {% endunless %}
 
                         {% if section.settings.video_product and product.description contains 'iframe' %}
                         {% include 'video-product' %}
@@ -48,11 +49,8 @@
                 {% endif %}
                 {% if product.type contains 'Coffee' %}
                 {% if product.title contains '-' %}
-                <h1 class="product-title">
-                    {{ product.title | split: '-' | first }}
-                </h1>
                 <h2 class="product-title">
-                  {{ product.title | split: '-' | last }}
+                  {{ product.title | split: '-' | last }} Coffee
                 </h2>
                 {% else %}
                 <h1 class="product-title">
@@ -67,9 +65,11 @@
 
                 {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
                 <div class="group_item">
+                    {% unless  product.tags contains 'Wholesale' %}
                     {% if section.settings.display_product_reviews %}
                     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
                     {% endif %}
+                    {% endunless %}
 
                     {% if section.settings.show_sold_in %}
                     <div data-soldOut-product class="sold_product" data-items="{{ section.settings.item_prd }}" data-hours="{{ section.settings.hours_prs }}">
@@ -207,9 +207,16 @@
 
                 <div class="prices">
                     {% if product.compare_at_price > product.price %}
+                    {% if product.tags contains 'Wholesale' %}
+                    <span class="on-sale">
+                        <small>MSRP {{ product.compare_at_price_max | money }}</small>
+                    </span>
+                    <br>
+                    {% else %}
                     <span class="compare-price">
                         {{ product.compare_at_price_max | money }}
                     </span>
+                    {% endif %}
                     <span class="price on-sale" itemprop="price">
                         {{ product.price | money }}
                     </span>
@@ -288,15 +295,38 @@
                 </ul>
                 {% endif %}
 
+
+                {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' or product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-ground-wholesale" {% endif %}>
+                    <img src="{{ 'ground.png' | file_url }}">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean-wholesale" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | file_url }}">
+                  </a>
+                </li>
+                </ul>
+                {% endif %}
+
                 {% if current_variant.available and section.settings.display_qty %}
                 <div class="quantity">
                     <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
                         {{ 'cart.label.quantity' | t }}:
                     </label>
                     <div class="qty-group">
-                        <a href="#" data-minus-qtt class="minus button"></a>
-                        <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
-                        <a href="#" data-plus-qtt class="plus button"></a>
+                      {% if product.tags contains 'Wholesale' %}
+                      <input type="number" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="12" min="12" max="200" pattern="[0-9]*">
+                      {% else %}
+                      <a href="#" data-minus-qtt class="minus button"></a>
+                      <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
+                      <a href="#" data-plus-qtt class="plus button"></a>
+                      {% endif %}
                     </div>
                 </div>
 
@@ -335,16 +365,18 @@
                 {% endform %}
 
                 {% if current_variant.available %}
+                {% unless  product.tags contains 'Wholesale' %}
                 {% if product.type contains 'Coffee' %}
                   <a href="/cart/{{ product.variants.first.id }}:1?discount=sample" class="btn" style="background: #fff; color: #000; border-color: #000; width: 100%">25% Off Sample Order - Buy Now!</a>
                   <br><small>Sample order is valid for 1 order per customer</small>
                   <br><br><br>
                 {% endif %}
+                {% endunless %}
                 {% endif %}
 
                 {% if current_variant.available %}
                 {% if product.type contains 'Coffee' %}
-                <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}.</p>
+                <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order{% unless product.tags contains 'Wholesale' %} - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}{% endunless %}.</p>
                 {% endif %}
                 <hr>
                 {% endif %}
@@ -355,8 +387,8 @@
                 <br><br>
                 {% endif %}
 
+                {% unless product.tags contains 'Wholesale' %}
                 <i data-govx-id="s"></i>
-
                 {% if product.type contains 'Coffee' %}
                 <div class="row free-sticker-row">
                 <div class="col-xs-4">
@@ -368,6 +400,7 @@
                 </div>
                 </div>
                 {% endif %}
+                {% endunless %}
 
                 {% if section.settings.dpl_customers_view %}
                 <div id="customers_view" data-customer-view="{{ section.settings.number_view }}">
