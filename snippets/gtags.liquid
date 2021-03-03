@@ -104,3 +104,17 @@ gtag('config', 'AW-645767905');
     'page_path': '{{ page_url }}'
   });
 </script>
+
+{% if template contains 'product' %}
+<script>
+dataLayer = [{
+    {% if product.handle == 'black-buck-coffee-ground' %}
+    'product_ids' : 'shopify_us_4606872485924_31922667814948',
+    {% elsif product.handle == 'black-buck-coffee-whole-bean' %}
+    'product_ids' : 'shopify_us_4606872485924_31922667814948',
+    {% endif %}
+    'page_type' : 'product',
+    'total_value' : {{ product.price }}
+}]
+</script>
+{% endif %}
