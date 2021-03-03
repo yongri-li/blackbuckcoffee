@@ -114,7 +114,7 @@ dataLayer = [{
     'product_ids' : 'shopify_us_4606872485924_31922667814948',
     {% endif %}
     'page_type' : 'product',
-    'total_value' : {{ product.price }}
+    'total_value' : {{ product.price | money }}
 }]
 </script>
 {% endif %}
