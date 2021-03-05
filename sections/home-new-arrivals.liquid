@@ -14,9 +14,9 @@
 <div class="new-arrivals-product" id="new-arrivals-{{section.id}}" data-new-arrivals-product>
     <div class="{% if section.settings.layout == 'default' %}container{% elsif section.settings.layout == 'padd_60' %}container-padd60{% else %}container-fluid{% endif %}">
         {% if section.settings.new_arrivals_title != blank %}
-        <div class="widget-title{% if section.settings.title_style == 'style_2' %} not-before{% endif %}">   
+        <div class="widget-title{% if section.settings.title_style == 'style_2' %} not-before{% endif %}">
             <h3 class="box-title">
-                <span class="title"> 
+                <span class="title">
                 {% include 'multilang' with section.settings.new_arrivals_title %}
                 </span>
             </h3>
@@ -28,28 +28,28 @@
                 <a class="view_all" href="{{ section.settings.link_view_all }}" title="{{section.settings.view_all}}">
                     {% include 'multilang' with section.settings.view_all %}
                 </a>
-                {% endif %}  
+                {% endif %}
 
-            </p>        
+            </p>
             {% endif %}
         </div>
         {% endif %}
-        
+
         <div class="widget-product">
-            <div class="products-grid row" data-products-to-show="{{ section.settings.product_list_limit | plus:0 }}" data-total-products="{{ collections[section.settings.product_list_collection].all_products_count }}">        
+            <div class="products-grid row" data-products-to-show="{{ section.settings.product_list_limit | plus:0 }}" data-total-products="{{ collections[section.settings.product_list_collection].all_products_count }}">
                 {% assign product_limitation = 0 %}
                 {% if section.settings.display_infinite_scrolling_homepage %}
                 {% assign product_limitation = section.settings.product_list_limit | plus: 0 %}
                 {% endif %}
-                
+
                 {% for product in collections[section.settings.product_list_collection].products limit:section.settings.product_list_limit_all %}
-            
+
                 <div class="grid-item {{ grid_item_width }}{% if settings.product_image_border %} grid-item-border{% endif %} "{% if section.settings.display_infinite_scrolling_homepage and forloop.index > product_limitation %} style="display:none"{% endif %}>
                 {% include 'product-grid-item' %}
                 </div>
-            
+
                 {% else %}
-                
+
                 {% for product in (1..section.settings.product_list_limit_all) %}
                 <div class="grid-item {{ grid_item_width }}">
                 <div class="grid-view-item no-product">
@@ -58,14 +58,14 @@
                         Product Img
                     </div>
                     </div>
-                    
+
                     <div class="product-bottom">
                     <div class="product-title">
                         <span>
                         Your product's name
                         </span>
                     </div>
-                    
+
                     <div class="price-box">
                         <span> $250.00 </span>
                     </div>
@@ -75,8 +75,8 @@
                 {% endfor %}
                 {% endfor %}
             </div>
-            
-            {% if section.settings.display_infinite_scrolling_homepage and section.settings.product_list_collection != bank %}      
+
+            {% if section.settings.display_infinite_scrolling_homepage and section.settings.product_list_collection != bank %}
             <div class="infinite-scrolling-homepage">
                 <a class="btn" href="javascript:void(0)" {% if settings.enable_multilang %}data-translate="home_page.show_more"{% endif %}>
                     {{ 'home_page.show_more' | t }}
@@ -88,7 +88,7 @@
 </div>
 
 <style>
-    {% assign margin_bottom =  section.settings.margin_bottom %} 
+    {% assign margin_bottom =  section.settings.margin_bottom %}
     @media (max-width: 767px) {
         #new-arrivals-{{ section.id }} {
             margin-bottom: {{ section.settings.margin_bottom_mb }}px;
@@ -105,7 +105,7 @@
         #new-arrivals-{{ section.id }} {
             margin-bottom: {{ margin_bottom }}px;
         }
-    }	
+    }
 </style>
 
 {% schema %}
@@ -155,12 +155,12 @@
                 "options": [
                     {
                         "value": "style_1",
-                        "label": "Style 1" 
+                        "label": "Style 1"
                     },
-                    { 
+                    {
                         "value": "style_2",
-                        "label": "Style 2" 
-                    }          
+                        "label": "Style 2"
+                    }
                 ],
                 "default": "style_1"
             },
@@ -182,12 +182,12 @@
                 "type": "collection",
                 "id": "product_list_collection",
                 "label": "Collection to use"
-            },
+            }, 
             {
                 "type": "range",
                 "id": "product_list_limit_all",
                 "label": "Number of new products to show",
-                "min": 3,
+                "min": 2,
                 "max": 20,
                 "step": 1,
                 "default": 15
@@ -253,7 +253,7 @@
                 "max": 100,
                 "step": 1,
                 "default": 40
-            },             
+            },
             {
                 "type": "range",
                 "id": "margin_bottom",
@@ -262,15 +262,13 @@
                 "max": 100,
                 "step": 1,
                 "default": 50
-            }	  	  
+            }
         ],
         "presets": [
             {
                 "name": "New Arrivals Products",
-                "category": "Collection"     
+                "category": "Collection"
             }
         ]
     }
 {% endschema %}
-
-
