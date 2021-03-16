@@ -284,12 +284,12 @@
                 <ul class="coffee-types">
                 <li {% if product.title == 'Black Buck Coffee - Ground' %} class="current" {% endif %}>
                   <a {% if product.title == 'Black Buck Coffee - Ground' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-ground" {% endif %}>
-                    <img src="{{ 'ground.png' | file_url }}">
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
                   </a>
                 </li>
                 <li {% if product.title == 'Black Buck Coffee - Whole Bean' %} class="current" {% endif %}>
                   <a {% if product.title == 'Black Buck Coffee - Whole Bean' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean" {% endif %}>
-                    <img src="{{ 'whole-bean.png' | file_url }}">
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
                   </a>
                 </li>
                 </ul>
@@ -303,12 +303,12 @@
                 <ul class="coffee-types">
                 <li {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} class="current" {% endif %}>
                   <a {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-ground-wholesale" {% endif %}>
-                    <img src="{{ 'ground.png' | file_url }}">
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
                   </a>
                 </li>
                 <li {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} class="current" {% endif %}>
                   <a {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean-wholesale" {% endif %}>
-                    <img src="{{ 'whole-bean.png' | file_url }}">
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
                   </a>
                 </li>
                 </ul>
@@ -392,7 +392,7 @@
                 {% if product.type contains 'Coffee' %}
                 <div class="row free-sticker-row">
                 <div class="col-xs-4">
-                <img src="{{ 'free-sticker.png' | asset_url }}" style="width:100px">
+                <img src="{{ 'free-sticker.png' | asset_img_url: '120x' }}" style="width:100px" alt="Black Buck Coffee Sticker">
                 </div>
                 <div class="col-xs-8">
                 <h3>Free Sticker</h3>
