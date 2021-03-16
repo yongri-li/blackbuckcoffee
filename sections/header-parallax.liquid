@@ -32,13 +32,13 @@
                           <meta content="{{ shop.url }}">
                             {% if section.settings.brand_type == 'image' and section.settings.logo_pc != bank %}
                             <a class="logo-img" href="/" title="Logo">
-                                <img data-src="{{ section.settings.logo_pc | img_url: 'master' }}"
-                                    src="{{ section.settings.logo_pc | img_url: 'master' }}"
+                                <img data-src="{{ section.settings.logo_pc | img_url: '400x' }}"
+                                    src="{{ section.settings.logo_pc | img_url: '400x' }}"
                                     alt="{{ section.settings.logo_pc.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
 
                                 {% if section.settings.display_parallax %}
-                                <img class="logo-parallax" data-src="{{ section.settings.logo_parallax | img_url: 'master' }}"
-                                    src="{{ section.settings.logo_parallax | img_url: 'master' }}"
+                                <img class="logo-parallax" data-src="{{ section.settings.logo_parallax | img_url: '400x' }}"
+                                    src="{{ section.settings.logo_parallax | img_url: '400x' }}"
                                     alt="{{ section.settings.logo_parallax.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
                                 {% endif %}
                             </a>
