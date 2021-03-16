@@ -95,15 +95,16 @@
                 <div class="custom-block-banner banner-large-img{% if block.settings.display_parallax %} banner-parallax{% endif %}">
                     <div class="img-box">
                         <a href="{{ block.settings.link }}">
-                            {%- assign img_url = block.settings.image | img_url: '1500x' -%}
+                            {%- assign img_url = block.settings.image | img_url: '200x' -%}
+                            {%- assign img_urll = block.settings.image | img_url: '1500x' -%}
 
                             {% if block.settings.display_parallax %}
                             <div class="parallax-image" style="background-image: url({{img_url}});"></div>
                             {% endif %}
 
                             {% if block.settings.image != blank %}
-                            <img data-src="{{ img_url }}"
-                                src="https:{{ img_url }}" alt="{{ block.settings.image.alt | default: shop.name }}" itemprop="logo"
+                            <img src="https:{{ img_url }}" alt="{{ block.settings.image.alt | default: shop.name }}" itemprop="logo"
+                                 data-lazysrc="{{ img_urll }}"
                                 class="lazyautosizes lazyloaded" data-sizes="auto" width="100%">
                             {% else %}
                             <div class="not_img">
@@ -240,6 +241,22 @@
     }
 </style>
 {% endif %}
+
+<script>
+function ReLoadImages(){
+    $('img[data-lazysrc]').each( function(){
+        //* set the img src from data-src
+        $( this ).attr( 'src', $( this ).attr( 'data-lazysrc' ) );
+        }
+    );
+}
+
+document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "interactive") {  //or at "complete" if you want it to execute in the most last state of window.
+        ReLoadImages();
+    }
+});
+</script>
 
 
 {% schema %}
