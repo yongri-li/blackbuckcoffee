@@ -102,8 +102,8 @@
                             {% endif %}
 
                             {% if block.settings.image != blank %}
-                            <img data-src="{{ img_url }}"
-                                src="https:{{ img_url }}" alt="{{ block.settings.image.alt | default: shop.name }}" itemprop="logo"
+                            <img src="https:{{ img_url }}" alt="{{ block.settings.image.alt | default: shop.name }}" itemprop="logo"
+                                data-lazysrc="{{ img_urll }}"
                                 class="lazyautosizes lazyloaded" data-sizes="auto" width="100%">
                             {% else %}
                             <div class="not_img">
