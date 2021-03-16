@@ -18,12 +18,12 @@
                     <div class="images-contain">
                         {% if block.settings.image_slide != blank %}
 
-                        {%- assign img_url = block.settings.image_slide | img_url: 'master' -%}
+                        {%- assign img_url = block.settings.image_slide | img_url: '1000x' -%}
 
                         <a {% if block.settings.lb_product_1 != blank or block.settings.lb_product_2 != blank or block.settings.lb_product_3 != blank %}href="javascript:void(0)"{% else %}href="{{ block.settings.link }}"{% endif %} class="slide-image">
                             <img data-src="{{ img_url }}"
                                 src="https:{{ img_url }}" alt="{{ block.settings.image_slide.alt | default: shop.name }}" itemprop="logo"
-                                class="lazyautosizes lazyloaded{% if block.settings.image_slide_mb != blank %} slide-pc{% endif %}" data-sizes="auto">
+                                class="lazyautosizes lazyloaded{% if block.settings.image_slide_mb != blank %} slide-pc{% endif %}" data-sizes="auto" width="100%">
 
                             {% if block.settings.image_slide_mb != blank %}
 
@@ -254,7 +254,7 @@
                             border-radius: 30px;
                             font-weight: 600;
                             {% endif %}">
-                    Buy Whole Bean
+                    Buy Whole Bean Coffee
                 </a>
                 {% endif %}
                 {% else %}
