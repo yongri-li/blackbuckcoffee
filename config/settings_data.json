@@ -1505,7 +1505,7 @@
         "settings": {
           "layout": "full",
           "margin_bottom_mb": 0,
-          "margin_bottom_tab": 20,
+          "margin_bottom_tab": 0,
           "margin_bottom": 50,
           "autoplay": true,
           "slideshow_speed": "9000",
@@ -3511,6 +3511,7 @@
       },
       "16016564941b50ad01": {
         "type": "home-new-arrivals",
+        "disabled": true,
         "settings": {
           "layout": "default",
           "new_arrivals_title": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0259\/8410\/6532\/files\/buck-horns_300x.png?v=1601656615\" style=\"max-width:100px\">",
@@ -3567,11 +3568,21 @@
           "btn_4_border_color": "#323232",
           "btn_4_text_color": "#fff"
         }
+      },
+      "16160000558d515a3c": {
+        "type": "homepage-product",
+        "settings": {
+          "home_featured_product": "black-buck-coffee-ground",
+          "social_sharing_products": false,
+          "skip_first_product_image": false,
+          "product_image_type": "portrait"
+        }
       }
     },
     "content_for_index": [
       "1540952363851",
       "1587659037945",
+      "16160000558d515a3c",
       "1587659609363",
       "1587695095970",
       "16016564941b50ad01",
