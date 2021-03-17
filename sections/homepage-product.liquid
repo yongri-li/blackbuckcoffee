@@ -1,0 +1,451 @@
+{% if section.settings.home_featured_product == blank %}
+    {% assign product = all_products.first %}
+{% else %}
+    {% assign product = all_products[ section.settings.home_featured_product ] %}
+{% endif %}
+<div data-section-id="{{ section.id }}" data-section-type="product" id="ProductSection-{{ section.id }}" data-enable-history-state="true" data-collections-related="/collections/{{collection.handle}}?view=related">
+    <div class="product product-grouped container-padd60">
+
+
+        {%- assign current_variant = product.selected_or_first_available_variant -%}
+        {% assign variantCount = product.variants | size %}
+      <div class="bg_prod">
+        <div class="container-padd60">
+        <div class="row product_top{% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %} horizontal-tabs{% else %} vertical-tabs has-sticky-product-img{% endif %}">
+            <div class="col-md-7 product-photos" data-more-view-product>
+                <div {% if section.settings.show_tab == 'vertical' %} data-sticky-product-img{% endif %} class="product-img-box{% if section.settings.style_moreview == 'horizontal' %} horizontal-moreview{% elsif section.settings.style_moreview == 'left_vertical' %} left-vertical-moreview vertical-moreview{% else %} right-vertical-moreview vertical-moreview{% endif %}{% if settings.product_image_border%} grid-item-border{% endif %}">
+                    <div style="position: relative;" class="wrapper-images">
+                        <div class="product-photo-container slider-for">
+                            {% for image in product.images %}
+                            <center>
+                            <div class="thumb filter-{{ image.alt | handle }}">
+                                <a class="fancybox" rel="gallery1" href="{{ image | img_url: 'original' }}" data-fancybox="images">
+                                    <img id="product-featured-image-{{image.id}}" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}"
+                                        class="lazyload"
+                                        data-src="{{ image | img_url: 'original' }}"
+                                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                        data-aspectratio="{{ image | img_url: 'original' }}"
+                                        data-sizes="auto">
+                                </a>
+                            </div>
+                            </center>
+                            {% endfor %}
+                        </div>
+                        {% unless  product.tags contains 'Wholesale' %}
+                        {% include 'product-label' %}
+                        {% endunless %}
+
+                        {% if section.settings.video_product and product.description contains 'iframe' %}
+                        {% include 'video-product' %}
+                        {% endif %}
+                    </div>
+
+                    <div class="slider-nav" data-rows="6" data-vertical="{% if section.settings.style_moreview == 'horizontal' %}false{% else %}true{% endif %}">
+                        {% for image in product.images %}
+                        <div class="item filter-{{ image.alt | handle }}">
+                            <a href="javascript:void(0)" data-image="{{ image.src | product_img_url: 'original' }}" data-zoom-image="{{ image.src | product_img_url: 'original' }}">
+                                <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 product-shop">
+                {% if product.tags contains 'Coming Soon' %}
+                <h4>COMING SOON</h4>
+                {% endif %}
+                {% if product.type contains 'Coffee' %}
+                {% include 'coffee-style' %}
+                {% if product.title contains '-' %}
+                <h2 class="product-title">
+                  {{ product.title | split: '-' | last }} Coffee
+                </h2>
+                {% else %}
+                <h1 class="product-title">
+                    {{ product.title }}
+                </h1>
+                {% endif %}
+                {% else %}
+                <h1 class="product-title">
+                    {{ product.title }}
+                </h1>
+                {% endif %}
+
+                {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
+                <div class="group_item">
+                    {% unless  product.tags contains 'Wholesale' %}
+                    {% if section.settings.display_product_reviews %}
+                    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                    {% endif %}
+                    {% endunless %}
+
+                    {% if section.settings.show_sold_in %}
+                    <div data-soldOut-product class="sold_product" data-items="{{ section.settings.item_prd }}" data-hours="{{ section.settings.hours_prs }}">
+                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="fire" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-fire fa-w-12 fa-2x"><path fill="currentColor" d="M216 24.01c0-23.8-31.16-33.11-44.15-13.04C76.55 158.25 200 238.73 200 288c0 22.06-17.94 40-40 40s-40-17.94-40-40V182.13c0-19.39-21.86-30.76-37.73-19.68C30.75 198.38 0 257.28 0 320c0 105.87 86.13 192 192 192s192-86.13 192-192c0-170.29-168-192.85-168-295.99zM192 464c-79.4 0-144-64.6-144-144 0-28.66 8.56-64.71 24-88v56c0 48.52 39.48 88 88 88s88-39.48 88-88c0-64.27-88-120-64-208 40 88 152 121.77 152 240 0 79.4-64.6 144-144 144z" class=""></path></svg>
+                        <span class="items-count">2</span>
+                        {% include 'multilang' with section.settings.item_prds %}
+                        <span class="hours-num">8</span>
+                        {% include 'multilang' with section.settings.item_hours %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if section.settings.display_vendor or section.settings.display_availability or section.settings.display_product_sku or section.settings.display_product_type %}
+                <div class="product-infor">
+                    {% if section.settings.display_vendor %}
+                    <div class="vendor-product">
+                        {% if section.settings.text_vendor != blank %}
+                        {% if settings.enable_multilang %}
+                        <label class="lang1">
+                            {{ section.settings.text_vendor | split: '|' | first }}
+                        </label>
+                        <label class="lang2">
+                            {{ section.settings.text_vendor | split: '|' | last }}
+                        </label>
+                        {% else %}
+                        <label>
+                            {{ section.settings.text_vendor | split: '|' | first }}
+                        </label>
+                        {% endif %}
+                        {% endif %}
+                        <span>{{ product.vendor | link_to_vendor }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if section.settings.display_product_sku %}
+                    <div class="sku-product">
+                        {% if section.settings.text_product_sku != blank %}
+                        {% if settings.enable_multilang %}
+                        <label class="lang1">
+                            {{ section.settings.text_product_sku | split: '|' | first }}
+                        </label>
+                        <label class="lang2">
+                            {{ section.settings.text_product_sku | split: '|' | last }}
+                        </label>
+                        {% else %}
+                        <label>
+                            {{ section.settings.text_product_sku | split: '|' | first }}
+                        </label>
+                        {% endif %}
+                        {% endif %}
+                        <span>{{ current_variant.sku }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if section.settings.display_availability %}
+                    <div class="product-inventory">
+                        {% if section.settings.text_availability != blank %}
+                        {% if settings.enable_multilang %}
+                        <label class="lang1">
+                            {{ section.settings.text_availability | split: '|' | first }}
+                        </label>
+                        <label class="lang2">
+                            {{ section.settings.text_availability | split: '|' | last }}
+                        </label>
+                        {% else %}
+                        <label>
+                            {{ section.settings.text_availability | split: '|' | first }}
+                        </label>
+                        {% endif %}
+                        {% endif %}
+                        <span>
+                        {% if current_variant.inventory_management %}
+                        {% assign first_inventory = current_variant.inventory_quantity %}
+                        {% if first_inventory > 0 %}
+                        {{ 'products.product.in_stock' | t }}
+                        {% else %}
+                        {{ 'products.product.out_of_stock' | t }}
+                        {% endif %}
+                        {% else %}
+                        {{ 'products.product.many_in_stock' | t }}
+                        {% endif %}
+                        </span>
+                    </div>
+                    {% endif %}
+
+                    {% if section.settings.display_product_type %}
+                    <div class="product-type">
+                        {% if section.settings.text_product_type != blank %}
+                        {% if settings.enable_multilang %}
+                        <label class="lang1">
+                            {{ section.settings.text_product_type | split: '|' | first }}
+                        </label>
+                        <label class="lang2">
+                            {{ section.settings.text_product_type | split: '|' | last }}
+                        </label>
+                        {% else %}
+                        <label>
+                            {{ section.settings.text_product_type | split: '|' | first }}
+                        </label>
+                        {% endif %}
+                        {% endif %}
+                        {% if settings.enable_multilang %}
+                        <span class="lang1">
+                          {{ product.type | split: '|' | first }}
+                        </span>
+                        <span class="lang2">
+                          {{ product.type| split: '|' | last }}
+                        </span>
+                        {% else %}
+                        <span>
+                          {{ product.type | split: '|' | first }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if product.description contains '[countdown]' %}
+                {% assign count_down_first = product.description | split:'[/countdown]' | first %}
+                {% assign count_down_final = count_down_first | split:'[countdown]' | last %}
+
+                {% if section.settings.countdown == 'countdown_1' %}
+                <div class="countdown">
+                    {% include 'multilang' with section.settings.text_countdown %}
+                    <div class="countdown-item" data-countdown-normal data-countdown-value="{{ count_down_final }}"></div>
+                </div>
+
+                {% else %}
+                {% include 'countdown-progressbar' %}
+                {% endif %}
+
+                {% endif %}
+
+                <div class="prices">
+                    {% if product.compare_at_price > product.price %}
+                    {% if product.tags contains 'Wholesale' %}
+                    <span class="on-sale">
+                        <small>MSRP {{ product.compare_at_price_max | money }}</small>
+                    </span>
+                    <br>
+                    {% else %}
+                    <span class="compare-price">
+                        {{ product.compare_at_price_max | money }}
+                    </span>
+                    {% endif %}
+                    <span class="price on-sale" itemprop="price">
+                        {{ product.price | money }}
+                    </span>
+                    {% else %}
+                    <span class="price" itemprop="price">
+                        {{ product.price | money }}
+                    </span>
+                    {% endif %}
+                  	<input type="hidden" id="product_regular_price" name="product_regular_price" value="{{ product.price }}">
+                </div>
+
+                {% if product.description contains '[countdown]' %}
+                {% assign des = product.description | split:'[/countdown]' | last %}
+                {% if des contains '[custom tab]'%}
+                {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                {% endif %}
+                {% else %}
+                {% assign des = product.description %}
+                {% if des contains '[custom tab]'%}
+                {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                {% endif %}
+                {% endif %}
+
+                {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate', data-productid: product.id %}
+
+
+
+              	{% if settings.display_size_chart %}
+                <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
+                  {% include 'multilang' with settings.size_guide_text %}
+                </a>
+                {% endif %}
+
+                {% if product.available %}
+                <div id="product-variants">
+                    {% if variantCount > 0  and product.variants[0].title != 'Default Title'  %}
+                    <select id="product-selectors" name="id" data-productid="{{product.id}}" style="display: none;">
+                        {% for variant in product.variants %}
+                        {% if variant.available %}
+                        <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}" data-productid="{{product.id}}">
+                            {{ variant.title }}
+                        </option>
+                        {% else %}
+                        <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+
+                    {% if settings.use_color_swatch %}
+                    {% for option in product.options %}
+                    {% include 'swatch' with option %}
+                    {% endfor %}
+                    {% endif %}
+
+                    {% else %}
+                    <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if product.title == 'Black Buck Coffee - Ground' or product.title == 'Black Buck Coffee - Whole Bean' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground' %} href="/collections/coffee/products/black-buck-coffee-ground" {% else %} href="/collections/coffee/products/black-buck-coffee-ground" {% endif %}>
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
+                  </a>
+                </li>
+                </ul>
+                {% endif %}
+
+
+                {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' or product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} href="/collections/coffee/products/black-buck-coffee-ground" {% else %} href="/collections/coffee/products/black-buck-coffee-ground-wholesale" {% endif %}>
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean-wholesale" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
+                  </a>
+                </li>
+                </ul>
+                {% endif %}
+
+                {% if current_variant.available and section.settings.display_qty %}
+                <div class="quantity">
+                    <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                        {{ 'cart.label.quantity' | t }}:
+                    </label>
+                    <div class="qty-group">
+                      {% if product.tags contains 'Wholesale' %}
+                      <input type="number" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="12" min="12" max="200" pattern="[0-9]*">
+                      {% else %}
+                      <a href="#" data-minus-qtt class="minus button"></a>
+                      <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
+                      <a href="#" data-plus-qtt class="plus button"></a>
+                      {% endif %}
+                    </div>
+                </div>
+
+                {% else %}
+                <input type="hidden" id="quantity" name="quantity" value="1">
+                {% endif %}
+
+                {% if section.settings.display_subtotal and current_variant.available and section.settings.display_qty %}
+                <div class="total-price">
+                    <label {% if settings.enable_multilang %}data-translate="cart.general.subtotal"{%endif%}>
+                        {{ 'cart.general.subtotal' | t }}:
+                    </label>
+                    <span class="total-money">
+                        {{ current_variant.price | money }}
+                    </span>
+                </div>
+                {% endif %}
+
+                {% if product.available %}
+                {% include 'subscription-product' %}
+                {% endif %}
+
+                {% if section.settings.dpl_grouped_product and section.settings.grouped_product_style == 'style_1' %}
+                {% include 'grouped-block' %}
+                {% endif %}
+
+                <div class="groups-btn">
+                    <a href="https://blackbuckcoffee.com/cart/add?id={{ product.variants.first.id }}&quantity=1" class="btn" style="background: #000; width: 100%; color: #fff;">Add to Cart</a>
+                    {% include 'wishlist-product' %}
+                </div>
+                {% endform %}
+
+                {% if current_variant.available %}
+                {% unless  product.tags contains 'Wholesale' %}
+                {% if product.type contains 'Coffee' %}
+                  <a href="/cart/{{ product.variants.first.id }}:1?discount=sample" class="btn" style="background: #fff; color: #000; border-color: #000; width: 100%">25% Off Sample Order - Buy Now!</a>
+                  <br><small>Sample order is valid for 1 order per customer</small>
+                  <br><br><br>
+                {% endif %}
+                {% endunless %}
+                {% endif %}
+
+                {% if current_variant.available %}
+                {% if product.type contains 'Coffee' %}
+                <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order{% unless product.tags contains 'Wholesale' %} - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}{% endunless %}.</p>
+                {% endif %}
+                <hr>
+                {% endif %}
+
+                {% if current_variant.available %}
+                {% else %}
+                {% include 'sold-out-form' %}
+                <br><br>
+                {% endif %}
+
+
+
+                {% if section.settings.show_tab == 'vertical' %}
+                {% include 'tab-vertical' %}
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<br><br>
+
+{% schema %}
+  {
+    "name": "Product",
+    "class": "index-section featured-product-section",
+    "settings": [
+	  {
+        "type": "product",
+        "id": "home_featured_product",
+        "label": "Product"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_products",
+        "label": "Enable product sharing",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "skip_first_product_image",
+        "label": "Skip first product image",
+        "info" : "Make the first image for each product only appear on the collections page of your store. [Learn more](https://docs.shopify.com/manual/more/official-shopify-themes/boundless#skip-first-product-image-opti...)."
+      },
+      {
+        "type": "select",
+        "id": "product_image_type",
+        "label": "Image style",
+        "options": [
+          {
+            "value": "portrait",
+            "label": "Tall/square"
+          },
+          {
+            "value": "landscape",
+            "label": "Wide"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "Featured product",
+      "category": "Product"
+    }]
+  }
+{% endschema %}
