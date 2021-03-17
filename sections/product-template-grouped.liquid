@@ -387,112 +387,7 @@
                 <br><br>
                 {% endif %}
 
-                {% unless product.tags contains 'Wholesale' %}
-                <i data-govx-id="s"></i>
-                {% if product.type contains 'Coffee' %}
-                <div class="row free-sticker-row">
-                <div class="col-xs-4">
-                <img src="{{ 'giftmug.png' | asset_img_url: '120x' }}" style="width:100px" alt="Black Buck Coffee Subscription Gift">
-                </div>
-                <div class="col-xs-8">
-                <h3>Free Welcome Gift</h3>
-                <h5>with First Subscription Order</h5>
-                </div>
-                </div>
-                {% endif %}
-                {% endunless %}
 
-                {% if section.settings.dpl_customers_view %}
-                <div id="customers_view" data-customer-view="{{ section.settings.number_view }}">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                    <label>{{ section.settings.number_view | split: ',' | slice: 0 }}</label> {% include 'multilang' with section.settings.title_view %}
-                </div>
-                {% endif %}
-
-                {% if section.settings.display_product_detail_tag %}
-                <div class="tags">
-                    <strong class="icon-tags" {% if settings.enable_multilang %}data-translate="blogs.article.tags"{%endif%}>{{ 'blogs.article.tags' | t }}:</strong>
-                    {% for tag in product.tags %}
-                    <span class="separator">/</span>
-                    <a href="/collections/all/?constraint={{ tag | handle }}" rel="tag">
-                      {% if settings.enable_multilang %}
-                      <span class="lang1">{{ tag | split: '|' | first }}</span>
-                      <span class="lang2">{{ tag | split: '|' | last }}</span>
-                      {% else %}
-                      <span>{{ tag | split: '|' | first }}</span>
-                      {% endif %}
-                    </a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                {% if section.settings.show_desc == 'short' %}
-
-                {% if product.metafields.c_f['Short Description'] %}
-                {% assign des = product.metafields.c_f['Short Description'] %}
-                {% assign word_numbeer = 100000000000000 %}
-
-              	{% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                </div>
-                {% endif %}
-
-                {% else %}
-                {% assign word_numbeer = 50 %}
-
-              	{% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
-                </div>
-                {% endif %}
-
-                {% endif %}
-
-                {% elsif section.settings.show_desc == 'full' %}
-                {% if settings.enable_multilang and des contains '[lang2]' %}
-                <div class="short-description">
-                    <div class="lang1">
-                        {{ des | split: '[lang2]' | first }}
-                    </div>
-                    <div class="lang2">
-                        {{ des | split: '[lang2]' | last }}
-                    </div>
-                </div>
-                {% else %}
-                <div class="short-description">
-                    {{ des | split: '[lang2]' | first }}
-                </div>
-                {% endif %}
-                {% endif %}
-
-                {% if section.settings.display_product_detail_share %}
-                {% include 'share' with product %}
-                {% endif %}
-
-                {% if section.settings.display_trust_img and settings.img_trust != blank %}
-                <div class="secure-shopping-guarantee">
-                    <img src="{{ settings.img_trust | img_url: '800x'  }}">
-                </div>
-                {% endif %}
 
                 {% if section.settings.show_tab == 'vertical' %}
                 {% include 'tab-vertical' %}
@@ -507,6 +402,120 @@
         {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' or section.settings.display_related_products or settings.enable_ask_an_expert %}
         {% unless product.title contains 'Gift Card' %}
         <div class="product_bottom">
+
+          <div class="row">
+            <div class="col-md-5">
+              <div class="deets">
+              {% unless product.tags contains 'Wholesale' %}
+
+              {% if product.type contains 'Coffee' %}
+              <div class="row free-sticker-row">
+              <div class="col-xs-4">
+              <img src="{{ 'giftmug.png' | asset_img_url: '120x' }}" style="width:100px" alt="Black Buck Coffee Subscription Gift">
+              </div>
+              <div class="col-xs-8">
+              <h3>Free Welcome Gift</h3>
+              <h5>with First Subscription Order</h5>
+              </div>
+              </div>
+              {% endif %}
+              {% endunless %}
+
+              {% if section.settings.dpl_customers_view %}
+              <div id="customers_view" data-customer-view="{{ section.settings.number_view }}">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <label>{{ section.settings.number_view | split: ',' | slice: 0 }}</label> {% include 'multilang' with section.settings.title_view %}
+              </div>
+              {% endif %}
+
+              {% if section.settings.display_product_detail_tag %}
+              <div class="tags">
+                  <strong class="icon-tags" {% if settings.enable_multilang %}data-translate="blogs.article.tags"{%endif%}>{{ 'blogs.article.tags' | t }}:</strong>
+                  {% for tag in product.tags %}
+                  <span class="separator">/</span>
+                  <a href="/collections/all/?constraint={{ tag | handle }}" rel="tag">
+                    {% if settings.enable_multilang %}
+                    <span class="lang1">{{ tag | split: '|' | first }}</span>
+                    <span class="lang2">{{ tag | split: '|' | last }}</span>
+                    {% else %}
+                    <span>{{ tag | split: '|' | first }}</span>
+                    {% endif %}
+                  </a>
+                  {% endfor %}
+              </div>
+              {% endif %}
+
+              {% if section.settings.show_desc == 'short' %}
+
+              {% if product.metafields.c_f['Short Description'] %}
+              {% assign des = product.metafields.c_f['Short Description'] %}
+              {% assign word_numbeer = 100000000000000 %}
+
+              {% if settings.enable_multilang and des contains '[lang2]' %}
+              <div class="short-description">
+                  <div class="lang1">
+                      {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+                  <div class="lang2">
+                      {{ des | split: '[lang2]' | last | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+              </div>
+              {% else %}
+              <div class="short-description">
+                  {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+              </div>
+              {% endif %}
+
+              {% else %}
+              {% assign word_numbeer = 50 %}
+
+              {% if settings.enable_multilang and des contains '[lang2]' %}
+              <div class="short-description">
+                  <div class="lang1">
+                      {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+                  <div class="lang2">
+                      {{ des | split: '[lang2]' | last | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+              </div>
+              {% else %}
+              <div class="short-description">
+                  {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+              </div>
+              {% endif %}
+
+              {% endif %}
+
+              {% elsif section.settings.show_desc == 'full' %}
+              {% if settings.enable_multilang and des contains '[lang2]' %}
+              <div class="short-description">
+                  <div class="lang1">
+                      {{ des | split: '[lang2]' | first }}
+                  </div>
+                  <div class="lang2">
+                      {{ des | split: '[lang2]' | last }}
+                  </div>
+              </div>
+              {% else %}
+              <div class="short-description">
+                  {{ des | split: '[lang2]' | first }}
+              </div>
+              {% endif %}
+              {% endif %}
+
+              {% if section.settings.display_product_detail_share %}
+              {% include 'share' with product %}
+              {% endif %}
+
+              {% if section.settings.display_trust_img and settings.img_trust != blank %}
+              <div class="secure-shopping-guarantee">
+                  <img src="{{ settings.img_trust | img_url: '800x'  }}">
+              </div>
+              {% endif %}
+            </div>
+            <i data-govx-id="s"></i>
+            </div>
+            <div class="col-md-7">
             {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %}
             {% include 'tab-horizontal' %}
 
@@ -518,10 +527,13 @@
             </div>
             {% endif %}
             {% endif %}
+          </div>
+        </div>
 
             {% comment %}{% if section.settings.display_related_products %}
             {% include 'related-products' %}
             {% endif %}{% endcomment %}
+
         </div>
         {% endunless %}
         {% endif %}
