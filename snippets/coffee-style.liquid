@@ -1,0 +1,21 @@
+<style>
+.product-img-box .slider-nav {
+  display: none;
+}
+ul.coffee-types li img {
+  transition: transform .3s ease;
+  mix-blend-mode: multiply;
+}
+
+.product-photos::before {
+  content: url({{ 'beans.jpg' | asset_img_url: '600x' }});
+  position: absolute;
+  bottom: -5px;
+  transition: transform .3s ease;
+  mix-blend-mode: multiply;
+}
+
+.bg_prod .product-photo-container img {
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5));
+}
+</style>

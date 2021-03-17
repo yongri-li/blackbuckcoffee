@@ -3,13 +3,15 @@
 
         {%- assign current_variant = product.selected_or_first_available_variant -%}
         {% assign variantCount = product.variants | size %}
-
+      <div class="bg_prod">
+        <div class="container-padd60">
         <div class="row product_top{% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %} horizontal-tabs{% else %} vertical-tabs has-sticky-product-img{% endif %}">
             <div class="col-md-7 product-photos" data-more-view-product>
                 <div {% if section.settings.show_tab == 'vertical' %} data-sticky-product-img{% endif %} class="product-img-box{% if section.settings.style_moreview == 'horizontal' %} horizontal-moreview{% elsif section.settings.style_moreview == 'left_vertical' %} left-vertical-moreview vertical-moreview{% else %} right-vertical-moreview vertical-moreview{% endif %}{% if settings.product_image_border%} grid-item-border{% endif %}">
                     <div style="position: relative;" class="wrapper-images">
                         <div class="product-photo-container slider-for">
                             {% for image in product.images %}
+                            <center>
                             <div class="thumb filter-{{ image.alt | handle }}">
                                 <a class="fancybox" rel="gallery1" href="{{ image | img_url: 'original' }}" data-fancybox="images">
                                     <img id="product-featured-image-{{image.id}}" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}"
@@ -20,6 +22,7 @@
                                         data-sizes="auto">
                                 </a>
                             </div>
+                            </center>
                             {% endfor %}
                         </div>
                         {% unless  product.tags contains 'Wholesale' %}
@@ -48,6 +51,7 @@
                 <h4>COMING SOON</h4>
                 {% endif %}
                 {% if product.type contains 'Coffee' %}
+                {% include 'coffee-style' %}
                 {% if product.title contains '-' %}
                 <h2 class="product-title">
                   {{ product.title | split: '-' | last }} Coffee
@@ -394,13 +398,15 @@
                 {% endif %}
             </div>
         </div>
-
+        </div>
+    </div>
         {% if section.settings.dpl_grouped_product and section.settings.grouped_product_style == 'style_2' %}
             {% include 'grouped-block-2' %}
         {% endif %}
 
         {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' or section.settings.display_related_products or settings.enable_ask_an_expert %}
         {% unless product.title contains 'Gift Card' %}
+        <div class="container">
         <div class="product_bottom">
 
           <div class="row">
@@ -534,6 +540,7 @@
             {% include 'related-products' %}
             {% endif %}{% endcomment %}
 
+        </div>
         </div>
         {% endunless %}
         {% endif %}
