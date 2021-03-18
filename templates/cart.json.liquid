@@ -58,7 +58,7 @@
           {% endif %}
           
           {% if additional_checkout_buttons %}
-          <div>{{ content_for_additional_checkout_buttons }}</div>
+          <div><span class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</span></div>
           {% endif %}
         </div>
 
@@ -101,7 +101,7 @@
               {% if item.properties.size > 0 %}
               <div>
                 {% for p in item.properties %}
-                {% unless p.last == blank %}
+                {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" %}
                 {{ p.first }}:
                 {% if p.last contains '/uploads/' %}
                 <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>

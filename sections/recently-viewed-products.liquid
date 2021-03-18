@@ -137,7 +137,7 @@
                     {% if settings.display_button %}
                     {% raw %}
                     <div class="action">
-                        <form action="/cart/add" method="post" class="variants" id="recently-${id}" data-id="product-actions-${id}" enctype="multipart/form-data">    
+                        <form action="/cart/add" data-productid="{{ product.id }}" method="post" class="variants" id="recently-${id}" data-id="product-actions-${id}" enctype="multipart/form-data">    
                             {{if !available}}
                                 <button class="btn add-to-cart-btn" type="submit" disabled="disabled" {% endraw %}{% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}>
                                     {{ 'products.product.unavailable' | t }}{% raw %}
@@ -147,7 +147,7 @@
                                 {{ 'products.product.select_options' | t }}{% raw %}
                                 </a>
                             {{else}}
-                              <input type="hidden" name="id" value="${variants[0].id}" />      
+                              <input type="hidden" name="id" data-productid="{{ product.id }}" value="${variants[0].id}" />      
                               <button data-btn-addToCart class="btn add-to-cart-btn" type="submit" data-form-id="#recently-${id}" {% endraw %}{% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{% endif %}>
                               {{ 'products.product.add_to_cart' | t }}{% raw %}
                               </button>

@@ -98,7 +98,11 @@
 
         <div class="column col-options text-center">
             {% assign variantCount = product.variants | size %}
-            <form action="/cart/add" method="post" class="variants" data-id="product-actions-{{ product.id }}" enctype="multipart/form-data">
+            <form action="/cart/add" data-productid="{{ product.id }}" method="post" class="variants" data-id="product-actions-{{ product.id }}" enctype="multipart/form-data">
+<!-- Begin ReCharge code -->
+{% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
+<!-- End ReCharge code -->
+
                 {% if sold_out %}
                 <button class="btn add-to-cart-btn" type="submit" disabled="disabled" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}>
                     {{ 'products.product.unavailable' | t }}
@@ -111,7 +115,7 @@
                     {{ 'products.product.show_options' | t }}
                 </a>
                 {% else %}
-                <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+                <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.variants[0].id }}" />
 
                 <button data-express-addToCart class="btn add-to-cart-btn" type="submit" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{% endif %}>
                     {{ 'products.product.add_to_cart' | t }}
@@ -164,12 +168,16 @@
         </div>
 
         <div class="column col-options text-center">
-            <form action="/cart/add" method="post" class="variants" data-id="product-actions-{{ variant.id }}" enctype="multipart/form-data">
+            <form action="/cart/add" data-productid="{{ product.id }}" method="post" class="variants" data-id="product-actions-{{ variant.id }}" enctype="multipart/form-data">
+<!-- Begin ReCharge code -->
+{% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
+<!-- End ReCharge code -->
+
                 {% if variant.available %}
                 <button data-express-addToCart class="btn add-to-cart-btn" id="{{ variant.id }}" type="submit" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{% endif %}>
                     {{ 'products.product.add_to_cart' | t }}
                 </button>
-                <input type="hidden" name="id" value="{{ variant.id }}" />
+                <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ variant.id }}" />
 
                 {% else %}
                 <button class="btn add-to-cart-btn" type="submit" disabled="disabled" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}>

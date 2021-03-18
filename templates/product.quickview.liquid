@@ -261,13 +261,17 @@
         {% endif %}
         {% endif %}
         
-        <form action="/cart/add" method="post" class="shopify-product-form" id="add-to-cart-quickview-form">
+        <form action="/cart/add" data-productid="{{ product.id }}" method="post" class="shopify-product-form" id="add-to-cart-quickview-form">
+<!-- Begin ReCharge code -->
+{% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
+<!-- End ReCharge code -->
+
             {% if product.available %}       
             <div id="product-variants">                                    
                 {% assign variantCount = product.variants | size %}
                 {% if product.available %} 
                 {% if variantCount > 0 and product.variants[0].title != 'Default Title'  %}
-                <select id="product-select-qv" name="id" style="display:none">
+                <select id="product-select-qv" name="id" data-productid="{{ product.id }}" style="display:none">
                     {% for variant in product.variants %}
                     {% if variant.available %}
                     <option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -288,7 +292,7 @@
                 {% else %}
                 <select id="product-select-qv" style="display:none">
                 </select>
-                <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+                <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.variants[0].id }}" />
                 {% endif %}
                 
                 {% endif %}                                    
