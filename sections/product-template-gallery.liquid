@@ -302,19 +302,6 @@
                 </div>
                 {% endif %}
 
-                {% if current_variant.available %}
-                <div class="quantity">
-                    <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
-                        {{ 'cart.label.quantity' | t }}:
-                    </label>
-                    <div class="qty-group">
-                        <a href="#" data-minus-qtt class="minus button"></a>
-                        <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
-                        <a href="#" data-plus-qtt class="plus button"></a>
-                    </div>
-                </div>
-                {% endif %}
-
                 {% if section.settings.display_subtotal and current_variant.available %}
                 <div class="total-price">
                     <label {% if settings.enable_multilang %}data-translate="cart.general.subtotal"{%endif%}>
@@ -328,6 +315,15 @@
 
                 {% if settings.enable_checkbox %}
                     <div class="groups-btn">
+                        {% if current_variant.available %}
+                        <div class="quantity">
+                            <div class="qty-group">
+                                <a href="#" data-minus-qtt class="minus button"></a>
+                                <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
+                                <a href="#" data-plus-qtt class="plus button"></a>
+                            </div>
+                        </div>
+                        {% endif %}
                     {% if current_variant.available %}
                     <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
                     {% else %}
@@ -348,6 +344,15 @@
                 </div>
                 {% else %}
                     <div class="groups-btn">
+                    {% if current_variant.available %}
+                    <div class="quantity">
+                        <div class="qty-group">
+                            <a href="#" data-minus-qtt class="minus button"></a>
+                            <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
+                            <a href="#" data-plus-qtt class="plus button"></a>
+                        </div>
+                    </div>
+                    {% endif %}
                     {% if current_variant.available %}
                     <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
                     {% else %}
