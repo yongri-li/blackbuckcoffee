@@ -70,7 +70,7 @@
         {%- assign header_class = 'header-vertical-tpl' -%}
     {% endif %}
 
-<body id="{{ page_title | handle }}" class="{{ header_class }} {{ layout_class }} {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+<body id="{{ page_title | handle }}" class="{{ header_class }} {{ layout_class }} {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {% if template == 'index' %}template-product{% endif %}">
   <!-- Begin ReCharge code -->
   {% include 'subscription-cart-footer' %}
   <!-- End ReCharge code -->
