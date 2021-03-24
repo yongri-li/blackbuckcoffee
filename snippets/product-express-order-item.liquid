@@ -99,9 +99,6 @@
         <div class="column col-options text-center">
             {% assign variantCount = product.variants | size %}
             <form action="/cart/add" data-productid="{{ product.id }}" method="post" class="variants" data-id="product-actions-{{ product.id }}" enctype="multipart/form-data">
-<!-- Begin ReCharge code -->
-{% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
-<!-- End ReCharge code -->
 
                 {% if sold_out %}
                 <button class="btn add-to-cart-btn" type="submit" disabled="disabled" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}>
