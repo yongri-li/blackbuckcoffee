@@ -87,34 +87,29 @@ gtag('config', 'G-0ZC9W6N2QH');
   });
 </script>
 
-<!-- Global site tag (gtag.js) - Google Ads: 645767905 -->
+
+{% if template contains 'product' or template contains 'collection' or template contains 'index' or template contains 'search' or template contains 'cart' %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-645767905"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-
+gtag('config', 'AW-645767905', {'send_page_view': false, 'custom_map': {'dimension1': 'Product SKU', 'dimension2': 'ecomm_pagetype', 'dimension3': 'ecomm_totalvalue'}});
 gtag('config', 'AW-645767905');
 </script>
 
 <script>
-  gtag('event', 'page_view', {
-    'send_to': 'AW-645767905',
-    'page_title': '{{ page_title }}',
-    'page_path': '{{ page_url }}'
-  });
-</script>
-
+gtag('event', 'page_view', {
+'ecomm_pagetype': {% if template contains 'collection' %}category{% elsif template contains 'search' %}searchresults{% elsif template contains 'product' %}product{% elsif template contains 'cart' %}cart{% elsif template contains 'index' %}home{% endif %},
 {% if template contains 'product' %}
-<script>
-dataLayer = [{
-    {% if product.handle == 'black-buck-coffee-ground' %}
-    'product_ids' : 'shopify_us_4606872485924_31922667814948',
-    {% elsif product.handle == 'black-buck-coffee-whole-bean' %}
-    'product_ids' : 'shopify_us_4606872485924_31922667814948',
-    {% endif %}
-    'page_type' : 'product',
-    'total_value' : {{ product.price | money | json }}
-}]
+'Product SKU': 'shopify_IN_{{ product.id }}_{% if product.variants.first.id %}{{ product.variants.first.id }},{% else %}{{ product.variants.id }}{% endif %}',
+'ecomm_totalvalue': {{ product.price_min | money_without_currency | replace: ',', '.' }},
+{% elsif template contains 'cart' %}
+'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}'{% unless forloop.last %},{% endunless %}{% endfor %}],
+'ecomm_totalvalue': {{ cart.total_price | money_without_currency | replace: ',', '.' }},
+{% endif %}
+'non_interaction': true
+});
 </script>
 {% endif %}
