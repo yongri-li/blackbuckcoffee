@@ -265,7 +265,7 @@
                 {% endif %}
                 {% endif %}
 
-                {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate' %}
+                {% form 'product', product, data-productid: product.id, id: "add-to-cart-form", novalidate: 'novalidate' %}
               
               	{% if settings.display_size_chart %}
                 <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
@@ -276,7 +276,7 @@
                 {% if product.available and product.variants[0].title != 'Default Title'%}
                 <div id="product-variants">
                     {% if variantCount > 0 %}
-                    <select id="product-selectors" name="id" style="display: none;">
+                    <select id="product-selectors" name="id" data-productid="{{ product.id }}" style="display: none;">
                         {% for variant in product.variants %}
                         {% if variant.available %}
                         <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -297,7 +297,7 @@
                     {% endif %}
 
                     {% else %}
-                    <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+                    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.variants[0].id }}" />
                     {% endif %}
                 </div>
                 {% endif %}
