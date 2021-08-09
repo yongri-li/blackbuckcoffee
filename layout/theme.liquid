@@ -28,11 +28,13 @@
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {% endif %}
 
-   <!-- fonts -->
-  {% include 'head_fonts' %}
-
   <!-- Styles -->
   {% include 'head_styles' %}
+
+  {% capture pDescription %}
+
+  <!-- fonts -->
+  {% include 'head_fonts' %}
 
   <!-- Header hook for plugins ================================ -->
   {{ content_for_header }}
@@ -44,7 +46,7 @@
   {% comment %}
     If you store has customers disabled, you can remove the following JS file
   {% endcomment %}
-{% capture pDescription %}
+
   <!-- Scripts -->
   {% include 'head_scripts' %}
 
@@ -135,7 +137,7 @@
 
     {% include 'sweettooth-widgets' %}
 
-    {% include 'search-autocomplete' %} 
+    {% include 'search-autocomplete' %}
 
     {% if settings.header_layout == 'default' %}
     {% include 'customer_links' %}
