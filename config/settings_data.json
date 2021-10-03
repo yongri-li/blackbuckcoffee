@@ -1455,8 +1455,8 @@
             "type": "image",
             "settings": {
               "dpl_slide_img": true,
-              "image_slide": "shopify:\/\/shop_images\/000000-2.png",
-              "image_slide_mb": "shopify:\/\/shop_images\/000000.png",
+              "image_slide": "shopify:\/\/shop_images\/IMG_1496.jpg",
+              "image_slide_mb": "shopify:\/\/shop_images\/IMG_1496_2.jpg",
               "alignment": "left",
               "heading": "BUCKING<br>GREAT<br> COFFEE.",
               "font_size_heading": "100px",
@@ -1778,7 +1778,7 @@
           "max_height_logo_mb": "76px",
           "logo_pc": "shopify:\/\/shop_images\/White_WebBlack_Buck_Logo.png",
           "max_height_logo_pc": "100px",
-          "display_parallax": true,
+          "display_parallax": false,
           "font_weight_nav": true,
           "logo_parallax": "shopify:\/\/shop_images\/White_WebBlack_Buck_Logo.png",
           "menu_parallax_color": "#ffffff",
@@ -3470,7 +3470,7 @@
           "1601656162df6e0c4e-0": {
             "type": "largeImg",
             "settings": {
-              "image": "shopify:\/\/shop_images\/black-buck-coffee-photo.jpg",
+              "image": "shopify:\/\/shop_images\/IMG_1503.jpg",
               "display_parallax": false,
               "dpl_down_arrow": false,
               "height_img_parallax": "970px",
