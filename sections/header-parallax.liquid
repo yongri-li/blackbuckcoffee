@@ -25,135 +25,136 @@
 
     <div class="is_parallax">
         <div class="wrapper-header-bt" data-sticky-pc>
-            <div class="container-padd60">
-                <div class="header-panel-bt">
-                    <div class="left-header header-items">
-                        <div class="header-logo">
-                          <meta content="{{ shop.url }}">
-                            {% if section.settings.brand_type == 'image' and section.settings.logo_pc != bank %}
-                            <a class="logo-img" href="/" title="Logo">
-                                <img data-src="{{ section.settings.logo_pc | img_url: '400x' }}"
-                                    src="{{ section.settings.logo_pc | img_url: '400x' }}"
-                                    alt="{{ section.settings.logo_pc.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
+            <div class="header-panel-bt">
+                <div class="left-header header-items">
+                    <div class="header-logo">
+                      <meta content="{{ shop.url }}">
+                        {% if section.settings.brand_type == 'image' and section.settings.logo_pc != bank %}
+                        <a class="logo-img" href="/" title="Logo">
+                            <img data-src="{{ section.settings.logo_pc | img_url: '400x' }}"
+                                src="{{ section.settings.logo_pc | img_url: '400x' }}"
+                                alt="{{ section.settings.logo_pc.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
 
-                                {% if section.settings.display_parallax %}
-                                <img class="logo-parallax" data-src="{{ section.settings.logo_parallax | img_url: '400x' }}"
-                                    src="{{ section.settings.logo_parallax | img_url: '400x' }}"
-                                    alt="{{ section.settings.logo_parallax.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
-                                {% endif %}
-                            </a>
-                            {% elsif section.settings.brand_text != '' %}
-                            <a class="logo-title" href="/" style="width: {{ section.settings.logo_max_width }}px">
-                                {{ section.settings.brand_text }}
-                            </a>
-                            {% else %}
-                            <a class="logo-title" href="/">
-                                {{ shop.name }}
-                            </a>
+                            {% if section.settings.display_parallax %}
+                            <img class="logo-parallax" data-src="{{ section.settings.logo_parallax | img_url: '400x' }}"
+                                src="{{ section.settings.logo_parallax | img_url: '400x' }}"
+                                alt="{{ section.settings.logo_parallax.alt | default: shop.name }}" class="lazyautosizes lazyloaded" data-sizes="auto">
                             {% endif %}
-                        </div>
+                        </a>
+                        {% elsif section.settings.brand_text != '' %}
+                        <a class="logo-title" href="/" style="width: {{ section.settings.logo_max_width }}px">
+                            {{ section.settings.brand_text }}
+                        </a>
+                        {% else %}
+                        <a class="logo-title" href="/">
+                            {{ shop.name }}
+                        </a>
+                        {% endif %}
                     </div>
+                </div>
 
-                    <div class="wrapper-navigation">
-                        <div class="main-menu jas-mb-style">
-                            <div class="col-12">
-                                <div class="mb-area">
-                                    <nav class="nav-bar" role="navigation">
-                                        {% include 'site-nav' %}
-                                    </nav>
+                <div class="wrapper-navigation">
+                    <div class="main-menu jas-mb-style">
+                        <div class="mb-area">
+                            <nav class="nav-bar" role="navigation">
+                                <div class="logo-mb">
+                                    <img itemprop="logo" data-src="{{ section.settings.logo_pc | img_url: 'master' }}"
+                                      src="{{ section.settings.logo_pc | img_url: 'master' }}"
+                                      alt="{{ section.settings.logo_pc.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloaded" data-sizes="auto">
+                                </div>
 
-                                    <div class="header-pc" data-header-pc>
-                                        <div class="header-links">
-                                            {% if settings.enable_wishlist %}
-                                            <a class="wishlist" href="/pages/wish-list" title='{% if settings.enable_multilang %}data-translate="wishlist.general.my_wishlist"{% endif %}'>
-                                                <span class="wishlist-text text-hover"{% if settings.enable_multilang %} data-translate="wishlist.general.my_wishlist"{% endif %}>
-                                                    {{ 'wishlist.general.my_wishlist' | t }}
+                                {% include 'site-nav', menu: linklists[section.settings.left_linklist], left: true %}
+                                {% include 'site-nav', menu: linklists[section.settings.right_linklist] %}
+                            </nav>
+
+                            <div class="header-pc" data-header-pc>
+                                <div class="header-links">
+                                    {% if settings.enable_wishlist %}
+                                    <a class="wishlist" href="/pages/wish-list" title='{% if settings.enable_multilang %}data-translate="wishlist.general.my_wishlist"{% endif %}'>
+                                        <span class="wishlist-text text-hover"{% if settings.enable_multilang %} data-translate="wishlist.general.my_wishlist"{% endif %}>
+                                            {{ 'wishlist.general.my_wishlist' | t }}
+                                        </span>
+                                    </a>
+                                    {% endif %}
+
+                                    <div class="customer-links">
+                                        {% if customer %}
+                                        <a class="acc-links acc-logout" id="customer_logout_link" href="/account/logout" {% if settings.enable_multilang %}data-translate="layout.customer.log_out"{% endif %}>
+                                            {{ 'layout.customer.log_out' | t }}
+                                        </a>
+                                        <a class="acc-links acc-title" href="/account"{% if settings.enable_multilang %} data-translate="customer.account.title"{% endif %}>
+                                            {{ 'customer.account.title' | t }}
+                                        </a>
+                                        {% else %}
+
+                                        <a data-dropdown-user class="acc-links acc-sign-in" id="customer_login_link" href="/account/login" {% if settings.enable_multilang %}data-translate="customer.login.sign_in"{% endif %}>
+                                            {{ 'customer.login.sign_in' | t }}
+                                        </a>
+                                        <a class="acc-links acc-regis" id="customer_register_link" href="/account/register"{% if settings.enable_multilang %} data-translate="layout.customer.create_account"{% endif %}>
+                                            {{ 'layout.customer.create_account' | t }}
+                                        </a>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if settings.enable_multilang or settings.enable_multiple_currencies %}
+                                    <div class="lang-currency-groups">
+                                        <div class="option-title">
+                                            <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-option close">
+                                                {% include 'icon-close' %}
+                                                <span {% if settings.enable_multilang %}data-translate="cart.general.close_cart"{% endif %}>
+                                                    {{ 'cart.general.close_cart' | t }}
                                                 </span>
                                             </a>
-                                            {% endif %}
-
-                                            <div class="customer-links">
-                                                {% if customer %}
-                                                <a class="acc-links acc-logout" id="customer_logout_link" href="/account/logout" {% if settings.enable_multilang %}data-translate="layout.customer.log_out"{% endif %}>
-                                                    {{ 'layout.customer.log_out' | t }}
-                                                </a>
-                                                <a class="acc-links acc-title" href="/account"{% if settings.enable_multilang %} data-translate="customer.account.title"{% endif %}>
-                                                    {{ 'customer.account.title' | t }}
-                                                </a>
-                                                {% else %}
-
-                                                <a data-dropdown-user class="acc-links acc-sign-in" id="customer_login_link" href="/account/login" {% if settings.enable_multilang %}data-translate="customer.login.sign_in"{% endif %}>
-                                                    {{ 'customer.login.sign_in' | t }}
-                                                </a>
-                                                <a class="acc-links acc-regis" id="customer_register_link" href="/account/register"{% if settings.enable_multilang %} data-translate="layout.customer.create_account"{% endif %}>
-                                                    {{ 'layout.customer.create_account' | t }}
-                                                </a>
-                                                {% endif %}
-                                            </div>
-
-                                            {% if settings.enable_multilang or settings.enable_multiple_currencies %}
-                                            <div class="lang-currency-groups">
-                                                <div class="option-title">
-                                                    <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-option close">
-                                                        {% include 'icon-close' %}
-                                                        <span {% if settings.enable_multilang %}data-translate="cart.general.close_cart"{% endif %}>
-                                                            {{ 'cart.general.close_cart' | t }}
-                                                        </span>
-                                                    </a>
-                                                </div>
-
-                                                {% include 'new-language-picker' %}
-
-                                                {% include 'new-currency-picker' %}
-                                            </div>
-                                            {% endif %}
                                         </div>
+
+                                        {% include 'new-language-picker' %}
+
+                                        {% include 'new-currency-picker' %}
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="right-header header-items">
-                        <div class="nav-search svg-mb">
-                            <a href="#" title="Search Icon" class="icon-search" data-search-mobile-toggle>
-                                {% include 'icon-search' %}
-                            </a>
-
-                            {% include 'search-bar' %}
-                        </div>
-                        {% if shop.customer_accounts_enabled %}
-                        <div class="acc-mb svg-mb">
-                            <a href="#" title="User Icon" class="icon-user" data-user-mobile-toggle>
-                                {% include 'icon-user' %}
-                            </a>
-                        </div>
-                        {% endif %}
-                        {% if settings.enable_wishlist %}
-                        <div class="svg-mb wishlist-icon">
-                            <a class="wishlist" href="/pages/wish-list" title='{% if settings.enable_multilang %}data-translate="wishlist.general.my_wishlist"{% endif %}'>
-                                <svg aria-hidden="true" data-prefix="fal" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-heart fa-w-16 fa-2x"><path fill="currentColor" d="M462.3 62.7c-54.5-46.4-136-38.7-186.6 13.5L256 96.6l-19.7-20.3C195.5 34.1 113.2 8.7 49.7 62.7c-62.8 53.6-66.1 149.8-9.9 207.8l193.5 199.8c6.2 6.4 14.4 9.7 22.6 9.7 8.2 0 16.4-3.2 22.6-9.7L472 270.5c56.4-58 53.1-154.2-9.7-207.8zm-13.1 185.6L256.4 448.1 62.8 248.3c-38.4-39.6-46.4-115.1 7.7-161.2 54.8-46.8 119.2-12.9 142.8 11.5l42.7 44.1 42.7-44.1c23.2-24 88.2-58 142.8-11.5 54 46 46.1 121.5 7.7 161.2z" class=""></path></svg>
-                            </a>
-                        </div>
-                        {% endif %}
-
-                        <div class="cart-icon svg-mb" data-cart-header-parallax>
-                            <a href="#" title="Cart Icon" data-cart-toggle>
-                                {% include 'icon-cart' %}
-
-                                <span class="cartCount" data-cart-count>
-                                {{ cart.item_count }}
-                                </span>
-                            </a>
-                        </div>
-                        {% if settings.enable_multilang or settings.enable_multiple_currencies %}
-                        <div class="hamburger-icon svg-mb">
-                            <a href="#" class="icon-nav" title="Menu Mobile Icon" data-show-options>
-                                <span class="icon-line"></span>
-                            </a>
-                        </div>
-                        {% endif %}
+                <div class="right-header header-items">
+                    <div class="search-mb svg-mb">
+                        <a href="#smile-home" title="Black Buck Rewards" class="icon-search">
+                            {% include 'icon-star' %}
+                        </a>
                     </div>
+                    {% if shop.customer_accounts_enabled %}
+                    <div class="acc-mb svg-mb">
+                        <a href="#" title="User Icon" class="icon-user" data-user-mobile-toggle>
+                            {% include 'icon-user' %}
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if settings.enable_wishlist %}
+                    <div class="svg-mb wishlist-icon">
+                        <a class="wishlist" href="/pages/wish-list" title='{% if settings.enable_multilang %}data-translate="wishlist.general.my_wishlist"{% endif %}'>
+                            <svg aria-hidden="true" data-prefix="fal" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-heart fa-w-16 fa-2x"><path fill="currentColor" d="M462.3 62.7c-54.5-46.4-136-38.7-186.6 13.5L256 96.6l-19.7-20.3C195.5 34.1 113.2 8.7 49.7 62.7c-62.8 53.6-66.1 149.8-9.9 207.8l193.5 199.8c6.2 6.4 14.4 9.7 22.6 9.7 8.2 0 16.4-3.2 22.6-9.7L472 270.5c56.4-58 53.1-154.2-9.7-207.8zm-13.1 185.6L256.4 448.1 62.8 248.3c-38.4-39.6-46.4-115.1 7.7-161.2 54.8-46.8 119.2-12.9 142.8 11.5l42.7 44.1 42.7-44.1c23.2-24 88.2-58 142.8-11.5 54 46 46.1 121.5 7.7 161.2z" class=""></path></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    <div class="cart-icon svg-mb" data-cart-header-parallax>
+                        <a href="#" title="Cart Icon" data-cart-toggle>
+                            {% include 'icon-cart' %}
+
+                            <span class="cartCount" data-cart-count>
+                            {{ cart.item_count }}
+                            </span>
+                        </a>
+                    </div>
+                    {% if settings.enable_multilang or settings.enable_multiple_currencies %}
+                    <div class="hamburger-icon svg-mb">
+                        <a href="#" class="icon-nav" title="Menu Mobile Icon" data-show-options>
+                            <span class="icon-line"></span>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -238,6 +239,20 @@
                 "id": "text_header_top_color",
                 "label": "Text Color",
                 "default": "#fff"
+            },
+            {
+                "type": "header",
+                "content": "Menu"
+            },
+            {
+                "type": "link_list",
+                "id": "left_linklist",
+                "label": "Left Menu"
+            },
+            {
+                "type": "link_list",
+                "id": "right_linklist",
+                "label": "Right Menu"
             },
             {
                 "type": "header",
