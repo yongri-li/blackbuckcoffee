@@ -1,7 +1,6 @@
 <div class="page-tpl">
+  {% section 'govx-slideshow' %}
   <div class="container">
-    {% include 'breadcrumb' %}
-
     <header class="page-header">
       <h2>
         {% include 'multilang' with page.title %}
@@ -25,4 +24,5 @@
     </div>
     {% endif %}
   </div>
+  {% section 'homepage-product' %}
 </div>
