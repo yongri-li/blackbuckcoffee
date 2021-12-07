@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
   var jQuery351;
   window.dataLayer = window.dataLayer || [];
@@ -55,22 +56,13 @@
         {% endif %}
       });
 
-      window.analyzifyGetClickedProductPosition = function(elementHref, sku){
-        if(sku != ''){
-          var collection = {{ collection | json }};
-          {% for product in collection.products %}
-            var collectionProductsSku = "{{ product.selected_or_first_available_variant.sku | remove: "'" | remove: '"' }}";
-              if(productSKU == collectionProductsSku) {return {{ forloop.index }} ;}
-          {% endfor %}
-          return 0;
-        }else{
-          var elementIndex = -1
-          collectionProductsElements = document.querySelectorAll('a[href*="/products/"]');
-          collectionProductsElements.forEach(function(element,index){
-            if (element.href.includes(elementHref)) {elementIndex = index + 1};
-          });
-          return elementIndex
-        }
+      window.analyzifyGetClickedProductPosition = function(elementHref){
+        var elementIndex = -1
+        collectionProductsElements = document.querySelectorAll('a[href*="/products/"]');
+        collectionProductsElements.forEach(function(element,index){
+          if (element.href.includes(elementHref)) {elementIndex = index + 1};
+        });
+        return elementIndex
       }
 
       window.analyzifyCollectionPageHandle = function(){
@@ -98,7 +90,7 @@
           collectionGproductId.push("shopify_US_"+"{{ product.id }}"+"_"+"{{ product.selected_or_first_available_variant.id | default: product.variants[0].id }}")
           collectionVariantId.push("{{ product.selected_or_first_available_variant.id | default: product.variants[0].id }}")
         {% endfor %}
-        
+
         window.dataLayer.push({
           event: 'ee_productImpression',
           category_name: collectionTitle,
@@ -134,7 +126,7 @@
             product_price: (clickedProduct[0].price / 100).toFixed(2).toString(),
             currency: "{{ shop.currency }}",
             product_brand: clickedProduct[0].vendor,
-            product_position: analyzifyGetClickedProductPosition(href, clickedProduct[0].variants[0].sku),
+            product_position: analyzifyGetClickedProductPosition(href),
             variant_id: clickedProduct[0].variants[0].id
           });
         });
@@ -153,7 +145,7 @@
         var searchProductsPosition = [];
         var searchGproductId = [];
         var searchVariantId = [];
-        
+
         {% for product in search.results %}
           searchProductsBrand.push("{{ product.vendor | remove: "'" | remove: '"' }}");
           searchProductsType.push("{{ product.type | remove: "'" | remove: '"' }}")
@@ -183,7 +175,7 @@
           variant_id: searchVariantId
         });
 
-        
+
         jQuery351(document).on('click', 'a[href*="/products/"]', function(event) {
           if(searchResultsJson.length < 1 ) return;
           var href= jQuery351(this).attr('href');
@@ -192,7 +184,7 @@
             return handle.includes(product.handle);
           });
           if (clickedProduct.length == 0 ) return;
-          
+
           window.dataLayer.push({
             event: 'ee_productClick',
             product_name: clickedProduct[0].title,
@@ -202,7 +194,7 @@
             product_price: (clickedProduct[0].price / 100).toFixed(2).toString(),
             currency: "{{ shop.currency }}",
             product_brand: clickedProduct[0].vendor,
-            product_position: analyzifyGetClickedProductPosition(href, ""),
+            product_position: analyzifyGetClickedProductPosition(href),
             variant_id: clickedProduct[0].variants[0].id
           });
 
@@ -217,7 +209,7 @@
         var productType = "{{ product.type | remove: "'" | remove: '"' }}";
         var productSku = "{{ product.selected_or_first_available_variant.sku | remove: "'" | remove: '"' }}";
         var productCollection = "{{ product.collections.last.title | remove: "'" | remove: '"' }}";
-        
+
         window.dataLayer.push({
           event: 'ee_productDetail',
           name: productName,
@@ -381,7 +373,7 @@
         {% when 'cart' %}
           analyzifyCartPageHandle()
       {% endcase %}
-      
+
       {% unless template_name == 'product' %}
         // jQuery351(document).on('click', first_atc, function(event) {
         //   var productForm = jQuery351(this).parents('form');
