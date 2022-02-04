@@ -13522,15 +13522,29 @@ body#recharge-novum #recharge-te .nav--wrapper {
 
 body#recharge-novum #recharge-te .bg-light {
     background: #fff!important;
-}
+} 
 
 .account-page {
   margin-top: 100px!important;
 }
 
-body#recharge-novum .site-nav-dropdown,
-body#recharge-novum .sub-menu-mobile {
-  display: none!important;
+@media only screen and (min-width: 1067px ) {
+
+body#recharge-novum #shopify-section-header-parallax {
+  z-index: 100000000!important;
+  position: relative!important;
+  }
+
+#te-modal-heading {
+  margin-top: 120px!important;
+}
+}
+
+@media only screen and (max-width: 1067px ) {
+body#recharge-novum #recharge-te {
+    position: relative;
+    z-index: 100!important;
+}
 }
 
 body#recharge-novum #recharge-te .title-bold, body#recharge-novum #recharge-te #rc_te-template-wrapper .title-bold {
