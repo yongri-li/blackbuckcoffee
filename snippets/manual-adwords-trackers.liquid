@@ -1,0 +1,29 @@
+{% if template contains 'product' %}
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-645767905/p2JgCPXenc4BEOHF9rMC',
+      'value': 0.0
+  });
+</script>
+{% endif %}
+
+{% if template contains 'cart' %}
+{% if cart.item_count > 0 %}
+<!-- Event snippet for Google Shopping App Add To Cart conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-645767905/eN5nCPjenc4BEOHF9rMC',
+      'value': {{ cart.total_price | money_without_currency }}
+  });
+</script>
+{% endif %}
+{% endif %}
+
+
+  <!-- Event snippet for Google Shopping App Page View conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-645767905/tW_oCO_enc4BEOHF9rMC',
+      'value': 0.0
+  });
+</script>
