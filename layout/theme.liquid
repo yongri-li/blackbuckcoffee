@@ -14,6 +14,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T6GX6S9');</script>
 <!-- End Google Tag Manager -->
 
+<!-- Global site tag (gtag.js) - Google Ads: 645767905 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-645767905"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-645767905');
+</script>
+
+
   {% include 'evm-seo' %}
 
   <!-- Basic page needs ================================================== -->
@@ -88,6 +99,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6GX6S9"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+{% if template contains 'product' %}
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-645767905/p2JgCPXenc4BEOHF9rMC',
+      'value': 0.0
+  });
+</script>
+{% endif %}
+  <!-- Event snippet for Google Shopping App Page View conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-645767905/tW_oCO_enc4BEOHF9rMC',
+      'value': 0.0
+  });
+</script>
+
 
     {% if template contains 'index' %}
     <h1 style="display: none">{{ page_title | split: '|' | first }}</h1>
