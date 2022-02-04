@@ -178,14 +178,6 @@
 
                 {% if section.settings.footer_address_code != blank %}
                 <div class="col-12{% if section.settings.show_payment_icons %} col-lg-12{% endif %}">
-                  <center>
-                  <a href="https://bcrw.apple.com/urn:biz:56c50c44-8be0-4f05-9b6b-dce5ea22623e" class="btn"><i class="fa fa-apple fa-lg" aria-hidden="true"></i> iMessage</a>
-                  <a href="?chat" class="btn"><i class="fa fa-comments fa-lg" aria-hidden="true"></i> Live Chat</a><br>
-                  {% for link in linklists.top-footer.links %}
-                  <a href="{{ link.url }}" class="btn" style="white-space: break-spaces;">{{ link.title }}</a><br>
-                  {% endfor %}
-                  </center>
-                  <br><br>
 
                   <center>
                   {% for link in linklists.footer.links %}
