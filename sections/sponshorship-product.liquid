@@ -1,0 +1,475 @@
+{% if section.settings.home_featured_product == blank %}
+    {% assign product = all_products.first %}
+{% else %}
+    {% assign product = all_products[ section.settings.home_featured_product ] %}
+{% endif %}
+<a name="buy"></a>
+<div data-section-id="{{ section.id }}" data-section-type="product" id="ProductSection-{{ section.id }}" data-enable-history-state="true" data-collections-related="/collections/{{collection.handle}}?view=related">
+    <div class="product product-grouped">
+
+        {%- assign current_variant = product.selected_or_first_available_variant -%}
+        {% assign variantCount = product.variants | size %}
+      <div class="bg_prod">
+        <div class="container-padd60">
+        <div class="row product_top">
+            <div class="col-md-7 product-photos" data-more-view-product>
+                <div class="product-img-box horizontal-moreview{% if settings.product_image_border%} grid-item-border{% endif %}">
+                    <div style="position: relative;" class="wrapper-images">
+                        <div class="product-photo-container slider-for">
+                            {% for image in product.images %}
+                            <center>
+                            <div class="thumb filter-{{ image.alt | handle }}">
+                                <a class="fancybox" rel="gallery1" href="{{ image | img_url: 'original' }}" data-fancybox="images">
+                                    <img id="product-featured-image-{{image.id}}" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}"
+                                        class="lazyload"
+                                        data-src="{{ image | img_url: 'original' }}"
+                                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                        data-aspectratio="{{ image | img_url: 'original' }}"
+                                        data-sizes="auto">
+                                </a>
+                            </div>
+                            </center>
+                            {% endfor %}
+                        </div>
+                        {% unless  product.tags contains 'Wholesale' %}
+                        {% include 'product-label' %}
+                        {% endunless %}
+
+                    </div>
+
+                    <div class="slider-nav" data-rows="6" data-vertical="false">
+                        {% for image in product.images %}
+                        <div class="item filter-{{ image.alt | handle }}">
+                            <a href="javascript:void(0)" data-image="{{ image.src | product_img_url: 'original' }}" data-zoom-image="{{ image.src | product_img_url: 'original' }}">
+                                <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 product-shop">
+                {% if product.tags contains 'Coming Soon' %}
+                <h4>COMING SOON</h4>
+                {% endif %}
+                {% if product.type contains 'Coffee' %}
+                {% include 'coffee-style' %}
+                {% if product.title contains '-' %}
+                <h2 class="product-title">
+                  {{ product.title | split: '-' | last }} Coffee
+                </h2>
+                {% else %}
+                <h1 class="product-title">
+                    {{ product.title }}
+                </h1>
+                {% endif %}
+                {% else %}
+                <h1 class="product-title">
+                    {{ product.title }}
+                </h1>
+                {% endif %}
+
+                <div class="group_item">
+                    {% unless  product.tags contains 'Wholesale' %}
+                    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                    {% endunless %}
+
+                </div>
+
+
+                <div class="prices">
+                    {% if product.compare_at_price > product.price %}
+                    {% if product.tags contains 'Wholesale' %}
+                    <span class="on-sale">
+                        <small>MSRP {{ product.compare_at_price_max | money }}</small>
+                    </span>
+                    <br>
+                    {% else %}
+                    <span class="compare-price">
+                        {{ product.compare_at_price_max | money }}
+                    </span>
+                    {% endif %}
+                    <span class="price on-sale" itemprop="price">
+                        {{ product.price | money }}
+                    </span>
+                    {% else %}
+                    <span class="price" itemprop="price">
+                        {{ product.price | money }}
+                    </span>
+                    {% endif %}
+                  	<input type="hidden" id="product_regular_price" name="product_regular_price" value="{{ product.price }}">
+                </div>
+
+                {% if product.description contains '[countdown]' %}
+                {% assign des = product.description | split:'[/countdown]' | last %}
+                {% if des contains '[custom tab]'%}
+                {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                {% endif %}
+                {% else %}
+                {% assign des = product.description %}
+                {% if des contains '[custom tab]'%}
+                {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                {% endif %}
+                {% endif %}
+
+                {% form 'product', product, data-productid: product.id, id: "add-to-cart-form", novalidate: 'novalidate', data-productid: product.id %}
+                  {% comment %}
+                    Automatically inserted by Shop Pay Installments theme updater
+                  {% endcomment %}
+                  {% unless settings.disable_autogenerated_payment_terms %}
+                    {{ form | payment_terms }}
+                  {% endunless %}
+
+
+
+              	{% if settings.display_size_chart %}
+                <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
+                  {% include 'multilang' with settings.size_guide_text %}
+                </a>
+                {% endif %}
+
+                {% if product.available %}
+                <div id="product-variants">
+                    {% if variantCount > 0  and product.variants[0].title != 'Default Title'  %}
+                    <select id="product-selectors" name="id" data-productid="{{ product.id }}" data-productid="{{product.id}}" style="display: none;">
+                        {% for variant in product.variants %}
+                        {% if variant.available %}
+                        <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}" data-productid="{{product.id}}">
+                            {{ variant.title }}
+                        </option>
+                        {% else %}
+                        <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+
+                    {% if settings.use_color_swatch %}
+                    {% for option in product.options %}
+                    {% include 'swatch' with option %}
+                    {% endfor %}
+                    {% endif %}
+
+                    {% else %}
+                    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.variants[0].id }}" />
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if product.title == 'Black Buck Coffee - Ground' or product.title == 'Black Buck Coffee - Whole Bean' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground' %} href="/collections/coffee/products/black-buck-coffee-ground" {% else %} href="/collections/coffee/products/black-buck-coffee-ground" {% endif %}>
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean' %} href="/collections/coffee/products/black-buck-coffee-whole-bean" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
+                  </a>
+                </li>
+                </ul>
+                {% endif %}
+
+
+                {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' or product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %}
+                <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                    Select Coffee Type:
+                </label>
+                <ul class="coffee-types">
+                <li {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Ground (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-ground-wholesale" {% endif %}>
+                    <img src="{{ 'ground.png' | asset_img_url: '100x' }}" alt="Organic Ground Coffee">
+                  </a>
+                </li>
+                <li {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} class="current" {% endif %}>
+                  <a {% if product.title == 'Black Buck Coffee - Whole Bean (Wholesale)' %} href="#" {% else %} href="/collections/coffee/products/black-buck-coffee-whole-bean-wholesale" {% endif %}>
+                    <img src="{{ 'whole-bean.png' | asset_img_url: '100x' }}" alt="Organic Whole Bean Coffee">
+                  </a>
+                </li>
+                </ul>
+                {% endif %}
+
+                {% if product.available %}
+                {% include 'subscription-product' %}
+                {% endif %}
+
+                <h6 style="text-transform: uppercase; font-size: 80%;">Free Welcome Gift with First Subscription Order!</h6>
+
+
+                <div class="groups-btn">
+                    {% if current_variant.available %}
+                        <div class="quantity">
+                            <div class="qty-group">
+                              {% if product.tags contains 'Wholesale' %}
+                              <input type="number" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="12" min="12" max="200" pattern="[0-9]*">
+                              {% else %}
+                              <a href="#" data-minus-qtt class="minus button"></a>
+                              <input type="text" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1">
+                              <a href="#" data-plus-qtt class="plus button"></a>
+                              {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <input type="hidden" id="quantity" name="quantity" value="1">
+                    {% endif %}
+
+                    {% if current_variant.available %}
+                    <input data-grouped-addToCart type="submit" name="add" class="btn" data-form-id="#add-to-cart-form" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" href="/cart">
+                    <script>
+                    $(function(){
+                        $("#product-add-to-cart").click(function(evt){
+                            var link = $(this).attr("href");
+                            setTimeout(function() {
+                                window.location.href = link;
+                            }, 500);
+                        });
+                    });
+                    </script>
+                    {% else %}
+                    <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{%endif%} id="product-add-to-cart" disabled value="{{ 'products.product.unavailable' | t }}">
+                    {% endif %}
+
+                    {% include 'wishlist-product' %}
+                </div>
+                {% endform %}
+
+                {% if current_variant.available %}
+                {% unless  product.tags contains 'Wholesale' %}
+                {% if product.type contains 'Coffee' %}
+                  <a href="/cart/{{ product.variants.first.id }}:1?discount=sample" class="btn" style="background: #fff; color: #000; border-color: #000; width: 100%">25% Off Sample Order - Buy Now!</a>
+                  <br><small>Sample order is valid for 1 order per customer</small>
+                  <br><br><br>
+                {% endif %}
+                {% endunless %}
+                {% endif %}
+
+                {% if current_variant.available %}
+                {% if product.type contains 'Coffee' %}
+                <p><span class="product-shipping-text"><i class="fa fa-truck" aria-hidden="true"></i> Ships free!</span> Roasted to order{% unless product.tags contains 'Wholesale' %} - Estimated delivery {{ "now" | date: "%s" | plus: 432000 | date: "%b %d" }}{% endunless %}.</p>
+                {% endif %}
+                <hr>
+                {% endif %}
+
+                {% if current_variant.available %}
+                {% else %}
+                {% include 'sold-out-form' %}
+                <br><br>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+{% unless product == empty %}
+<script>
+  var buttonSlt = '[data-minus-qtt], [data-plus-qtt]',
+      buttonElm = $(buttonSlt);
+
+  $(document).on('click', buttonSlt, function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var self = $(this),
+          input = $('.quantity input[name="quantity"]'),
+          oldVal = parseInt(input.val()),
+          newVal = 1;
+
+      switch (true) {
+          case (self.hasClass('plus')): {
+              newVal = oldVal + 1;
+              break;
+          }
+          case (self.hasClass('minus') && oldVal > 1): {
+              newVal = oldVal - 1;
+              break;
+          }
+      }
+
+      input.val(newVal).trigger('change');
+
+  });
+
+
+    function updatePricing() {
+      var quantity = parseInt($('[data-qtt-id]').val());
+      var p = $('.product #product_regular_price').val();
+      var totalPrice1 = p * quantity;
+      var g = Shopify.formatMoney(totalPrice1, window.money_format);
+      $('.product .total-price span').html(g);
+
+      {% if settings.enable_multiple_currencies %}
+      Currency.convertAll(window.shop_currency, $('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
+      {% else %}
+      {% if settings.enable_auto_currency %}
+      Currency.convertAll(window.shop_currency, $('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
+      {% endif %}
+      {% endif %}
+    };
+
+    $('[data-qtt-id]').on('change', updatePricing);
+
+
+    var selectCallback = function(variant, selector) {
+        var addToCartBtn = $('#product-add-to-cart'),
+            productPrice = $('.product .price'),
+            comparePrice = $('.product .compare-price'),
+            productInventory = $('.product-inventory'),
+            productSku = $('.product .sku-product'),
+            labelSave = $('.product-photos .sale-label');
+
+        if(variant) {
+        // addToCartbtn
+            if (variant.available) {
+                addToCartBtn.removeClass('disabled').removeAttr('disabled').val(window.inventory_text.add_to_cart);
+            }
+            else {
+                addToCartBtn.val(window.inventory_text.sold_out).addClass('disabled').attr('disabled', 'disabled');
+            };
+
+            // Prices
+          	$('.product #product_regular_price').val(variant.price);
+            productPrice.html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
+
+            if(variant.compare_at_price > variant.price) {
+                productPrice.addClass("on-sale");
+                comparePrice
+                    .html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}"))
+                    .show();
+               {% unless settings.type_label_sale == 'label_sale' %}
+               labelSave.html('-' + Math.floor((variant.compare_at_price - variant.price) * 100 / variant.compare_at_price) + '%').show();
+               {% endunless %}
+            }
+            else {
+                comparePrice.hide();
+                productPrice.removeClass("on-sale");
+              	{% unless settings.type_label_sale == 'label_sale' %}
+                labelSave.hide();
+              	{% endunless %}
+            };
+
+            updatePricing();
+
+            {% if settings.enable_multiple_currencies %}
+                Currency.convertAll(window.shop_currency, $('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
+            {% endif %}
+
+            var form = $('#' + selector.domIdPrefix).closest('form');
+
+            for (var i=0,length=variant.options.length; i<length; i++) {
+                var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+
+                if (radioButton.size()) {
+                radioButton.get(0).checked = true;
+                }
+            };
+        }
+        else {
+            addToCartBtn.val(window.inventory_text.sold_out).addClass('disabled').attr('disabled', 'disabled');
+        };
+
+        /*begin variant image*/
+        $(document).ready(function(){
+          if (variant && variant.featured_image) {
+            var originalImage = $("img[id|='product-featured-image']");
+            var newImage = variant.featured_image;
+            var element = originalImage[0];
+
+            Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
+              jQuery('.slider-nav img').each(function() {
+                var grandSize = $(this).attr('src').split('?')[0];
+
+                newImageSizedSrc = newImageSizedSrc.split('?')[0];
+
+                grandSize = grandSize.replace('compact','1024x1024');
+                if (grandSize == newImageSizedSrc) {
+                  $(this).closest('.item').trigger('click');
+                  return false;
+                }
+              });
+            });
+          };
+        });
+    };
+
+    $(function($) {
+        if($('#product-selectors').length > 0){
+          new Shopify.OptionSelectors('product-selectors', {
+              product: {{ product | json }},
+              onVariantSelected: selectCallback,
+              enableHistoryState: true
+          });
+
+        }
+
+        Shopify.linkOptionSelectors({{ product | json }}, '.product');
+
+        {% if product.options.size == 1 and product.options.first != 'Title' %}
+        $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+        {% elsif product.options.size > 1 %}
+        $('.selector-wrapper').append('<span class="icon-dropdown"><i class="fa fa-angle-down"></i></span>');
+        {% endif %}
+
+        $('.product-shop .selector-wrapper label').append('<em>*</em>');
+
+        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        $('.selector-wrapper').hide();
+        {% endif %}
+    });
+</script>
+
+
+{% endunless %}
+<br><br>
+
+{% schema %}
+  {
+    "name": "Product",
+    "class": "index-section featured-product-section",
+    "settings": [
+	  {
+        "type": "product",
+        "id": "home_featured_product",
+        "label": "Product"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_products",
+        "label": "Enable product sharing",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "skip_first_product_image",
+        "label": "Skip first product image",
+        "info" : "Make the first image for each product only appear on the collections page of your store. [Learn more](https://docs.shopify.com/manual/more/official-shopify-themes/boundless#skip-first-product-image-opti...)."
+      },
+      {
+        "type": "select",
+        "id": "product_image_type",
+        "label": "Image style",
+        "options": [
+          {
+            "value": "portrait",
+            "label": "Tall/square"
+          },
+          {
+            "value": "landscape",
+            "label": "Wide"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "Featured product",
+      "category": "Product"
+    }]
+  }
+{% endschema %}
