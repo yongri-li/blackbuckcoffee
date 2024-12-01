@@ -1,7 +1,7 @@
 development:
   password: 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
-  theme_id: "127956910294"
+  theme_id: "131158474966"
   store: blackbuckcoffee.myshopify.com
   ignore_files:
-    - config/settings_data.json
-  timeout: 120s
+  - config/settings_data.json
+  timeout: 2m0s

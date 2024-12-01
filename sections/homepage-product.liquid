@@ -121,7 +121,9 @@
                     {{ form | payment_terms }}
                   {% endunless %}
 
+                  
 
+                {% include 'subscription-widget' %}
 
               	{% if settings.display_size_chart %}
                 <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">

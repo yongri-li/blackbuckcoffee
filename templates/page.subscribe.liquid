@@ -19,8 +19,8 @@
 
     <div class="col-xs-12 col-sm-6">
       <h2>$17.99/shipment</h2>
-      <a href="/products/black-buck-coffee-ground?ref=subscribe" class="btn" style="background:#000;color:#fff;width:100%">Subscribe to Ground Coffee</a><br><br>
-      <a href="/products/black-buck-coffee-whole-bean?ref=subscribe" class="btn" style="background:#000;color:#fff;width:100%">Subscribe to Whole Bean Coffee</a>
+      <a href="/products/black-buck-coffee-ground?ref=subscribe" class="btn direct-subscription-1" style="background:#000;color:#fff;width:100%">Subscribe to Ground Coffee</a><br><br>
+      <a href="/products/black-buck-coffee-whole-bean?ref=subscribe" class="btn direct-subscription-2" style="background:#000;color:#fff;width:100%">Subscribe to Whole Bean Coffee</a>
       <hr>
     {% if settings.enable_multilang and page.content contains '[lang2]' %}
     <div class="rte lang1">
@@ -35,9 +35,110 @@
     </div>
     {% endif %}
     </div>
+
+    <div id="deliveryFreqModal" class="ebcf_modal">
+      <div class="ebcf_modal-content">      
+        <p>Deliver Every: </p>  
+        <div class="freq-opions">
+            <a href="#" class="btn-freq-option option1" data-variant-id="" data-plan-id="">14 days</a>
+            <a href="#" class="btn-freq-option option2" data-variant-id="" data-plan-id="">30 days</a>
+            <a href="#" class="btn-freq-option option3" data-variant-id="" data-plan-id="">60 days</a>
+        </div>
+      </div>
+    
+    </div>
+
   </div>
 </div>
 <br><br>
 <br><br>
 {% section 'product-customer-block-banner' %}
 <br><br>
+
+<style>
+  /* The Modal (background) */
+  .ebcf_modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .ebcf_modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    text-align: center;
+  }
+
+  .freq-opions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .btn-freq-option {
+    padding: 5px;
+    min-width: 100px;
+    border: 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  // Get the modal
+  var ebModal = document.getElementById('deliveryFreqModal');
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == ebModal) {
+          ebModal.style.display = "none";
+      }
+  }
+
+  $('.direct-subscription-2').on('click', function(e){
+    e.preventDefault();
+    $('.btn-freq-option').attr('data-variant-id', '31922668011556');
+    $('.btn-freq-option.option1').attr('data-plan-id', '508166317');
+    $('.btn-freq-option.option2').attr('data-plan-id', '508199085');
+    $('.btn-freq-option.option3').attr('data-plan-id', '508231853');
+    ebModal.style.display = "block";
+  });
+
+  $('.direct-subscription-1').on('click', function(e){
+    e.preventDefault();
+    $('.btn-freq-option').attr('data-variant-id', '31922667814948');
+    $('.btn-freq-option.option1').attr('data-plan-id', '508068013');
+    $('.btn-freq-option.option2').attr('data-plan-id', '508100781');
+    $('.btn-freq-option.option3').attr('data-plan-id', '508133549');
+    ebModal.style.display = "block";
+  });
+
+  $('.btn-freq-option').on('click', function(e){
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: {
+        id: $(this).data('variant-id'),
+        selling_plan: $(this).data('plan-id')
+      },
+      success: function(){
+        window.location = '/checkout';
+      },
+      dataType: 'json'
+    });
+  })
+
+</script>
